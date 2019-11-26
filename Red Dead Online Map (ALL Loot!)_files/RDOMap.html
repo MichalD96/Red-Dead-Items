@@ -1,0 +1,4785 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style class="darkreader darkreader--fallback" media="screen"></style>
+	<style class="darkreader darkreader--text" media="screen"></style>
+	<style class="darkreader darkreader--invert" media="screen"></style>
+	<style class="darkreader darkreader--inline" media="screen">
+		[data-darkreader-inline-bgcolor] {
+			background-color: var(--darkreader-inline-bgcolor) !important;
+		}
+
+		[data-darkreader-inline-bgimage] {
+			background-image: var(--darkreader-inline-bgimage) !important;
+		}
+
+		[data-darkreader-inline-border] {
+			border-color: var(--darkreader-inline-border) !important;
+		}
+
+		[data-darkreader-inline-border-bottom] {
+			border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+		}
+
+		[data-darkreader-inline-border-left] {
+			border-left-color: var(--darkreader-inline-border-left) !important;
+		}
+
+		[data-darkreader-inline-border-right] {
+			border-right-color: var(--darkreader-inline-border-right) !important;
+		}
+
+		[data-darkreader-inline-border-top] {
+			border-top-color: var(--darkreader-inline-border-top) !important;
+		}
+
+		[data-darkreader-inline-boxshadow] {
+			box-shadow: var(--darkreader-inline-boxshadow) !important;
+		}
+
+		[data-darkreader-inline-color] {
+			color: var(--darkreader-inline-color) !important;
+		}
+
+		[data-darkreader-inline-fill] {
+			fill: var(--darkreader-inline-fill) !important;
+		}
+
+		[data-darkreader-inline-stroke] {
+			stroke: var(--darkreader-inline-stroke) !important;
+		}
+
+		[data-darkreader-inline-outline] {
+			outline-color: var(--darkreader-inline-outline) !important;
+		}
+	</style>
+	<style class="darkreader darkreader--user-agent" media="screen">
+		input,
+		textarea,
+		select,
+		button {
+			background-color: #181a1b;
+		}
+
+		html,
+		body,
+		input,
+		textarea,
+		select,
+		button {
+			border-color: #575757;
+			color: #e8e6e3;
+		}
+
+		a {
+			color: #3391ff;
+		}
+
+		table {
+			border-color: #4c4c4c;
+		}
+
+		::placeholder {
+			color: #bab5ab;
+		}
+
+		::selection {
+			background-color: #005ccc;
+			color: #ffffff;
+		}
+
+		::-moz-selection {
+			background-color: #005ccc;
+			color: #ffffff;
+		}
+
+		input:-webkit-autofill,
+		textarea:-webkit-autofill,
+		select:-webkit-autofill {
+			background-color: #545b00 !important;
+			color: #e8e6e3 !important;
+		}
+
+		::-webkit-scrollbar {
+			background-color: #1c1e1f;
+			color: #c5c1b9;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background-color: #2a2c2e;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+			background-color: #323537;
+		}
+
+		::-webkit-scrollbar-thumb:active {
+			background-color: #3d4043;
+		}
+
+		::-webkit-scrollbar-corner {
+			background-color: #181a1b;
+		}
+
+		* {
+			scrollbar-color: #2a2c2e #1c1e1f;
+		}
+	</style>
+	<script async="" src="adsbygoogle.js"></script>
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-4578555681953964",
+			enable_page_level_ads: true
+		});
+	</script>
+	<title>Red Dead Online Lootables Map</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="RDOMap_data/leaflet.css">
+	<style class="darkreader darkreader--cors" media="screen">
+		.leaflet-pane,
+
+		.leaflet-tile,
+
+		.leaflet-marker-icon,
+
+		.leaflet-marker-shadow,
+
+		.leaflet-tile-container,
+
+		.leaflet-pane>svg,
+
+		.leaflet-pane>canvas,
+
+		.leaflet-zoom-box,
+
+		.leaflet-image-layer,
+
+		.leaflet-layer {
+
+			position: absolute;
+
+			left: 0;
+
+			top: 0;
+
+		}
+
+		.leaflet-container {
+
+			overflow: hidden;
+
+		}
+
+		.leaflet-tile,
+
+		.leaflet-marker-icon,
+
+		.leaflet-marker-shadow {
+
+			-webkit-user-select: none;
+
+			-moz-user-select: none;
+
+			user-select: none;
+
+			-webkit-user-drag: none;
+
+		}
+
+
+
+		.leaflet-safari .leaflet-tile {
+
+			image-rendering: -webkit-optimize-contrast;
+
+		}
+
+
+
+		.leaflet-safari .leaflet-tile-container {
+
+			width: 100%;
+
+			height: 1600px;
+
+			-webkit-transform-origin: 0 0;
+
+		}
+
+		.leaflet-marker-icon,
+
+		.leaflet-marker-shadow {
+
+			display: block;
+
+		}
+
+
+
+
+
+		.leaflet-container .leaflet-overlay-pane svg,
+
+		.leaflet-container .leaflet-marker-pane img,
+
+		.leaflet-container .leaflet-shadow-pane img,
+
+		.leaflet-container .leaflet-tile-pane img,
+
+		.leaflet-container img.leaflet-image-layer {
+
+			max-width: none !important;
+
+			max-height: none !important;
+
+		}
+
+
+
+		.leaflet-container.leaflet-touch-zoom {
+
+			-ms-touch-action: pan-x pan-y;
+
+			touch-action: pan-x pan-y;
+
+		}
+
+		.leaflet-container.leaflet-touch-drag {
+
+			-ms-touch-action: pinch-zoom;
+
+
+
+			touch-action: none;
+
+			touch-action: pinch-zoom;
+
+		}
+
+		.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+
+			-ms-touch-action: none;
+
+			touch-action: none;
+
+		}
+
+		.leaflet-container {
+
+			-webkit-tap-highlight-color: transparent;
+
+		}
+
+		.leaflet-container a {
+
+			-webkit-tap-highlight-color: rgba(51, 181, 229, 0.4);
+
+		}
+
+		.leaflet-tile {
+
+			filter: inherit;
+
+			visibility: hidden;
+
+		}
+
+		.leaflet-tile-loaded {
+
+			visibility: inherit;
+
+		}
+
+		.leaflet-zoom-box {
+
+			width: 0;
+
+			height: 0;
+
+			-moz-box-sizing: border-box;
+
+			box-sizing: border-box;
+
+			z-index: 800;
+
+		}
+
+
+
+		.leaflet-overlay-pane svg {
+
+			-moz-user-select: none;
+
+		}
+
+
+
+		.leaflet-pane {
+			z-index: 400;
+		}
+
+
+
+		.leaflet-tile-pane {
+			z-index: 200;
+		}
+
+		.leaflet-overlay-pane {
+			z-index: 400;
+		}
+
+		.leaflet-shadow-pane {
+			z-index: 500;
+		}
+
+		.leaflet-marker-pane {
+			z-index: 600;
+		}
+
+		.leaflet-tooltip-pane {
+			z-index: 650;
+		}
+
+		.leaflet-popup-pane {
+			z-index: 700;
+		}
+
+
+
+		.leaflet-map-pane canvas {
+			z-index: 100;
+		}
+
+		.leaflet-map-pane svg {
+			z-index: 200;
+		}
+
+
+
+		.leaflet-vml-shape {
+
+			width: 1px;
+
+			height: 1px;
+
+		}
+
+		.lvml {
+
+			behavior: url("https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/#default#VML");
+
+			display: inline-block;
+
+			position: absolute;
+
+		}
+
+
+
+
+
+
+
+
+
+		.leaflet-control {
+
+			position: relative;
+
+			z-index: 800;
+
+			pointer-events: visiblePainted;
+
+			pointer-events: auto;
+
+		}
+
+		.leaflet-top,
+
+		.leaflet-bottom {
+
+			position: absolute;
+
+			z-index: 1000;
+
+			pointer-events: none;
+
+		}
+
+		.leaflet-top {
+
+			top: 0;
+
+		}
+
+		.leaflet-right {
+
+			right: 0;
+
+		}
+
+		.leaflet-bottom {
+
+			bottom: 0;
+
+		}
+
+		.leaflet-left {
+
+			left: 0;
+
+		}
+
+		.leaflet-control {
+
+			float: left;
+
+			clear: both;
+
+		}
+
+		.leaflet-right .leaflet-control {
+
+			float: right;
+
+		}
+
+		.leaflet-top .leaflet-control {
+
+			margin-top: 10px;
+
+		}
+
+		.leaflet-bottom .leaflet-control {
+
+			margin-bottom: 10px;
+
+		}
+
+		.leaflet-left .leaflet-control {
+
+			margin-left: 10px;
+
+		}
+
+		.leaflet-right .leaflet-control {
+
+			margin-right: 10px;
+
+		}
+
+
+
+
+
+
+
+
+
+		.leaflet-fade-anim .leaflet-tile {
+
+			will-change: opacity;
+
+		}
+
+		.leaflet-fade-anim .leaflet-popup {
+
+			opacity: 0;
+
+			-webkit-transition: opacity 0.2s linear;
+
+			-moz-transition: opacity 0.2s linear;
+
+			-o-transition: opacity 0.2s linear;
+
+			transition: opacity 0.2s linear;
+
+		}
+
+		.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+
+			opacity: 1;
+
+		}
+
+		.leaflet-zoom-animated {
+
+			-webkit-transform-origin: 0 0;
+
+			-ms-transform-origin: 0 0;
+
+			transform-origin: 0 0;
+
+		}
+
+		.leaflet-zoom-anim .leaflet-zoom-animated {
+
+			will-change: transform;
+
+		}
+
+		.leaflet-zoom-anim .leaflet-zoom-animated {
+
+			-webkit-transition: -webkit-transform 0.25s cubic-bezier(0, 0, 0.25, 1);
+
+			-moz-transition: -moz-transform 0.25s cubic-bezier(0, 0, 0.25, 1);
+
+			-o-transition: -o-transform 0.25s cubic-bezier(0, 0, 0.25, 1);
+
+			transition: transform 0.25s cubic-bezier(0, 0, 0.25, 1);
+
+		}
+
+		.leaflet-zoom-anim .leaflet-tile,
+
+		.leaflet-pan-anim .leaflet-tile {
+
+			-webkit-transition: none;
+
+			-moz-transition: none;
+
+			-o-transition: none;
+
+			transition: none;
+
+		}
+
+
+
+		.leaflet-zoom-anim .leaflet-zoom-hide {
+
+			visibility: hidden;
+
+		}
+
+
+
+
+
+
+
+
+
+		.leaflet-interactive {
+
+			cursor: pointer;
+
+		}
+
+		.leaflet-grab {
+
+			cursor: -webkit-grab;
+
+			cursor: -moz-grab;
+
+		}
+
+		.leaflet-crosshair,
+
+		.leaflet-crosshair .leaflet-interactive {
+
+			cursor: crosshair;
+
+		}
+
+		.leaflet-popup-pane,
+
+		.leaflet-control {
+
+			cursor: auto;
+
+		}
+
+		.leaflet-dragging .leaflet-grab,
+
+		.leaflet-dragging .leaflet-grab .leaflet-interactive,
+
+		.leaflet-dragging .leaflet-marker-draggable {
+
+			cursor: move;
+
+			cursor: -webkit-grabbing;
+
+			cursor: -moz-grabbing;
+
+		}
+
+
+
+
+
+		.leaflet-marker-icon,
+
+		.leaflet-marker-shadow,
+
+		.leaflet-image-layer,
+
+		.leaflet-pane>svg path,
+
+		.leaflet-tile-container {
+
+			pointer-events: none;
+
+		}
+
+
+
+		.leaflet-marker-icon.leaflet-interactive,
+
+		.leaflet-image-layer.leaflet-interactive,
+
+		.leaflet-pane>svg path.leaflet-interactive {
+
+			pointer-events: visiblePainted;
+
+			pointer-events: auto;
+
+		}
+
+
+
+
+
+
+
+		.leaflet-container {
+
+			background: #ddd;
+
+			outline: 0;
+
+		}
+
+		.leaflet-container a {
+
+			color: #0078A8;
+
+		}
+
+		.leaflet-container a.leaflet-active {
+
+			outline: 2px solid orange;
+
+		}
+
+		.leaflet-zoom-box {
+
+			border: 2px dotted #38f;
+
+			background: rgba(255, 255, 255, 0.5);
+
+		}
+
+
+
+
+
+
+
+		.leaflet-container {
+
+			font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+		}
+
+
+
+
+
+
+
+
+
+		.leaflet-bar {
+
+			box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+
+			border-radius: 4px;
+
+		}
+
+		.leaflet-bar a,
+
+		.leaflet-bar a:hover {
+
+			background-color: #fff;
+
+			border-bottom: 1px solid #ccc;
+
+			width: 26px;
+
+			height: 26px;
+
+			line-height: 26px;
+
+			display: block;
+
+			text-align: center;
+
+			text-decoration: none;
+
+			color: black;
+
+		}
+
+		.leaflet-bar a,
+
+		.leaflet-control-layers-toggle {
+
+			background-position: 50% 50%;
+
+			background-repeat: no-repeat;
+
+			display: block;
+
+		}
+
+		.leaflet-bar a:hover {
+
+			background-color: #f4f4f4;
+
+		}
+
+		.leaflet-bar a:first-child {
+
+			border-top-left-radius: 4px;
+
+			border-top-right-radius: 4px;
+
+		}
+
+		.leaflet-bar a:last-child {
+
+			border-bottom-left-radius: 4px;
+
+			border-bottom-right-radius: 4px;
+
+			border-bottom: none;
+
+		}
+
+		.leaflet-bar a.leaflet-disabled {
+
+			cursor: default;
+
+			background-color: #f4f4f4;
+
+			color: #bbb;
+
+		}
+
+
+
+		.leaflet-touch .leaflet-bar a {
+
+			width: 30px;
+
+			height: 30px;
+
+			line-height: 30px;
+
+		}
+
+		.leaflet-touch .leaflet-bar a:first-child {
+
+			border-top-left-radius: 2px;
+
+			border-top-right-radius: 2px;
+
+		}
+
+		.leaflet-touch .leaflet-bar a:last-child {
+
+			border-bottom-left-radius: 2px;
+
+			border-bottom-right-radius: 2px;
+
+		}
+
+
+
+
+
+
+
+		.leaflet-control-zoom-in,
+
+		.leaflet-control-zoom-out {
+
+			font: bold 18px 'Lucida Console', Monaco, monospace;
+
+			text-indent: 1px;
+
+		}
+
+
+
+		.leaflet-touch .leaflet-control-zoom-in,
+		.leaflet-touch .leaflet-control-zoom-out {
+
+			font-size: 22px;
+
+		}
+
+
+
+
+
+
+
+
+
+		.leaflet-control-layers {
+
+			box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+
+			background: #fff;
+
+			border-radius: 5px;
+
+		}
+
+		.leaflet-control-layers-toggle {
+
+			background-image: url("https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/layers.png");
+
+			width: 36px;
+
+			height: 36px;
+
+		}
+
+		.leaflet-retina .leaflet-control-layers-toggle {
+
+			background-image: url("https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/layers-2x.png");
+
+			background-size: 26px 26px;
+
+		}
+
+		.leaflet-touch .leaflet-control-layers-toggle {
+
+			width: 44px;
+
+			height: 44px;
+
+		}
+
+		.leaflet-control-layers .leaflet-control-layers-list,
+
+		.leaflet-control-layers-expanded .leaflet-control-layers-toggle {
+
+			display: none;
+
+		}
+
+		.leaflet-control-layers-expanded .leaflet-control-layers-list {
+
+			display: block;
+
+			position: relative;
+
+		}
+
+		.leaflet-control-layers-expanded {
+
+			padding: 6px 10px 6px 6px;
+
+			color: #333;
+
+			background: #fff;
+
+		}
+
+		.leaflet-control-layers-scrollbar {
+
+			overflow-y: scroll;
+
+			overflow-x: hidden;
+
+			padding-right: 5px;
+
+		}
+
+		.leaflet-control-layers-selector {
+
+			margin-top: 2px;
+
+			position: relative;
+
+			top: 1px;
+
+		}
+
+		.leaflet-control-layers label {
+
+			display: block;
+
+		}
+
+		.leaflet-control-layers-separator {
+
+			height: 0;
+
+			border-top: 1px solid #ddd;
+
+			margin: 5px -10px 5px -6px;
+
+		}
+
+
+
+
+
+		.leaflet-default-icon-path {
+
+			background-image: url("https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-icon.png");
+
+		}
+
+
+
+
+
+
+
+
+
+		.leaflet-container .leaflet-control-attribution {
+
+			background: #fff;
+
+			background: rgba(255, 255, 255, 0.7);
+
+			margin: 0;
+
+		}
+
+		.leaflet-control-attribution,
+
+		.leaflet-control-scale-line {
+
+			padding: 0 5px;
+
+			color: #333;
+
+		}
+
+		.leaflet-control-attribution a {
+
+			text-decoration: none;
+
+		}
+
+		.leaflet-control-attribution a:hover {
+
+			text-decoration: underline;
+
+		}
+
+		.leaflet-container .leaflet-control-attribution,
+
+		.leaflet-container .leaflet-control-scale {
+
+			font-size: 11px;
+
+		}
+
+		.leaflet-left .leaflet-control-scale {
+
+			margin-left: 5px;
+
+		}
+
+		.leaflet-bottom .leaflet-control-scale {
+
+			margin-bottom: 5px;
+
+		}
+
+		.leaflet-control-scale-line {
+
+			border: 2px solid #777;
+
+			border-top: none;
+
+			line-height: 1.1;
+
+			padding: 2px 5px 1px;
+
+			font-size: 11px;
+
+			white-space: nowrap;
+
+			overflow: hidden;
+
+			-moz-box-sizing: border-box;
+
+			box-sizing: border-box;
+
+
+
+			background: #fff;
+
+			background: rgba(255, 255, 255, 0.5);
+
+		}
+
+		.leaflet-control-scale-line:not(:first-child) {
+
+			border-top: 2px solid #777;
+
+			border-bottom: none;
+
+			margin-top: -2px;
+
+		}
+
+		.leaflet-control-scale-line:not(:first-child):not(:last-child) {
+
+			border-bottom: 2px solid #777;
+
+		}
+
+
+
+		.leaflet-touch .leaflet-control-attribution,
+
+		.leaflet-touch .leaflet-control-layers,
+
+		.leaflet-touch .leaflet-bar {
+
+			box-shadow: none;
+
+		}
+
+		.leaflet-touch .leaflet-control-layers,
+
+		.leaflet-touch .leaflet-bar {
+
+			border: 2px solid rgba(0, 0, 0, 0.2);
+
+			background-clip: padding-box;
+
+		}
+
+
+
+
+
+
+
+
+
+		.leaflet-popup {
+
+			position: absolute;
+
+			text-align: center;
+
+			margin-bottom: 20px;
+
+		}
+
+		.leaflet-popup-content-wrapper {
+
+			padding: 1px;
+
+			text-align: left;
+
+			border-radius: 12px;
+
+		}
+
+		.leaflet-popup-content {
+
+			margin: 13px 19px;
+
+			line-height: 1.4;
+
+		}
+
+		.leaflet-popup-content p {
+
+			margin: 18px 0;
+
+		}
+
+		.leaflet-popup-tip-container {
+
+			width: 40px;
+
+			height: 20px;
+
+			position: absolute;
+
+			left: 50%;
+
+			margin-left: -20px;
+
+			overflow: hidden;
+
+			pointer-events: none;
+
+		}
+
+		.leaflet-popup-tip {
+
+			width: 17px;
+
+			height: 17px;
+
+			padding: 1px;
+
+
+
+			margin: -10px auto 0;
+
+
+
+			-webkit-transform: rotate(45deg);
+
+			-moz-transform: rotate(45deg);
+
+			-ms-transform: rotate(45deg);
+
+			-o-transform: rotate(45deg);
+
+			transform: rotate(45deg);
+
+		}
+
+		.leaflet-popup-content-wrapper,
+
+		.leaflet-popup-tip {
+
+			background: white;
+
+			color: #333;
+
+			box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+
+		}
+
+		.leaflet-container a.leaflet-popup-close-button {
+
+			position: absolute;
+
+			top: 0;
+
+			right: 0;
+
+			padding: 4px 4px 0 0;
+
+			border: none;
+
+			text-align: center;
+
+			width: 18px;
+
+			height: 14px;
+
+			font: 16px/14px Tahoma, Verdana, sans-serif;
+
+			color: #c3c3c3;
+
+			text-decoration: none;
+
+			font-weight: bold;
+
+			background: transparent;
+
+		}
+
+		.leaflet-container a.leaflet-popup-close-button:hover {
+
+			color: #999;
+
+		}
+
+		.leaflet-popup-scrolled {
+
+			overflow: auto;
+
+			border-bottom: 1px solid #ddd;
+
+			border-top: 1px solid #ddd;
+
+		}
+
+
+
+		.leaflet-oldie .leaflet-popup-content-wrapper {
+
+			zoom: 1;
+
+		}
+
+		.leaflet-oldie .leaflet-popup-tip {
+
+			width: 24px;
+
+			margin: 0 auto;
+
+
+
+			-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
+
+			filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+
+		}
+
+		.leaflet-oldie .leaflet-popup-tip-container {
+
+			margin-top: -1px;
+
+		}
+
+
+
+		.leaflet-oldie .leaflet-control-zoom,
+
+		.leaflet-oldie .leaflet-control-layers,
+
+		.leaflet-oldie .leaflet-popup-content-wrapper,
+
+		.leaflet-oldie .leaflet-popup-tip {
+
+			border: 1px solid #999;
+
+		}
+
+
+
+
+
+
+
+
+
+		.leaflet-div-icon {
+
+			background: #fff;
+
+			border: 1px solid #666;
+
+		}
+
+
+
+
+
+
+
+
+
+		.leaflet-tooltip {
+
+			position: absolute;
+
+			padding: 6px;
+
+			background-color: #fff;
+
+			border: 1px solid #fff;
+
+			border-radius: 3px;
+
+			color: #222;
+
+			white-space: nowrap;
+
+			-webkit-user-select: none;
+
+			-moz-user-select: none;
+
+			-ms-user-select: none;
+
+			user-select: none;
+
+			pointer-events: none;
+
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+
+		}
+
+		.leaflet-tooltip.leaflet-clickable {
+
+			cursor: pointer;
+
+			pointer-events: auto;
+
+		}
+
+		.leaflet-tooltip-top:before,
+
+		.leaflet-tooltip-bottom:before,
+
+		.leaflet-tooltip-left:before,
+
+		.leaflet-tooltip-right:before {
+
+			position: absolute;
+
+			pointer-events: none;
+
+			border: 6px solid transparent;
+
+			background: transparent;
+
+			content: "";
+
+		}
+
+
+
+
+
+
+
+		.leaflet-tooltip-bottom {
+
+			margin-top: 6px;
+
+		}
+
+		.leaflet-tooltip-top {
+
+			margin-top: -6px;
+
+		}
+
+		.leaflet-tooltip-bottom:before,
+
+		.leaflet-tooltip-top:before {
+
+			left: 50%;
+
+			margin-left: -6px;
+
+		}
+
+		.leaflet-tooltip-top:before {
+
+			bottom: 0;
+
+			margin-bottom: -12px;
+
+			border-top-color: #fff;
+
+		}
+
+		.leaflet-tooltip-bottom:before {
+
+			top: 0;
+
+			margin-top: -12px;
+
+			margin-left: -6px;
+
+			border-bottom-color: #fff;
+
+		}
+
+		.leaflet-tooltip-left {
+
+			margin-left: -6px;
+
+		}
+
+		.leaflet-tooltip-right {
+
+			margin-left: 6px;
+
+		}
+
+		.leaflet-tooltip-left:before,
+
+		.leaflet-tooltip-right:before {
+
+			top: 50%;
+
+			margin-top: -6px;
+
+		}
+
+		.leaflet-tooltip-left:before {
+
+			right: 0;
+
+			margin-right: -12px;
+
+			border-left-color: #fff;
+
+		}
+
+		.leaflet-tooltip-right:before {
+
+			left: 0;
+
+			margin-left: -12px;
+
+			border-right-color: #fff;
+
+		}
+	</style>
+	<style class="darkreader darkreader--sync" media="screen"></style>
+	<link rel="stylesheet" href="RDOMap_data/L.css">
+	<style class="darkreader darkreader--cors" media="screen">
+		.leaflet-container .leaflet-control-mouseposition {
+			background-color: rgba(255, 255, 255, 0.7);
+			box-shadow: 0 0 5px #bbb;
+			padding: 0 5px;
+			margin: 0;
+			color: #333;
+			font: 11px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+		}
+	</style>
+	<style class="darkreader darkreader--sync" media="screen"></style>
+	<script src="RDOMap_data/leaflet.js" type="text/javascript"></script>
+	<style class="darkreader darkreader--override" media="screen">
+		.jfk-bubble {
+			background-color: #000000 !important;
+		}
+
+		.vimvixen-hint {
+			background-color: #7b5300 !important;
+			border-color: #d8b013 !important;
+			color: #f3e8c8 !important;
+		}
+
+		::placeholder {
+			opacity: 0.5 !important;
+		}
+	</style>
+	<script src="RDOMap_data/L.js" type="text/javascript"></script>
+	<style>
+		html,
+		body,
+		#map {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			z-index: 1;
+			background: #D7BBAD;
+		}
+
+		.leaflet-control-layers-toggle:after {
+			content: "Locations";
+			color: #000000;
+			font: bold 16px 'Arial', Monaco, monospace;
+			text-align: center;
+		}
+
+		.leaflet-control-layers-toggle {
+			background-color: #D7CCAD;
+			width: auto;
+			background-position: center 200%;
+			font: bold 18px;
+			padding-right: 40px;
+			padding-left: 7px;
+			padding-top: 5px;
+			padding-bottom: 0px;
+			text-decoration: none;
+			line-height: 40px;
+
+		}
+	</style>
+	<style class="darkreader darkreader--sync" media="screen"></style>
+</head>
+
+<body class="">
+	<div id="map"
+		class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom"
+		style="position: absolute; --darkreader-inline-outline:currentcolor;" tabindex="0">
+		<div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(159px, 260px, 0px);">
+			<div class="leaflet-pane leaflet-tile-pane">
+				<div class="leaflet-layer " style="z-index: 1; opacity: 1;">
+					<div class="leaflet-tile-container leaflet-zoom-animated"
+						style="z-index: 4; transform: translate3d(209px, 18px, 0px) scale(0.5);"></div>
+					<div class="leaflet-tile-container leaflet-zoom-animated"
+						style="z-index: 5; transform: translate3d(398px, 11px, 0px) scale(1);"><img alt=""
+							role="presentation" src="RDOMap_data/1_003.png" class="leaflet-tile leaflet-tile-loaded"
+							style="width: 256px; height: 256px; transform: translate3d(142px, 53px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/1_002.png"
+							class="leaflet-tile leaflet-tile-loaded"
+							style="width: 256px; height: 256px; transform: translate3d(398px, 53px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/0_002.png"
+							class="leaflet-tile leaflet-tile-loaded"
+							style="width: 256px; height: 256px; transform: translate3d(142px, -203px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/0_004.png"
+							class="leaflet-tile leaflet-tile-loaded"
+							style="width: 256px; height: 256px; transform: translate3d(398px, -203px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/2_002.png"
+							class="leaflet-tile leaflet-tile-loaded"
+							style="width: 256px; height: 256px; transform: translate3d(142px, 309px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/2_004.png"
+							class="leaflet-tile leaflet-tile-loaded"
+							style="width: 256px; height: 256px; transform: translate3d(398px, 309px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/1.png" class="leaflet-tile leaflet-tile-loaded"
+							style="width: 256px; height: 256px; transform: translate3d(-114px, 53px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/1_004.png"
+							class="leaflet-tile leaflet-tile-loaded"
+							style="width: 256px; height: 256px; transform: translate3d(654px, 53px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/0.png" class="leaflet-tile leaflet-tile-loaded"
+							style="width: 256px; height: 256px; transform: translate3d(-114px, -203px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/0_003.png"
+							class="leaflet-tile leaflet-tile-loaded"
+							style="width: 256px; height: 256px; transform: translate3d(654px, -203px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/2_003.png"
+							class="leaflet-tile leaflet-tile-loaded"
+							style="width: 256px; height: 256px; transform: translate3d(-114px, 309px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/2.png" class="leaflet-tile leaflet-tile-loaded"
+							style="width: 256px; height: 256px; transform: translate3d(654px, 309px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/-1_002.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(142px, -459px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/-1.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(398px, -459px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/3.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(142px, 565px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/3_003.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(398px, 565px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/-1_003.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(-114px, -459px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/-1_004.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(654px, -459px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/1.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(-370px, 53px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/1_004.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(910px, 53px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/3_004.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(-114px, 565px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/3_002.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(654px, 565px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/0.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(-370px, -203px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/0_002.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(910px, -203px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/2.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(-370px, 309px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/2_004.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(910px, 309px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/-1_006.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(-370px, -459px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/-1_008.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(910px, -459px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/3_006.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(-370px, 565px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/3_007.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(910px, 565px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/1_003.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(-626px, 53px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/1_002.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(1166px, 53px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/0_003.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(-626px, -203px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/0_004.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(1166px, -203px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/2_002.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(-626px, 309px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/2_003.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(1166px, 309px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/-1_005.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(-626px, -459px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/-1_007.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(1166px, -459px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/3_008.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(-626px, 565px, 0px); opacity: 1;"><img
+							alt="" role="presentation" src="RDOMap_data/3_005.html" class="leaflet-tile"
+							style="width: 256px; height: 256px; transform: translate3d(1166px, 565px, 0px); opacity: 1;">
+					</div>
+				</div>
+			</div>
+			<div class="leaflet-pane leaflet-shadow-pane"></div>
+			<div class="leaflet-pane leaflet-overlay-pane"></div>
+			<div class="leaflet-pane leaflet-marker-pane"></div>
+			<div class="leaflet-pane leaflet-tooltip-pane"></div>
+			<div class="leaflet-pane leaflet-popup-pane"></div>
+			<div class="leaflet-proxy leaflet-zoom-animated"
+				style="transform: translate3d(507px, 376px, 0px) scale(2);"></div>
+		</div>
+		<div class="leaflet-control-container">
+			<div class="leaflet-top leaflet-left">
+				<div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in"
+						href="#" title="Zoom in" role="button" aria-label="Zoom in">+</a><a
+						class="leaflet-control-zoom-out leaflet-disabled" href="#" title="Zoom out" role="button"
+						aria-label="Zoom out">−</a></div>
+				<div class="leaflet-control-layers leaflet-control" aria-haspopup="true"><a
+						class="leaflet-control-layers-toggle" href="#" title="Layers"></a>
+					<form class="leaflet-control-layers-list leaflet-control-layers-scrollbar" style="height: 753px;">
+						<div class="leaflet-control-layers-base"></div>
+						<div class="leaflet-control-layers-separator" style="display: none;"></div>
+						<div class="leaflet-control-layers-overlays"><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Tarot
+											Cards: Cups (Day 1)<b></b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Tarot
+											Cards: Cups (Day 2)<b></b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Tarot
+											Cards: Cups (Day 3)<b>
+												<p></p>
+											</b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Tarot
+											Cards: Swords (Day 1)<b></b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Tarot
+											Cards: Swords (Day 2)<b></b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Tarot
+											Cards: Swords (Day 3)<b>
+												<p></p>
+											</b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Camp
+											Fires<b>
+												<p></p>
+											</b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Dynamic
+											Event Locations</b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Escorts</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Defend
+											Camps</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Rescue
+											Strangers</i>
+										<p></p>
+									</span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<b>Food<b></b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Free Food
+											- Eat but not loot</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Apple</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Assorted
+											Biscuits</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Bread</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Candy</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Canned
+											Fruit</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Canned
+											Meat</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Canned
+											Salmon</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Canned
+											Vegetables</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Carrot</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Cheese</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Corn</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Crackers</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Pear</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Salted
+											Meat</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Salted
+											Offal<p></p></i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<b>Tonics<b></b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Potent
+											Bitters</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Bitters</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Potent
+											Health Cure</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Health
+											Cure</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Opened
+											Health Cure</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Potent
+											Miracle Tonic</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Miracle
+											Tonic</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Opened
+											Miracle Tonic</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Potent
+											Snake Oil</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Snake
+											Oil</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Opened
+											Snake Oil<p></p></i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Horse, Gun
+											&amp; Personal Care<b></b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Classic
+											Oats</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Potent
+											Horse Medicine</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Horse
+											Medicine</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Horse
+											Reviver</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Horse
+											Stimulant</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Gun
+											Oil</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Hair
+											Pomade</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Pear<p>
+											</p></i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<b>Ammunition<b></b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Pistol
+											Ammo</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Repeater
+											Ammo</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Express
+											Revolver Ammo</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>High
+											Velocity Revolver Ammo</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Revolver
+											Ammo</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Opened
+											Revolver Ammo</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Express
+											Rifle Ammo</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>High
+											Velocity Rifle Ammo</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Rifle
+											Ammo</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Opened
+											Rifle Ammo</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Shotgun
+											Slugs</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Shotgun
+											Ammo<p></p></i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Alcohol -
+											100% = Blackout<b></b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Free Beer
+											10% - Drink But Not Loot</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Fine
+											Brandy 17%</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Gin
+											17%</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Guarma Rum
+											17%</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Opened
+											Guarma Rum10%</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Kentucky
+											Bourbon 25%</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Opened
+											Kentucky Bourbon 13%</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Moonshine
+											30%<p></p></i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Player
+											Stimulants<b></b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Chewing
+											Tobacco</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Opened
+											Chewing Tobacco</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Cigar</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Premium
+											Cigarettes</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Cigarettes</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Opened
+											Cigarettes</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Cocain
+											Gum</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Opened
+											Cocaine Gum</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Ground
+											Coffee<p></p></i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<b>Valuables<b></b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Boar
+											Tusk</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Coin
+											Sack</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Jewelry</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Pocket
+											Watch<p></p></i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Hunting
+											Supplies<b></b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Herbavoir
+											Bait</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Predator
+											Bait<p></p></i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Animals<b>
+												- Work In Progress</b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Cougar
+											Spawn</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Cows &amp;
+											Bulls</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Pigs</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Rats</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Potential
+											Thoroughbred Horse Spawn<p></p></i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Fish<b> -
+												Work In Progress</b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Sockeye
+											Salmon</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Steelhead
+											Trout</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Largemouth
+											Bass</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Smallmouth
+											Bass<p></p></i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Herbs<b> -
+												Work In Progress</b></b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Alaskan
+											Ginseng</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>American
+											Ginseng</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Bay
+											Bolete</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Black
+											Berry</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Black
+											Currant</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Burdock
+											Root</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Chanterelle</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Common
+											Bullbrush</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Creeping
+											Thyme</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Desert
+											Sage</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>English
+											Mace</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Evergreen
+											Huckleberry</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Golden
+											Current</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Hummingbird Sage</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Milkweed</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Mushrooms</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Oleander
+											Sage</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Oregano</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Prairie
+											Poppy</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Raspberry</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Rams
+											Head</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Red
+											Sage</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Tobacco</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Vanilla
+											Flower</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Violet
+											Snowdrop</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Wild
+											Feverfew</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Wild
+											Mint</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span>
+										<i>Wintergreen Berry</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Yarrow<p>
+											</p></i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <b>Gang
+											Hideouts &amp; Ambush Points</b></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Potential
+											Gang Ambush Point</i></span></div>
+							</label><label>
+								<div><input type="checkbox" class="leaflet-control-layers-selector"><span> <i>Potential
+											Gang Hideout</i></span></div>
+							</label></div>
+					</form>
+				</div>
+			</div>
+			<div class="leaflet-top leaflet-right"></div>
+			<div class="leaflet-bottom leaflet-left">
+				<div class="leaflet-control-mouseposition leaflet-control"> -1326 : 2056</div>
+			</div>
+			<div class="leaflet-bottom leaflet-right">
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">// <![CDATA[
+
+
+		var mapExtent = [0.00000000, -3000.00000000, 4000.000000015, -10.00000000];
+		var mapMinZoom = 2;
+		var mapMaxZoom = 5;
+		var mapMaxResolution = 0.50000000;
+		var mapMinResolution = Math.pow(2, mapMaxZoom) * mapMaxResolution;;
+		var tileExtent = [0.00000000, -3000.00000000, 4000.000000015, -10.00000000];
+		var crs = L.CRS.Simple;
+		crs.transformation = new L.Transformation(1, -tileExtent[0], -1, tileExtent[3]);
+		crs.scale = function (zoom) {
+			return Math.pow(2, zoom) / mapMinResolution;
+		};
+		crs.zoom = function (scale) {
+			return Math.log(scale * mapMinResolution) / Math.LN2;
+		};
+		var layer;
+		var map = new L.Map('map', {
+			maxZoom: mapMaxZoom,
+			minZoom: mapMinZoom,
+			crs: crs
+		});
+
+		layer = L.tileLayer('{z}/{x}/{y}.png', {
+			minZoom: mapMinZoom, maxZoom: mapMaxZoom,
+			noWrap: true,
+			tms: false
+		}).addTo(map);
+		map.fitBounds([
+			crs.unproject(L.point(mapExtent[2], mapExtent[3])),
+			crs.unproject(L.point(mapExtent[0], mapExtent[1]))
+		]);
+		L.control.mousePosition().addTo(map)
+
+		// Icons
+		var hrev_icon = L.icon({
+			iconUrl: 'images/icons/HRev.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+
+		var hmed_icon = L.icon({
+			iconUrl: 'images/icons/HMed.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+
+		var hstim_icon = L.icon({
+			iconUrl: 'images/icons/HStim.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var ace_icon = L.icon({
+			iconUrl: 'images/icons/1.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var two_icon = L.icon({
+			iconUrl: 'images/icons/2.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var three_icon = L.icon({
+			iconUrl: 'images/icons/3.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var four_icon = L.icon({
+			iconUrl: 'images/icons/4.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var five_icon = L.icon({
+			iconUrl: 'images/icons/5.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var six_icon = L.icon({
+			iconUrl: 'images/icons/6.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var seven_icon = L.icon({
+			iconUrl: 'images/icons/7.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var eight_icon = L.icon({
+			iconUrl: 'images/icons/8.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var nine_icon = L.icon({
+			iconUrl: 'images/icons/9.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var ten_icon = L.icon({
+			iconUrl: 'images/icons/10.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var knight_icon = L.icon({
+			iconUrl: 'images/icons/11.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var page_icon = L.icon({
+			iconUrl: 'images/icons/12.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var queen_icon = L.icon({
+			iconUrl: 'images/icons/13.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+		var king_icon = L.icon({
+			iconUrl: 'images/icons/14.png',
+			iconSize: [25, 25],
+			iconAnchor: [15, -10],
+			popupAnchor: [0, 0],
+		});
+
+
+
+		// Markers and Popups
+		//Collectors Locations
+		//Day1
+		//Cups
+		var marker_col_ace_cupsd1 = L.marker([-396, 2091], { icon: ace_icon })
+			.bindPopup('Ace of Cups (Day 1) - In a barn, on a bale of hay');
+		var marker_col_2_cupsd1 = L.marker([-1904, 2880], { icon: two_icon })
+			.bindPopup('Two of Cups (Day 1) - under building, on a barrel');
+		var marker_col_3_cupsd1 = L.marker([-2140, 915], { icon: three_icon })
+			.bindPopup('Three of Cups (Day 1) - on the back of a wagon');
+		var marker_col_4_cupsd1 = L.marker([-1020, 3561], { icon: four_icon })
+			.bindPopup('Four of Cups (Day 1) - Ground floor, in a building on fire place mantle');
+		var marker_col_5_cupsd1 = L.marker([-1414, 2170], { icon: five_icon })
+			.bindPopup('Five of Cups (Day 1) - Outside on a bench near weighing scales');
+		var marker_col_6_cupsd1 = L.marker([-1514, 1988], { icon: six_icon })
+			.bindPopup('Six of Cups (Day 1) - In busted up house on the windowsill/ledge');
+		var marker_col_7_cupsd1 = L.marker([-1231, 3163], { icon: seven_icon })
+			.bindPopup('Seven of Cups (Day 1) - Outside next to a shack on a barrel');
+		var marker_col_8_cupsd1 = L.marker([-294, 2348], { icon: eight_icon })
+			.bindPopup('Eight of Cups (Day 1) - In a small stable, on a barrel with a watering can');
+		var marker_col_9_cupsd1 = L.marker([-1529, 3507], { icon: nine_icon })
+			.bindPopup('Nine of Cups (Day 1) - On the exterior ledge of the window of a shack facing the water');
+		var marker_col_10_cupsd1 = L.marker([-1606, 2986], { icon: ten_icon })
+			.bindPopup('Ten of Cups (Day 1) - Outside on a crate next to a yellow shack, next to a bucket of water');
+		var marker_col_kni_cupsd1 = L.marker([-819, 2072], { icon: knight_icon })
+			.bindPopup('Knight of Cups (Day 1) - In a shack near railway tracks, on a wooden crate');
+		var marker_col_pag_cupsd1 = L.marker([-1996, 2995], { icon: page_icon })
+			.bindPopup('Page of Cups (Day 1) - In house, in bedroom, on windowsill/ledge');
+		var marker_col_que_cupsd1 = L.marker([-938, 3042], { icon: queen_icon })
+			.bindPopup('Queen of Cups (Day 1) - In the broken down building, on a nightstand/bedside table');
+		var marker_col_king_cupsd1 = L.marker([-1680, 3034], { icon: king_icon })
+			.bindPopup('King of Cups (Day 1) - Upstairs balcony, on a small table next to a chair');
+
+		//swords
+		var marker_col_ace_swordsd1 = L.marker([-1339, 2445], { icon: ace_icon })
+			.bindPopup('Ace of Swords (Day 1) - Third floor of building, toward east of railroad');
+		var marker_col_2_swordsd1 = L.marker([-1713, 2245], { icon: two_icon })
+			.bindPopup('Two of Swords (Day 1) - On balcony, sitting on a table next to a door');
+		var marker_col_3_swordsd1 = L.marker([-1254, 1954], { icon: three_icon })
+			.bindPopup('Three of Swords (Day 1) - Back of house, outside window');
+		var marker_col_4_swordsd1 = L.marker([-1686.5, 3190], { icon: four_icon })
+			.bindPopup('Four of Swords (Day 1) - Second floor, sitting on wooden crate');
+		var marker_col_5_swordsd1 = L.marker([-1848.5, 2844], { icon: five_icon })
+			.bindPopup('Five of Swords (Day 1) - In Gazebo, on table');
+		var marker_col_6_swordsd1 = L.marker([-806.5, 2530], { icon: six_icon })
+			.bindPopup('Six of Swords (Day 1) - In a white tent, on a barrel');
+		var marker_col_7_swordsd1 = L.marker([-1896, 2133], { icon: seven_icon })
+			.bindPopup('Seven of Swords (Day 1) - On the dock/jetty, on a barrel');
+		var marker_col_8_swordsd1 = L.marker([-1628, 3387], { icon: eight_icon })
+			.bindPopup('Eight of Swords (Day 1) - On a table, sitting on a chessboard');
+		var marker_col_9_swordsd1 = L.marker([-2053, 1051], { icon: nine_icon })
+			.bindPopup('Nine of Swords (Day 1) - Back of a wagon, next to some bales of hay');
+		var marker_col_10_swordsd1 = L.marker([-720, 2941], { icon: ten_icon })
+			.bindPopup('Ten of Swords (Day 1) - On a shelf to the right of the door');
+		var marker_col_kni_swordsd1 = L.marker([-2233, 653], { icon: knight_icon })
+			.bindPopup('Knight of Swords (Day 1) - On the rooftop');
+		var marker_col_pag_swordsd1 = L.marker([-869, 2309], { icon: page_icon })
+			.bindPopup('Page of Swords (Day 1) - On windowsill/ledge oh shed');
+		var marker_col_que_swordsd1 = L.marker([-507, 3383], { icon: queen_icon })
+			.bindPopup('Queen of Swords (Day 1) - On a shelf in front of door');
+		var marker_col_king_swordsd1 = L.marker([-1571, 3430], { icon: king_icon })
+			.bindPopup('King of Swords (Day 1) - In Algernon Wasps shop, behind cash register');
+
+
+		//Day2
+		//cups
+		var marker_col_ace_cupsd2 = L.marker([-2212, 695], { icon: ace_icon })
+			.bindPopup('Ace of Cups (Day 2) - Outside, behind a shack on a barrel');
+		var marker_col_2_cupsd2 = L.marker([-612, 2720], { icon: two_icon })
+			.bindPopup('Two of Cups (Day 2) - On the train tracks, down the ladder, on a wooden crate next to another wooden crate');
+		var marker_col_3_cupsd2 = L.marker([-1093, 2277], { icon: three_icon })
+			.bindPopup('Three of Cups (Day 2) - Outside near a fenced patch of corn, on a barrel, close to the scarecrow');
+		var marker_col_4_cupsd2 = L.marker([-1678, 3048], { icon: four_icon })
+			.bindPopup('Four of Cups (Day 2) - Outside, near a white wooden building, on a long wooden bench seat');
+		var marker_col_5_cupsd2 = L.marker([-1466, 3192], { icon: five_icon })
+			.bindPopup('Five of Cups (Day 2) - In a busted up shack, on a wooden crate');
+		var marker_col_6_cupsd2 = L.marker([-758, 3519], { icon: six_icon })
+			.bindPopup('Six of Cups (Day 2) - Outside, on the back of a wagon sitting at the edge of a raised rock edge');
+		var marker_col_7_cupsd2 = L.marker([-1444.5, 2661], { icon: seven_icon })
+			.bindPopup('Seven of Cups (Day 2) - Inside the shack bedroom on a small coffee table next to the door');
+		var marker_col_8_cupsd2 = L.marker([-2092, 1290.5], { icon: eight_icon })
+			.bindPopup('Eight of Cups (Day 2) - Outside/Shooting range, on the ledge of with some bottles and Lancaster targets ');
+		var marker_col_9_cupsd2 = L.marker([-1687, 1663], { icon: nine_icon })
+			.bindPopup('Nine of Cups (Day 2) - Inside the shack, under the bed');
+		var marker_col_10_cupsd2 = L.marker([-2249, 1328], { icon: ten_icon })
+			.bindPopup('Ten of Cups (Day 2) - Inside the outhouse/toilet on the seat');
+		var marker_col_kni_cupsd2 = L.marker([-2401, 763], { icon: knight_icon })
+			.bindPopup('Knight of Cups (Day 2) - Inside the open-air(no walls) building, sitting on a table');
+		var marker_col_pag_cupsd2 = L.marker([-1361, 3397], { icon: page_icon })
+			.bindPopup('Page of Cups (Day 2) - Inside the busted/roofless outhouse/toilet');
+		var marker_col_que_cupsd2 = L.marker([-1627, 3168], { icon: queen_icon })
+			.bindPopup('Queen of Cups (Day 2) - On the dock/jetty, sitting on a barrel');
+		var marker_col_king_cupsd2 = L.marker([-1653, 3278], { icon: king_icon })
+			.bindPopup('King of Cups (Day 2) - Upstairs, sitting on the stairs guardrail');
+
+		//swords
+		var marker_col_ace_swordsd2 = L.marker([-627, 2403], { icon: ace_icon })
+			.bindPopup('Ace of Swords (Day 2) - Top floord, on windowsill/ledge');
+		var marker_col_2_swordsd2 = L.marker([-2279, 1053], { icon: two_icon })
+			.bindPopup('2 of Swords (Day 2) - Broken house, on windowsill/ledge');
+		var marker_col_3_swordsd2 = L.marker([-2048, 1692], { icon: three_icon })
+			.bindPopup('3 of Swords (Day 2) - Ontop of the tower');
+		var marker_col_4_swordsd2 = L.marker([-1487, 2040], { icon: four_icon })
+			.bindPopup('4 of Swords (Day 2) - On crate outside of broken down Cabin');
+		var marker_col_5_swordsd2 = L.marker([-2504.5, 545], { icon: five_icon })
+			.bindPopup('5 of Swords (Day 2) - On Porch, On a Bench');
+		var marker_col_6_swordsd2 = L.marker([-1436.5, 3258], { icon: six_icon })
+			.bindPopup('6 of Swords (Day 2) - On the back of boat');
+		var marker_col_7_swordsd2 = L.marker([-1035, 2714], { icon: seven_icon })
+			.bindPopup('7 of Swords (Day 2) - On the back of wagon');
+		var marker_col_8_swordsd2 = L.marker([-960.5, 3427], { icon: eight_icon })
+			.bindPopup('8 of Swords (Day 2) - Sitting on a table');
+		var marker_col_9_swordsd2 = L.marker([-1729, 3437], { icon: nine_icon })
+			.bindPopup('9 of Swords (Day 2) - On tower');
+		var marker_col_10_swordsd2 = L.marker([-1729.5, 3436], { icon: ten_icon })
+			.bindPopup('10 of Swords (Day 2) - On top of tower');
+		var marker_col_kni_swordsd2 = L.marker([-1695.5, 3000], { icon: knight_icon })
+			.bindPopup('Knight of Swords (Day 2) - On back porch, on a table');
+		var marker_col_page_swordsd2 = L.marker([-1125, 3190], { icon: page_icon })
+			.bindPopup('Page of Swords (Day 2) - On a bench with a lantern next to it');
+		var marker_col_queen_swordsd2 = L.marker([-2022.5, 2060], { icon: queen_icon })
+			.bindPopup('Queen of Swords (Day 2) - Climb up the creates right of doorway, card on top crate.');
+		var marker_col_king_swordsd2 = L.marker([-648.5, 3441], { icon: king_icon })
+			.bindPopup('King of Swords (Day 2) - Sitting on the well');
+
+
+		//Day3
+		//cups
+		var marker_col_ace_cupsd3 = L.marker([-469.5, 3565], { icon: ace_icon })
+			.bindPopup('Ace of Cups (Day 3) - In bedroom, on nightstand/bedside table');
+		var marker_col_2_cupsd3 = L.marker([-1055, 1735], { icon: two_icon })
+			.bindPopup('Two of Cups (Day 3) - In house on nightstand/bedside table');
+		var marker_col_3_cupsd3 = L.marker([-1074.5, 2098], { icon: three_icon })
+			.bindPopup('Three of Cups (Day 3) - Infront of the general store, on bench');
+		var marker_col_4_cupsd3 = L.marker([-2145.5, 1371], { icon: four_icon })
+			.bindPopup('Four of Cups (Day 3) - Destroyed building on the windowsill/ledge');
+		var marker_col_5_cupsd3 = L.marker([-1679.5, 2275], { icon: five_icon })
+			.bindPopup('Five of Cups (Day 3) - On the edge of the roof');
+		var marker_col_6_cupsd3 = L.marker([-2352.5, 632], { icon: six_icon })
+			.bindPopup('Six of Cups (Day 3) - On a wooden crate');
+		var marker_col_7_cupsd3 = L.marker([-1484, 3313], { icon: seven_icon })
+			.bindPopup('Seven of Cups (Day 3) - On a shelf, next to the door');
+		var marker_col_8_cupsd3 = L.marker([-938, 3399], { icon: eight_icon })
+			.bindPopup('Eight of Cups (Day 3) - In the outhouse/toilet next to bridge');
+		var marker_col_9_cupsd3 = L.marker([-2129, 2061], { icon: nine_icon })
+			.bindPopup('Nine of Cups (Day 3) - In the house, on a shelf infront of bed');
+		var marker_col_10_cupsd3 = L.marker([-918, 2807], { icon: ten_icon })
+			.bindPopup('Ten of Cups (Day 3) - In the stables, on a wooden crate');
+		var marker_col_kni_cupsd3 = L.marker([-1480.5, 3422], { icon: knight_icon })
+			.bindPopup('Knight of Cups (Day 3) - On a wooden crate, between 2 red buildings/structures');
+		var marker_col_pag_cupsd3 = L.marker([-1765, 1864], { icon: page_icon })
+			.bindPopup('Page of Cups (Day 3) - On a table, next to two water barrels');
+		var marker_col_que_cupsd3 = L.marker([-2265.5, 506], { icon: queen_icon })
+			.bindPopup('Queen of Cups (Day 3) - In the mine, on wooden crate');
+		var marker_col_king_cupsd3 = L.marker([-564.5, 2825], { icon: king_icon })
+			.bindPopup('King of Cups (Day 3) - In cave, on a statue to the right of entrance');
+
+		//swords
+		var marker_col_ace_swordsd3 = L.marker([-1865.5, 3193], { icon: ace_icon })
+			.bindPopup('Ace of Swords (Day 3) - Second floor, room behind staircase on a barrel');
+		var marker_col_2_swordsd3 = L.marker([-1482, 3327], { icon: two_icon })
+			.bindPopup('2 of Swords (Day 3) - On crate, next to fire');
+		var marker_col_3_swordsd3 = L.marker([-988, 2425], { icon: three_icon })
+			.bindPopup('3 of Swords (Day 3) - In tent, on chair to the left');
+		var marker_col_4_swordsd3 = L.marker([-1057.5, 3562], { icon: four_icon })
+			.bindPopup('4 of Swords (Day 3) - On Fireplace, Second Floor');
+		var marker_col_5_swordsd3 = L.marker([-1374.5, 1923], { icon: five_icon })
+			.bindPopup('5 of Swords (Day 3) - On Crate with Barrels');
+		var marker_col_6_swordsd3 = L.marker([-1128.5, 3041], { icon: six_icon })
+			.bindPopup('6 of Swords (Day 3) - On Tower');
+		var marker_col_7_swordsd3 = L.marker([-1817, 1907], { icon: seven_icon })
+			.bindPopup('7 of Swords (Day 3) - On Bench On Porch');
+		var marker_col_8_swordsd3 = L.marker([-1610, 2905], { icon: eight_icon })
+			.bindPopup('8 of Swords (Day 3) - On Barrel in Farm');
+		var marker_col_9_swordsd3 = L.marker([-754, 3257], { icon: nine_icon })
+			.bindPopup('9 of Swords (Day 3) - Ontop of Tower');
+		var marker_col_10_swordsd3 = L.marker([-1127.5, 3380], { icon: ten_icon })
+			.bindPopup('10 of Swords (Day 3) - In Basement, On Crate');
+		var marker_col_kni_swordsd3 = L.marker([-1648.5, 3353], { icon: knight_icon })
+			.bindPopup('Knight of Swords (Day 3) - On Boat');
+		var marker_col_page_swordsd3 = L.marker([-1030.5, 2749], { icon: page_icon })
+			.bindPopup('Page of Swords (Day 3) - On Crate');
+		var marker_col_queen_swordsd3 = L.marker([-1026.5, 3182], { icon: queen_icon })
+			.bindPopup('Queen of Swords (Day 3) - On Table, Near Fireplace');
+		var marker_col_king_swordsd3 = L.marker([-2046, 647], { icon: king_icon })
+			.bindPopup('King of Swords (Day 3) - Backyard, On Barrel');
+
+
+		//Horse Care
+		var marker_hrev1 = L.marker([-1950, 770])//, {icon: hrev_icon})
+			.bindPopup('Horse Reviver on crates');
+		var marker_hmed1 = L.marker([-1950, 772])
+			.bindPopup('Horse Medicine x2 on crates');
+		var marker_hrev6 = L.marker([-1951, 771])//, {icon: hrev_icon})
+			.bindPopup('Horse Reviver on crates');
+		var marker_combulbrsh2 = L.marker([-1474, 2661.5])
+			.bindPopup('Common Bullbrush');
+		var marker_hmed3 = L.marker([-1951, 773])
+			.bindPopup('Horse Medicine on crates');
+		var marker_hstim1 = L.marker([-1950, 774])
+			.bindPopup('Horse Stimulant on crates');
+		var marker_hstim7 = L.marker([-1951, 775])
+			.bindPopup('Horse Stimulant on crates');
+		var marker_hrev2 = L.marker([-1940, 782])
+			.bindPopup('Horse Reviver on crates');
+		var marker_hmed2 = L.marker([-1940, 784])
+			.bindPopup('Horse Medicine on crates');
+		var marker_hstim2 = L.marker([-1940, 796])
+			.bindPopup('Horse Stimulant on crates');
+		var marker_hco1 = L.marker([-1950, 766])
+			.bindPopup('Classic Oats on crates');
+		var marker_hco10 = L.marker([-1951, 767])
+			.bindPopup('Classic Oats on crates');
+		var marker_hco2 = L.marker([-1952, 770])
+			.bindPopup('Classic Oats on crate in stall');
+
+		//Canned Goods
+		var marker_canveg1 = L.marker([-610.5, 3581])
+			.bindPopup('Canned Vegetables');
+		var marker_cogum1 = L.marker([-610.5, 3581])
+			.bindPopup('Cocain Gum');
+		var marker_bourb1 = L.marker([-610.5, 3581])
+			.bindPopup('Kentucky Bourbon');
+		var marker_psnoil1 = L.marker([-610.5, 3581])
+			.bindPopup('Potent Snake Oil');
+		var marker_guno1 = L.marker([-610.5, 3581])
+			.bindPopup('Gun Oil');
+		var marker_guarum1 = L.marker([-610.5, 3581])
+			.bindPopup('Guarma Rum');
+		var marker_pcigs1 = L.marker([-610.5, 3581])
+			.bindPopup('Premium Cigarettes');
+		var marker_mtonic1 = L.marker([-641, 3515])
+			.bindPopup('Miracle Tonic');
+		var marker_hpom1 = L.marker([-641, 3515])
+			.bindPopup('Hair Pomade');
+		var marker_crkrs1 = L.marker([-641, 3515])
+			.bindPopup('Crackers');
+		var marker_bscts1 = L.marker([-641, 3515])
+			.bindPopup('Assorted Biscuits');
+		var marker_guarum2 = L.marker([-638.5, 3444])
+			.bindPopup('Guarma Rum');
+		var marker_crkrs2 = L.marker([-638.5, 3444])
+			.bindPopup('Crackers');
+		var marker_bscts2 = L.marker([-638.5, 3444])
+			.bindPopup('Assorted Biscuits');
+		var marker_canveg2 = L.marker([-638.5, 3444])
+			.bindPopup('Canned Vegetables');
+		var marker_canfru1 = L.marker([-638.5, 3444])
+			.bindPopup('Canned Fruit');
+		var marker_saltm1 = L.marker([-638.5, 3444])
+			.bindPopup('Salted Meat');
+		var marker_bred1 = L.marker([-638.5, 3444])
+			.bindPopup('Bread');
+		var marker_hpom2 = L.marker([-638.5, 3444])
+			.bindPopup('Hair Pomade');
+		var marker_mtonic2 = L.marker([-638.5, 3444])
+			.bindPopup('Miracle Tonic');
+		var marker_pcigs2 = L.marker([-638.5, 3444])
+			.bindPopup('Premium Cigarettes');
+		var marker_chtob1 = L.marker([-500, 3382])
+			.bindPopup('Chewing Tobacco');
+		var marker_jewl1 = L.marker([-747, 3544])
+			.bindPopup('Jewelry In Office, Desk');
+		var marker_canfru2 = L.marker([-553, 3207])
+			.bindPopup('Canned Fruit x4');
+		var marker_canveg3 = L.marker([-553, 3207])
+			.bindPopup('Canned Vegetables x2');
+		var marker_bscts3 = L.marker([-553, 3207])
+			.bindPopup('Assorted Biscuits x2');
+		var marker_herbait1 = L.marker([-553, 3207])
+			.bindPopup('Herbavoir Bait');
+		var marker_prebait1 = L.marker([-553, 3207])
+			.bindPopup('Predator Bait');
+		var marker_guno2 = L.marker([-553, 3207])
+			.bindPopup('Gun Oil');
+		var marker_hvrif1 = L.marker([-553, 3207])
+			.bindPopup('High Velocity Rifle Ammo Rounds x30');
+		var marker_hvrev1 = L.marker([-553, 3207])
+			.bindPopup('High Velocity Revolver Ammo Rounds x5');
+		var marker_bscts4 = L.marker([-553, 3207])
+			.bindPopup('Assorted Biscuits');
+		var marker_bourb2 = L.marker([-553, 3207])
+			.bindPopup('Kentucky Bourbon');
+		var marker_gin1 = L.marker([-809, 3224])
+			.bindPopup('Gin');
+		var marker_pcigs3 = L.marker([-809, 3224])
+			.bindPopup('Premium Cigarettes');
+		var marker_bscts5 = L.marker([-809, 3224])
+			.bindPopup('Assorted Biscuits');
+		var marker_canfru3 = L.marker([-809, 3224])
+			.bindPopup('Canned Fruit');
+		var marker_jewl2 = L.marker([-809, 3224])
+			.bindPopup('Jewelry x2');
+		var marker_cof1 = L.marker([-809, 3224])
+			.bindPopup('Ground Coffee');
+		var marker_erif1 = L.marker([-809, 3224])
+			.bindPopup('Express Rifle Ammo');
+		var marker_bourb3 = L.marker([-824, 2974])
+			.bindPopup('Kentucky Bourbon');
+		var marker_canfru4 = L.marker([-824, 2974])
+			.bindPopup('Canned Fruit');
+		var marker_cansal1 = L.marker([-824, 2974])
+			.bindPopup('Canned Salmon');
+		var marker_osnoil1 = L.marker([-941, 3044.5])
+			.bindPopup('Opened Snake Oil');
+		var marker_chtob2 = L.marker([-941, 3044.5])
+			.bindPopup('Chewing Tobacco');
+		var marker_cogum2 = L.marker([-941, 3044.5])
+			.bindPopup('Cocaine Gum');
+		var marker_pmtonic1 = L.marker([-941, 3044.5])
+			.bindPopup('Potent Miracle Tonic');
+		var marker_pcigs4 = L.marker([-638.5, 3444])
+			.bindPopup('Premium Cigarettes');
+		var marker_obourb1 = L.marker([-638.5, 3444])
+			.bindPopup('Opened Kentucky Bourbon');
+		var marker_psnoil2 = L.marker([-1034.5, 3497.5])
+			.bindPopup('Potent Snake Oil x2');
+		var marker_phelthcur1 = L.marker([-1034.5, 3497.5])
+			.bindPopup('Potent Health Cure');
+		var marker_prebait2 = L.marker([-1034.5, 3497.5])
+			.bindPopup('Predator Bait');
+		var marker_regpokwatch1 = L.marker([-1034.5, 3497.5])
+			.bindPopup('Pocket Watch');
+		var marker_pcigs5 = L.marker([-1038, 3552])
+			.bindPopup('Premium Cigarettes');
+		var marker_gin2 = L.marker([-1038, 3552])
+			.bindPopup('Gin');
+		var marker_consbeer1 = L.marker([-1038, 3552])
+			.bindPopup('Free Beer - You can drink it but you cant take it');
+		var marker_pcigs6 = L.marker([-1123, 3511])
+			.bindPopup('Premium Cigarettes');
+		var marker_canveg4 = L.marker([-1123, 3511])
+			.bindPopup('Canned Vegetables');
+		var marker_cof2 = L.marker([-1123, 3511])
+			.bindPopup('Ground Coffee');
+		var marker_guarum3 = L.marker([-1123, 3511])
+			.bindPopup('Guarma Rum');
+		var marker_cogum3 = L.marker([-1123, 3511])
+			.bindPopup('Cocaine Gum');
+		var marker_revamo1 = L.marker([-1118, 3382])
+			.bindPopup('Revolver Ammo');
+		var marker_erev1 = L.marker([-1118, 3382])
+			.bindPopup('Express Revolver Ammo');
+		var marker_erif2 = L.marker([-1118, 3382])
+			.bindPopup('Express Rifle Ammo x15');
+		var marker_revamo2 = L.marker([-1304, 3533.5])
+			.bindPopup('Revolver Ammo');
+		var marker_bourb4 = L.marker([-622, 2404])
+			.bindPopup('Kentucky Bourbon');
+		var marker_mtonic3 = L.marker([-622, 2404])
+			.bindPopup('Miracle Tonic');
+		var marker_guno3 = L.marker([-622, 2404])
+			.bindPopup('Gun Oil');
+		var marker_helthcur1 = L.marker([-622, 2404])
+			.bindPopup('Health Cure');
+		var marker_crkrs3 = L.marker([-622, 2404])
+			.bindPopup('Crackers');
+		var marker_pcigs7 = L.marker([-622, 2404])
+			.bindPopup('Premium Cigarettes x3');
+		var marker_hpom3 = L.marker([-622, 2404])
+			.bindPopup('Hair Pomade');
+		var marker_guarum4 = L.marker([-622, 2404])
+			.bindPopup('Guarma Rum');
+		var marker_bred1 = L.marker([-622, 2404])
+			.bindPopup('Bread Chunk');
+		var marker_canveg5 = L.marker([-622, 2404])
+			.bindPopup('Canned Vegetables');
+		var marker_herbait2 = L.marker([-622, 2404])
+			.bindPopup('Herbavoir Bait');
+		var marker_hpom4 = L.marker([-709.5, 2494])
+			.bindPopup('Hair Pomade');
+		var marker_bourb5 = L.marker([-638.5, 2197])
+			.bindPopup('Kentucky Bourbon');
+		var marker_crkrs4 = L.marker([-638.5, 2197])
+			.bindPopup('Crackers');
+		var marker_cof3 = L.marker([-638.5, 2197])
+			.bindPopup('Ground Coffee');
+		var marker_gin3 = L.marker([-638.5, 2197])
+			.bindPopup('Gin');
+		var marker_pcigs8 = L.marker([-638.5, 2197])
+			.bindPopup('Premium Cigarettes');
+		var marker_canveg6 = L.marker([-293.5, 2357])
+			.bindPopup('Canned Vegetables x2');
+		var marker_canfru5 = L.marker([-293.5, 2357])
+			.bindPopup('Canned Fruit x2 - Bugged as of 1.05');
+		var marker_canveg7 = L.marker([-293.5, 2357])
+			.bindPopup('Canned Vegetables - Bugged as of 1.05');
+		var marker_bscts6 = L.marker([-293.5, 2357])
+			.bindPopup('Assorted Biscuits - Bugged as of 1.05');
+		var marker_saltm2 = L.marker([-293.5, 2357])
+			.bindPopup('Salted Meat - Bugged as of 1.05');
+		var marker_hco3 = L.marker([-293.5, 2357])
+			.bindPopup('Classic Oats - Bugged as of 1.05');
+		var marker_jewl3 = L.marker([-293.5, 2357])
+			.bindPopup('Jewelry');
+		var marker_pcigs9 = L.marker([-293.5, 2357])
+			.bindPopup('Premium Cigarettes');
+		var marker_ohelthcur1 = L.marker([-293.5, 2357])
+			.bindPopup('Opened Health Cure');
+		var marker_hco4 = L.marker([-382.5, 2083.5])
+			.bindPopup('Classic Oats');
+		var marker_omtonic1 = L.marker([-382.5, 2083.5])
+			.bindPopup('Opened Miracle Tonic');
+		var marker_ohelthcur2 = L.marker([-382.5, 2083.5])
+			.bindPopup('Opened Health Cure');
+		var marker_pcigs10 = L.marker([-481, 1876.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_cansal2 = L.marker([-481, 1876.5])
+			.bindPopup('Canned Salmon')
+		var marker_crkrs5 = L.marker([-761, 1896.5])
+			.bindPopup('Crackers');
+		var marker_canveg8 = L.marker([-761, 1896.5])
+			.bindPopup('Canned Vegetables');
+		var marker_ciga1 = L.marker([-761, 1896.5])
+			.bindPopup('Cigars x2');
+		var marker_chtob3 = L.marker([-761, 1896.5])
+			.bindPopup('Chewing Tobacco');
+		var marker_bourb6 = L.marker([-761, 1896.5])
+			.bindPopup('Kentucky Bourbon');
+		var marker_pammo1 = L.marker([-762, 1904])
+			.bindPopup('Pistol Ammo');
+		var marker_coins1 = L.marker([-791, 2035.5])
+			.bindPopup('Coin Sack');
+		var marker_snoil1 = L.marker([-796, 2524])
+			.bindPopup('Snake Oil');
+		var marker_shoslugs1 = L.marker([-796, 2525])
+			.bindPopup('Shotgun Slugs');
+		var marker_shoammo1 = L.marker([-796, 2524])
+			.bindPopup('Shotgun Ammo x2');
+		var marker_bscts7 = L.marker([-796, 2524])
+			.bindPopup('Assorted Biscuits');
+		var marker_canfru6 = L.marker([-796, 2524])
+			.bindPopup('Canned Fruit');
+		var marker_bourb7 = L.marker([-796, 2524])
+			.bindPopup('Kentucky Bourbon');
+		var marker_crkrs6 = L.marker([-880.5, 2622.5])
+			.bindPopup('Crackers x2');
+		var marker_canveg9 = L.marker([-880.5, 2622.5])
+			.bindPopup('Canned Vegetables');
+		var marker_bscts8 = L.marker([-880.5, 2622.5])
+			.bindPopup('Assorted Biscuits');
+		var marker_candy1 = L.marker([-880.5, 2622.5])
+			.bindPopup('Candy! ...OoO A Piece of Candy!');
+		var marker_cof4 = L.marker([-880.5, 2622.5])
+			.bindPopup('Ground Coffee');
+		var marker_bred2 = L.marker([-880.5, 2622.5])
+			.bindPopup('Bread!');
+		var marker_mtonic4 = L.marker([-880.5, 2622.5])
+			.bindPopup('Miracle Tonic');
+		var marker_jewl4 = L.marker([-880.5, 2622.5])
+			.bindPopup('Jewelry');
+		var marker_helthcur2 = L.marker([-880.5, 2622.5])
+			.bindPopup('Health Cure');
+		var marker_cowsbulls1 = L.marker([-891, 2823.5])
+			.bindPopup('Many Cows & Bulls In A Pen - Amount Is RNG')
+		var marker_apple1 = L.marker([-925, 2810.5])
+			.bindPopup('An Apple!');
+		var marker_ciga2 = L.marker([-985, 2709])
+			.bindPopup('..have a cigar!');
+		var marker_guno4 = L.marker([-985, 2709])
+			.bindPopup('Gun Oil');
+		var marker_phelthcur2 = L.marker([-985, 2709])
+			.bindPopup('Potent Health Cure');
+		var marker_consfood1 = L.marker([-941, 2440])
+			.bindPopup('Free Almonds! - You can eat but you cant take');
+		var marker_consfood2 = L.marker([-941, 2440])
+			.bindPopup('Pickled Eggs - You can eat but you cant take');
+		var marker_repamo1 = L.marker([-941, 2440])
+			.bindPopup('Repeater Ammo');
+		var marker_cogum4 = L.marker([-941, 2440])
+			.bindPopup('Cocaine Gum');
+		var marker_cigs1 = L.marker([-965.5, 2420.5])
+			.bindPopup('Cigarettes');
+		var marker_ciga3 = L.marker([-965.5, 2420.5])
+			.bindPopup('Have some Cigars! x2');
+		var marker_cof5 = L.marker([-965.5, 2420.5])
+			.bindPopup('Ground Coffee');
+		var marker_gin4 = L.marker([-965.5, 2420.5])
+			.bindPopup('Gin');
+		var marker_guno5 = L.marker([-965.5, 2420.5])
+			.bindPopup('Gun Oil');
+		var marker_crkrs7 = L.marker([-965.5, 2420.5])
+			.bindPopup('Crackers');
+		var marker_fbrandy1 = L.marker([-965.5, 2420.5])
+			.bindPopup('What a Fine Brandy..');
+		var marker_shoammo2 = L.marker([-965.5, 2420.5])
+			.bindPopup('Shotgun Ammo');
+		var marker_canveg10 = L.marker([-965.5, 2420.5])
+			.bindPopup('Canned Vegetables');
+		var marker_corn1 = L.marker([-965.5, 2420.5])
+			.bindPopup('Its a bit Corny..');
+		var marker_repamo2 = L.marker([-970.5, 1796.5])
+			.bindPopup('Repeater Ammo');
+		var marker_revamo3 = L.marker([-970.5, 1796.5])
+			.bindPopup('Revolver Ammo');
+		var marker_moonsh1 = L.marker([-970.5, 1796.5])
+			.bindPopup('Moonshine!');
+		var marker_psnoil3 = L.marker([-970.5, 1796.5])
+			.bindPopup('Potent Snake Oil');
+		var marker_rifammo1 = L.marker([-970.5, 1796.5])
+			.bindPopup('Rifle Ammo');
+		var marker_pcigs11 = L.marker([-970.5, 1796.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_jewl5 = L.marker([-970.5, 1796.5])
+			.bindPopup('Jewelry x2 - I got my rolly on my arm and im pourin Chandon..');
+		var marker_gin5 = L.marker([-970.5, 1796.5])
+			.bindPopup('Gin');
+		var marker_moonsh2 = L.marker([-970.5, 1796.5])
+			.bindPopup('Moonshine!');
+		var marker_pcigs12 = L.marker([-970.5, 1796.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_bred3 = L.marker([-970.5, 1796.5])
+			.bindPopup('He stole my Sw.. Bread Roll.');
+		var marker_pear1 = L.marker([-970.5, 1796.5])
+			.bindPopup('Pear');
+		var marker_guarum5 = L.marker([-970.5, 1796.5])
+			.bindPopup('Guarma Rum');
+		var marker_shoammo3 = L.marker([-970.5, 1796.5])
+			.bindPopup('Shotgun Ammo');
+		var marker_ochtob1 = L.marker([-970.5, 1796.5])
+			.bindPopup('Opened Chewing Tobacco');
+		var marker_gin6 = L.marker([-970.5, 1796.5])
+			.bindPopup('Gin');
+		var marker_hco5 = L.marker([-970.5, 1796.5])
+			.bindPopup('Classic Oats');
+		var marker_canveg11 = L.marker([-970.5, 1796.5])
+			.bindPopup('Canned Vegetables');
+		var marker_saltm3 = L.marker([-970.5, 1796.5])
+			.bindPopup('Salted Meat - Bugged as of 1.05');
+		var marker_corn2 = L.marker([-970.5, 1796.5])
+			.bindPopup('Corn!');
+		var marker_apple2 = L.marker([-970.5, 1796.5])
+			.bindPopup('...Apples!');
+		var marker_moonsh3 = L.marker([-928.5, 1704.5])
+			.bindPopup('Moonshine!');
+		var marker_prebait3 = L.marker([-928.5, 1704.5])
+			.bindPopup('How to catch a Predator.. with BAIT!');
+		var marker_saltm4 = L.marker([-928.5, 1704.5])
+			.bindPopup('Salted Meat');
+		var marker_cof6 = L.marker([-928.5, 1704.5])
+			.bindPopup('Ground Coffee');
+		var marker_SomeKindOfBuggedTonic = L.marker([-1055, 1737])
+			.bindPopup('Some Kind Of Bugged Tonic as of 1.05');
+		var marker_candy2 = L.marker([-1055, 1737])
+			.bindPopup('OoO Another piece of Candy!');
+		var marker_pcigs13 = L.marker([-1055, 1737])
+			.bindPopup('Premium Cigarettes');
+		var marker_bscts9 = L.marker([-1055, 1737])
+			.bindPopup('Assorted Biscuits');
+		var marker_consbeer2 = L.marker([-1098, 2259.5])
+			.bindPopup('Free Beer - Drink Only Cannot Loot');
+		var marker_pcigs14 = L.marker([-1098, 2259.5])
+			.bindPopup('Maybe one day youll have some PREMIUM cigarettes like me, Niko!');
+		var marker_ociggs1 = L.marker([-1098, 2259.5])
+			.bindPopup('Opened Cigarettes');
+		var marker_pbrandy1 = L.marker([-1098, 2259.5])
+			.bindPopup('PREMIUM Brandy..');
+		var marker_hco6 = L.marker([-1098, 2259.5])
+			.bindPopup('Classic Oats x2');
+		var marker_hstim3 = L.marker([-1098, 2259.5])
+			.bindPopup('Horse Stimulant');
+		var marker_jewl6 = L.marker([-1233, 2334])
+			.bindPopup('Bling Bling! Jewelry x2');
+		var marker_cigs2 = L.marker([-1233, 2334])
+			.bindPopup('Cigarettes');
+		var marker_mtonic5 = L.marker([-1233, 2334])
+			.bindPopup('Miracle Tonic');
+		var marker_apple3 = L.marker([-1233, 2334])
+			.bindPopup('Apples!');
+		var marker_cof6 = L.marker([-1233, 2334])
+			.bindPopup('Ground Coffee');
+		var marker_candy3 = L.marker([-1233, 2334])
+			.bindPopup('OooO Another TWO pieces of Candy!');
+		var marker_canfru7 = L.marker([-1233, 2334])
+			.bindPopup('Canned Fruit')
+		var marker_canmeat1 = L.marker([-1233, 2334])
+			.bindPopup('Canned Meat');;
+		var marker_guno6 = L.marker([-1233, 2334])
+			.bindPopup('Gun Oil');
+		var marker_hpom5 = L.marker([-1233, 2334])
+			.bindPopup('Hair Pomade');
+		var marker_hrev3 = L.marker([-1233, 2334])
+			.bindPopup('Im a Horse Reviver - Im gonna make it!');
+		var marker_hstim4 = L.marker([-1233, 2334])
+			.bindPopup('Horse Stimulant');
+		var marker_hco7 = L.marker([-1233, 2334])
+			.bindPopup('Classic Oats!');
+		var marker_rats1 = L.marker([-1261, 2424])
+			.bindPopup('So many damn rats and squirrels here..');
+		var marker_pigs1 = L.marker([-1335.5, 2416.5])
+			.bindPopup('Pigs! So many pigs.. Numbers are RNG');
+		var marker_pcigs15 = L.marker([-1339.5, 2433.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_canveg12 = L.marker([-1351, 2523.5])
+			.bindPopup('Canned Vegetables');
+		var marker_canveg13 = L.marker([-1223, 2669])
+			.bindPopup('Canned Vegetables');
+		var marker_chtob4 = L.marker([-1223, 2669])
+			.bindPopup('Chewing Tobacco');
+		var marker_jewl7 = L.marker([-1126.5, 2852])
+			.bindPopup('Jewelry');
+		var marker_ches1 = L.marker([-1126.5, 2852])
+			.bindPopup('CHEESE, Gromit!.. CHEEEEESE!');
+		var marker_cof7 = L.marker([-1126.5, 2852])
+			.bindPopup('Ground Coffee');
+		var marker_guarum6 = L.marker([-1126.5, 2852])
+			.bindPopup('Guarma Rum');
+		var marker_canfru8 = L.marker([-1126.5, 2852])
+			.bindPopup('Canned Fruit');
+		var marker_canmeat2 = L.marker([-1126.5, 2852])
+			.bindPopup('Canned Meat');
+		var marker_pcigs16 = L.marker([-1126.5, 2852])
+			.bindPopup('Premium Cigarettes');
+		var marker_psnoil4 = L.marker([-1126.5, 2852])
+			.bindPopup('Potent Snake Oil');
+		var marker_bourb8 = L.marker([-1126.5, 2852])
+			.bindPopup('Kentucky Bourbon');
+		var marker_bred4 = L.marker([-1126.5, 2852])
+			.bindPopup('Bread! AAAAh! Carbs!');
+		var marker_canveg14 = L.marker([-1048.5, 2928])
+			.bindPopup('Canned Vegetables');
+		var marker_candy4 = L.marker([-1048.5, 2928])
+			.bindPopup('Ooo! Another Piece Of Candy!');
+		var marker_chtob5 = L.marker([-1048.5, 2928])
+			.bindPopup('Chewing Tobacco');
+		var marker_hpom6 = L.marker([-1048.5, 2928])
+			.bindPopup('Hair Pomade');
+		var marker_bit1 = L.marker([-1048.5, 2928])
+			.bindPopup('Bitters');
+		var marker_herbait3 = L.marker([-1445, 2661.5])
+			.bindPopup('Herbavoir Bait');
+		var marker_rifammo2 = L.marker([-1445, 2661.5])
+			.bindPopup('Rifle Ammo');
+		var marker_pcigs17 = L.marker([-1445, 2661.5])
+			.bindPopup('Premium Cigarettes x2');
+		var marker_omtonic2 = L.marker([-1445, 2661.5])
+			.bindPopup('Opened Miracle Tonic');
+
+
+
+
+		var marker_ciga4 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Cigars x2');
+		var marker_bscts10 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Assorted Biscuits');
+		var marker_crkrs8 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Crackers');
+		var marker_fbrandy2 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Ohh, Brandy - youre so Fine.. Oh, Brandy! Oh, Oh, Oh, Brandy!');
+		var marker_guarum7 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Guarma Rum');
+		var marker_pcigs18 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_pbit1 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Potent Bitters');
+		var marker_moonsh4 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Moonshine!');
+		var marker_erif3 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Express Rifle Ammo');
+		var marker_guno7 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Gun Oil');
+		var marker_psnoil5 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Potent Snake Oil');
+		var marker_hrev4 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Horse Reviver');
+		var marker_hstim5 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Horse Stimulant');
+		var marker_orifammo1 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Opened Rifle Ammo');
+		var marker_hpom7 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Hair Pomade');
+		var marker_cigs3 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Cigarettes');
+		var marker_ocogum1 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Opened Cocaine Gum');
+		var marker_ohelthcur3 = L.marker([-1344.5, 1924.5])
+			.bindPopup('Opened Health Cure');
+		var marker_bit2 = L.marker([-1337, 1926])
+			.bindPopup('Bitters x2');
+		var marker_repamo3 = L.marker([-1337, 1926])
+			.bindPopup('Repeater Ammo');
+		var marker_pcigs19 = L.marker([-1350, 1945])
+			.bindPopup('Premium Cigarettes - Bugged as of 1.05');
+		var marker_saltoff1 = L.marker([-1533.5, 2005.5])
+			.bindPopup('Salted Offal');
+		var marker_ochtob2 = L.marker([-1533.5, 2005.5])
+			.bindPopup('Opened Chewing Tobacco');
+		var marker_moonsh5 = L.marker([-1533.5, 2005.5])
+			.bindPopup('Moonshine!');
+		var marker_cigs4 = L.marker([-1688.5, 1664.5])
+			.bindPopup('Cigarettes');
+		var marker_bourb9 = L.marker([-1688.5, 1664.5])
+			.bindPopup('Kentucky Bourbon');
+		var marker_cof8 = L.marker([-1688.5, 1664.5])
+			.bindPopup('Ground Coffee');
+		var marker_pear2 = L.marker([-1731.5, 1621])
+			.bindPopup('Go Fish!.. I mean Pair!.. I mean Pear!');
+		var marker_crkrs9 = L.marker([-1731.5, 1621])
+			.bindPopup('Crackers');
+		var marker_ochtob3 = L.marker([-1731.5, 1621])
+			.bindPopup('Opened Chewing Tobacco');
+		var marker_corn3 = L.marker([-1731.5, 1621])
+			.bindPopup('Corn, Corn, Corn!');
+		var marker_canfru9 = L.marker([-1785.5, 1866])
+			.bindPopup('Canned Fruit x2');
+		var marker_candy5 = L.marker([-1785.5, 1866])
+			.bindPopup('Candy!!!!!');
+		var marker_coug1 = L.marker([-1860.5, 1842])
+			.bindPopup('Cougar Spawn');
+		var marker_bourb10 = L.marker([-1883, 2141])
+			.bindPopup('Kentucky Bourbon');
+		var marker_boartusk1 = L.marker([-1655, 2281])
+			.bindPopup('Boar Tusk');
+		var marker_guarum8 = L.marker([-1630, 2269])
+			.bindPopup('Guarma Rum x2');
+		var marker_apple4 = L.marker([-1630, 2269])
+			.bindPopup('Apple');
+		var marker_candy6 = L.marker([-1630, 2269])
+			.bindPopup('Candy!');
+		var marker_cof9 = L.marker([-1630, 2269])
+			.bindPopup('Ground Coffee');
+		var marker_pmtonic2 = L.marker([-1630, 2269])
+			.bindPopup('Potent Miracle Tonic');
+		var marker_moonsh6 = L.marker([-1630, 2269])
+			.bindPopup('Moonshine!');
+		var marker_pcigs20 = L.marker([-1630, 2269])
+			.bindPopup('Premium Cigarettes');
+		var marker_canveg15 = L.marker([-1630, 2269])
+			.bindPopup('Canned Vegetables');
+		var marker_ohelthcur4 = L.marker([-1630, 2269])
+			.bindPopup('Opened Health Cure');
+		var marker_orevammo1 = L.marker([-1630, 2269])
+			.bindPopup('Opened Revolver Ammo');
+		var marker_crkrs10 = L.marker([-1689.5, 2224.5])
+			.bindPopup('Crackers');
+		var marker_pmtonic3 = L.marker([-1689.5, 2224.5])
+			.bindPopup('Potent Miracle Tonic');
+		var marker_gin7 = L.marker([-1689.5, 2224.5])
+			.bindPopup('Gin');
+		var marker_saltm5 = L.marker([-1689.5, 2224.5])
+			.bindPopup('Salted Meat');
+		var marker_canveg16 = L.marker([-1689.5, 2224.5])
+			.bindPopup('Canned Vegetables')
+		var marker_ohelthcur5 = L.marker([-1689.5, 2224.5])
+			.bindPopup('Opened Health Cure');
+		var marker_hstim6 = L.marker([-1689.5, 2224.5])
+			.bindPopup('Horse Stimulant');
+		var marker_guno8 = L.marker([-1689.5, 2224.5])
+			.bindPopup('Gun Oil');
+		var marker_rifammo3 = L.marker([-1999.5, 2064.5])
+			.bindPopup('Rifle Ammo');
+		var marker_ciga5 = L.marker([-1999.5, 2064.5])
+			.bindPopup('Cigar');
+		var marker_chtob6 = L.marker([-1999.5, 2064.5])
+			.bindPopup('Chewing Tobacco');
+		var marker_bscts11 = L.marker([-1999.5, 2064.5])
+			.bindPopup('Assorted Biscuits');
+		var marker_shoammo4 = L.marker([-1999.5, 2064.5])
+			.bindPopup('Shotgun Ammo');
+		var marker_pcigs39 = L.marker([-1999.5, 2064.5])
+			.bindPopup('Premium Cigarettes x2');
+		var marker_bourb11 = L.marker([-1999.5, 2064.5])
+			.bindPopup('Kentucky Bourbon');
+		var marker_mtonic6 = L.marker([-2034.5, 1734])
+			.bindPopup('Miracle Tonic');
+		var marker_cof10 = L.marker([-2034.5, 1734])
+			.bindPopup('Ground Coffee');
+		var marker_canveg17 = L.marker([-2034.5, 1734])
+			.bindPopup('Canned Vegetables');
+		var marker_canfru10 = L.marker([-2034.5, 1734])
+			.bindPopup('Canned Fruit');
+		var marker_bscts12 = L.marker([-2034.5, 1734])
+			.bindPopup('Assorted Biscuits');
+		var marker_hpom7 = L.marker([-2034.5, 1734])
+			.bindPopup('Hair Pomade');
+		var marker_guno9 = L.marker([-2034.5, 1734])
+			.bindPopup('Gun Oil');
+		var marker_cogum5 = L.marker([-2254.5, 1855])
+			.bindPopup('Cocaine Gum');
+		var marker_hpom8 = L.marker([-2254.5, 1855])
+			.bindPopup('Hair Pomade');
+		var marker_pcigs21 = L.marker([-2254.5, 1855])
+			.bindPopup('Premium Cigarettes');
+		var marker_hthorob1 = L.marker([-2182.5, 1713])
+			.bindPopup('Thoroughbred Horse Location - RNG');
+		var marker_gin8 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Gin');
+		var marker_candy7 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Candy');
+		var marker_revamo4 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Revolver Ammo');
+		var marker_shoammo5 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Shotgun Ammo');
+		var marker_canveg18 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Canned Vegetables');
+		var marker_cof11 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Ground Coffee');
+		var marker_bourb12 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Kentucky Bourbon');
+		var marker_saltm6 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Salted Meat');
+		var marker_pammo2 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Pistol Ammo');
+		var marker_moonsh7 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Moonshine!');
+		var marker_corn4 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Corn!');
+		var marker_hpom8 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Hair Pomade');
+		var marker_cogum6 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Cocaine Gum');
+		var marker_cigs5 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Cigarettes');
+		var marker_phelthcur3 = L.marker([-1949.5, 1187.5])
+			.bindPopup('Potent Health Cure');
+		var marker_candy8 = L.marker([-2041, 1052])
+			.bindPopup('Candy!');
+		var marker_bourb13 = L.marker([-2041, 1052])
+			.bindPopup('Kentucky Bourbon');
+		var marker_canveg19 = L.marker([-2041, 1052])
+			.bindPopup('Canned Vegetables');
+		var marker_cof12 = L.marker([-2041, 1052])
+			.bindPopup('Ground Coffee');
+		var marker_ciga6 = L.marker([-2103.5, 1281])
+			.bindPopup('Cigar');
+		var marker_pbit2 = L.marker([-2104, 1307.5])
+			.bindPopup('Potent Bitters');
+		var marker_guno10 = L.marker([-2104, 1307.5])
+			.bindPopup('Gun Oil');
+		var marker_pcigs22 = L.marker([-2104, 1307.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_pcigs23 = L.marker([-2244, 1331])
+			.bindPopup('Premium Cigarettes x3');
+		var marker_cogum7 = L.marker([-2244, 1331])
+			.bindPopup('Cocaine Gum');
+		var marker_bourb14 = L.marker([-2244, 1331])
+			.bindPopup('Kentucky Bourbon');
+		var marker_mtonic7 = L.marker([-2244, 1331])
+			.bindPopup('Miracle Tonic');
+		var marker_cof13 = L.marker([-2244, 1331])
+			.bindPopup('Ground Coffee');
+		var marker_canveg20 = L.marker([-2244, 1331])
+			.bindPopup('Canned Vegetables x3');
+		var marker_bscts13 = L.marker([-2244, 1331])
+			.bindPopup('Assorted Biscuits');
+		var marker_psnoil6 = L.marker([-2244, 1331])
+			.bindPopup('Potent Snake Oil');
+		var marker_hpom9 = L.marker([-2244, 1331])
+			.bindPopup('Hair Pomade');
+		var marker_bscts14 = L.marker([-2400.5, 1354.5])
+			.bindPopup('Assorted Biscuits');
+		var marker_hpom10 = L.marker([-2400.5, 1354.5])
+			.bindPopup('Hair Pomade');
+		var marker_ochtob4 = L.marker([-2267.5, 1052])
+			.bindPopup('Opened Chewing Tobacco');
+		var marker_chtob7 = L.marker([-2143, 921.5])
+			.bindPopup('Chewing Tobacco');
+		var marker_prebait4 = L.marker([-2143, 921.5])
+			.bindPopup('Predator Bait');
+		var marker_phmedicine1 = L.marker([-2143, 921.5])
+			.bindPopup('Potent Horse Medicine');
+		var marker_hco8 = L.marker([-2126.5, 891.5])
+			.bindPopup('Classic Oats');
+		var marker_hrev5 = L.marker([-2126.5, 891.5])
+			.bindPopup('Horse Reviver');
+		var marker_shoammo6 = L.marker([-2497.5, 943])
+			.bindPopup('Shotgun Ammo');
+		var marker_moonsh8 = L.marker([-2497.5, 943])
+			.bindPopup('Moonshine <b><p> <a href="https://www.rdomap.com/RDOMap/ItemPages/moonsh8.html" target="_blank">Show In Game (New Window)</a>');
+		var marker_guarum9 = L.marker([-2497.5, 943])
+			.bindPopup('Guarma Rum <b><p> <a href="https://www.rdomap.com/RDOMap/ItemPages/guarum9.html" target="_blank">Show In Game (New Window)</a>');
+		var marker_cigs5 = L.marker([-2497.5, 943])
+			.bindPopup('Cigarettes <b><p> <a href="https://www.rdomap.com/RDOMap/ItemPages/cigs5.html" target="_blank">Show In Game (New Window)</a>');
+		var marker_saltm7 = L.marker([-2497.5, 943])
+			.bindPopup('Salted Meat <b><p> <a href="https://www.rdomap.com/RDOMap/ItemPages/saltm7.html" target="_blank">Show In Game (New Window)</a>');
+		var marker_canmeat3 = L.marker([-2497.5, 943])
+			.bindPopup('Canned Meat <b><p> <a href="https://www.rdomap.com/RDOMap/ItemPages/canmeat3.html" target="_blank">Show In Game (New Window)</a>');
+		var marker_cogum8 = L.marker([-2408, 767.5])
+			.bindPopup('Cocaine Gum x2');
+		var marker_moonsh9 = L.marker([-2408, 767.5])
+			.bindPopup('Moonshine');
+		var marker_canmeat4 = L.marker([-2408, 767.5])
+			.bindPopup('Canned Meat');
+		var marker_helthcur3 = L.marker([-2408, 767.5])
+			.bindPopup('Health Cure');
+		var marker_cof14 = L.marker([-2408, 767.5])
+			.bindPopup('Ground Coffee');
+		var marker_hpom10 = L.marker([-2408, 767.5])
+			.bindPopup('Hair Pomade');
+		var marker_chtob8 = L.marker([-2034.5, 648])
+			.bindPopup('Chewing Tobacco');
+		var marker_bit3 = L.marker([-2034.5, 648])
+			.bindPopup('Bitters');
+		var marker_guno11 = L.marker([-2034.5, 648])
+			.bindPopup('Gun Oil');
+		var marker_rifammo4 = L.marker([-2034.5, 648])
+			.bindPopup('Rifle Ammo');
+		var marker_cof15 = L.marker([-2034.5, 648])
+			.bindPopup('Ground Coffee');
+		var marker_guarum10 = L.marker([-2034.5, 648])
+			.bindPopup('Guarma Rum');
+		var marker_pcigs24 = L.marker([-2209, 659])
+			.bindPopup('Premium Cigarettes')
+		var marker_bred5 = L.marker([-2495.5, 545.5])
+			.bindPopup('Bread');
+		var marker_canveg21 = L.marker([-2495.5, 545.5])
+			.bindPopup('Canned Vegetables');
+		var marker_bourb15 = L.marker([-2495.5, 545.5])
+			.bindPopup('Kentucky Bourbon');
+		var marker_gin9 = L.marker([-1998, 2998])
+			.bindPopup('Gin');
+		var marker_bscts15 = L.marker([-1998, 2998])
+			.bindPopup('Assorted Biscuits');
+		var marker_bourb16 = L.marker([-1998, 2998])
+			.bindPopup('Kentucky Bourbon');
+		var marker_pcigs25 = L.marker([-1998, 2998])
+			.bindPopup('Premium Cigarettes x2');
+		var marker_ciga7 = L.marker([-1998, 2998])
+			.bindPopup('Cigar');
+		var marker_oguarum1 = L.marker([-1926.5, 3020])
+			.bindPopup('Opened Guarma Rum');
+		var marker_canveg22 = L.marker([-1926.5, 3020])
+			.bindPopup('Canned Vegetables');
+		var marker_pcigs26 = L.marker([-1907, 2879.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_pcigs27 = L.marker([-1840.5, 2875.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_hco9 = L.marker([-1840.5, 2875.5])
+			.bindPopup('Classic Oats');
+		var marker_pcigs28 = L.marker([-1825.5, 2851.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_guno12 = L.marker([-1825.5, 2851.5])
+			.bindPopup('Gun Oil');
+		var marker_guarum11 = L.marker([-1819.5, 2890.5])
+			.bindPopup('Guarma Rum');
+		var marker_canveg23 = L.marker([-1819.5, 2890.5])
+			.bindPopup('Canned Vegetables x2');
+		var marker_cof16 = L.marker([-1819.5, 2890.5])
+			.bindPopup('Ground Coffee');
+		var marker_pcigs29 = L.marker([-1819.5, 2890.5])
+			.bindPopup('Premium Cigarettes x2');
+		var marker_bourb17 = L.marker([-1819.5, 2890.5])
+			.bindPopup('Kentucky Bourbon');
+		var marker_chtob9 = L.marker([-1819.5, 2890.5])
+			.bindPopup('Chewing Tobacco');
+		var marker_jewl8 = L.marker([-1819.5, 2890.5])
+			.bindPopup('Jewelry');
+		var marker_bourb18 = L.marker([-1853.5, 3194.5])
+			.bindPopup('Kentucky Bourbon x2');
+		var marker_guno13 = L.marker([-1853.5, 3194.5])
+			.bindPopup('Gun Oil');
+		var marker_revamo5 = L.marker([-1853.5, 3194.5])
+			.bindPopup('Revolver Ammo');
+		var marker_pcigs30 = L.marker([-1853.5, 3194.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_cogum9 = L.marker([-1853.5, 3194.5])
+			.bindPopup('Cocaine Gum');
+		var marker_shoammo7 = L.marker([-1853.5, 3194.5])
+			.bindPopup('Shotgun Ammo');
+		var marker_repamo4 = L.marker([-1853.5, 3194.5])
+			.bindPopup('Repeater Ammo');
+		var marker_pcigs31 = L.marker([-1658.5, 3415])
+			.bindPopup('Premium Cigarettes');
+		var marker_bourb18 = L.marker([-1658.5, 3415])
+			.bindPopup('Kentucky Bourbon');
+		var marker_pcigs32 = L.marker([-1677, 3185])
+			.bindPopup('Premium Cigarettes');
+		var marker_pcigs33 = L.marker([-1650.5, 3171.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_canfru11 = L.marker([-1640.5, 3007.5])
+			.bindPopup('Canned Fruit');
+		var marker_canveg24 = L.marker([-1640.5, 3007.5])
+			.bindPopup('Canned Vegetables');
+
+		var marker_bred6 = L.marker([-1586, 3364.5])
+			.bindPopup('Bread Rolls x3');
+		var marker_fbrandy3 = L.marker([-1586, 3364.5])
+			.bindPopup('Fine Brandy');
+		var marker_cof17 = L.marker([-1586, 3364.5])
+			.bindPopup('Ground Coffee');
+		var marker_crkrs11 = L.marker([-1508.5, 3354.5])
+			.bindPopup('Crackers');
+		var marker_shoammo8 = L.marker([-1508.5, 3354.5])
+			.bindPopup('Shot Gun Ammo');
+		var marker_mtonic7 = L.marker([-1508.5, 3354.5])
+			.bindPopup('Miracle Tonic');
+		var marker_chtob10 = L.marker([-1508.5, 3354.5])
+			.bindPopup('Chewing Tobacco');
+		var marker_canveg25 = L.marker([-1508.5, 3354.5])
+			.bindPopup('Canned Vegetables');
+		var marker_gin10 = L.marker([-1487, 3314.5])
+			.bindPopup('Gin');
+		var marker_jewl9 = L.marker([-1487, 3314.5])
+			.bindPopup('Jewelry');
+		var marker_pmtonic4 = L.marker([-1487, 3314.5])
+			.bindPopup('Potent Miracle Tonic');
+		var marker_cigs6 = L.marker([-1487, 3314.5])
+			.bindPopup('Cigarettes');
+		var marker_canveg26 = L.marker([-1487, 3314.5])
+			.bindPopup('Canned Vegetables');
+		var marker_cansal3 = L.marker([-1487, 3314.5])
+			.bindPopup('Canned Salmon');
+		var marker_jewl10 = L.marker([-1506, 3249.5])
+			.bindPopup('Jewelry x2');
+		var marker_pmtonic5 = L.marker([-1506, 3249.5])
+			.bindPopup('Potent Miracle Tonic');
+		var marker_fbrandy4 = L.marker([-1506, 3249.5])
+			.bindPopup('Fine Brandy');
+		var marker_pcigs34 = L.marker([-1506, 3249.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_canveg27 = L.marker([-1473.5, 3315.5])
+			.bindPopup('Canned Vegetables');
+		var marker_bourb18 = L.marker([-1473.5, 3315.5])
+			.bindPopup('Kentucky Bourbon');
+		var marker_saltoff2 = L.marker([-1473.5, 3315.5])
+			.bindPopup('Salted Offal');
+		var marker_bscts16 = L.marker([-1473.5, 3315.5])
+			.bindPopup('Assorted Biscuits');
+		var marker_canfru12 = L.marker([-1463, 3316])
+			.bindPopup('Canned Fruit');
+		var marker_crkrs12 = L.marker([-1463, 3316])
+			.bindPopup('Crackers');
+		var marker_omtonic3 = L.marker([-1463, 3316])
+			.bindPopup('Opened Miracle Tonic');
+		var marker_cogum10 = L.marker([-1463, 3316])
+			.bindPopup('Cocaine Gum');
+		var marker_cansal4 = L.marker([-1463, 3316])
+			.bindPopup('Canned Salmon');
+		var marker_guno14 = L.marker([-1463, 3316])
+			.bindPopup('Gun Oil');
+		var marker_consbeer3 = L.marker([-1406, 3267.5])
+			.bindPopup('Free Beer - Cannot Loot Only Drink');
+		var marker_canveg28 = L.marker([-1359.5, 3397.5])
+			.bindPopup('Canned Vegetables');
+		var marker_bscts16 = L.marker([-1359.5, 3397.5])
+			.bindPopup('Assorted Biscuits');
+		var marker_pcigs35 = L.marker([-1359.5, 3397.5])
+			.bindPopup('Premium Cigarettes');
+		var marker_cof17 = L.marker([-1359.5, 3397.5])
+			.bindPopup('Ground Coffee');
+		var marker_moonsh9 = L.marker([-1359.5, 3397.5])
+			.bindPopup('Moonshine');
+		var marker_pcigs36 = L.marker([-1328.5, 3335])
+			.bindPopup('Premium Cigarettes');
+		var marker_bscts17 = L.marker([-1311, 3264.5])
+			.bindPopup('Assorted Biscuits');
+		var marker_crkrs13 = L.marker([-1311, 3264.5])
+			.bindPopup('Crackers');
+		var marker_bourb19 = L.marker([-1311, 3264.5])
+			.bindPopup('Kentucky Bourbon');
+		var marker_cof18 = L.marker([-1311, 3264.5])
+			.bindPopup('Ground Coffee');
+		var marker_canveg29 = L.marker([-1311, 3264.5])
+			.bindPopup('Canned Vegetables');
+		var marker_canfru12 = L.marker([-1311, 3264.5])
+			.bindPopup('Canned Fruit');
+		var marker_prebait5 = L.marker([-1311, 3264.5])
+			.bindPopup('Predator Bait');
+		var marker_herbait4 = L.marker([-1311, 3264.5])
+			.bindPopup('Herbavoir Bait');
+		var marker_cof19 = L.marker([-1264, 3309])
+			.bindPopup('Ground Coffee');
+		var marker_canveg30 = L.marker([-1264, 3309])
+			.bindPopup('Canned Vegetables x4');
+		var marker_canfru13 = L.marker([-1264, 3309])
+			.bindPopup('Canned Fruit x2');
+		var marker_ches2 = L.marker([-1264, 3309])
+			.bindPopup('Cheese!');
+		var marker_pcigs37 = L.marker([-1264, 3309])
+			.bindPopup('Premium Cigarettes');
+		var marker_osnoil2 = L.marker([-1243.5, 3156])
+			.bindPopup('Opened Snake Oil');
+		var marker_cogum11 = L.marker([-1243.5, 3156])
+			.bindPopup('Cocaine Gum');
+		var marker_canveg31 = L.marker([-1249, 2950])
+			.bindPopup('Canned Vegetables x2');
+		var marker_pcigs38 = L.marker([-1249, 2950])
+			.bindPopup('Premium Cigarettes');
+		var marker_bourb20 = L.marker([-1339.5, 3100])
+			.bindPopup('Kentucky Bourbon');
+		var marker_ches3 = L.marker([-1339.5, 3100])
+			.bindPopup('Cheese!');
+		var marker_moonsh10 = L.marker([-1339.5, 3100])
+			.bindPopup('Moonshine!');
+		var marker_gin11 = L.marker([-1339.5, 3100])
+			.bindPopup('Gin');
+		var marker_guarum12 = L.marker([-1339.5, 3100])
+			.bindPopup('Guarma Rum');
+		var marker_canveg32 = L.marker([-1508, 3016.5])
+			.bindPopup('Canned Vegetables');
+		var marker_crkrs14 = L.marker([-1508, 3016.5])
+			.bindPopup('Crackers');
+		var marker_cof20 = L.marker([-1508, 3016.5])
+			.bindPopup('Ground Coffee');
+		var marker_canfru14 = L.marker([-1508, 3016.5])
+			.bindPopup('Canned Fruit');
+		var marker_consbeer4 = L.marker([-1508, 3016.5])
+			.bindPopup('Free Beer - Can Consume Cannot Loot');
+		var marker_bourb21 = L.marker([-1508, 3016.5])
+			.bindPopup('Kentucky Bourbon');
+
+		var marker_jewl11 = L.marker([-1508, 3016.5])
+			.bindPopup('Jewelry');
+		var marker_pbit3 = L.marker([-1508, 3016.5])
+			.bindPopup('Potent Bitters');
+		var marker_guno15 = L.marker([-1508, 3016.5])
+			.bindPopup('Gun Oil');
+		var marker_ohelthcur6 = L.marker([-1508, 3016.5])
+			.bindPopup('Opened Health Cure');
+		var marker_bit4 = L.marker([-1508, 3016.5])
+			.bindPopup('Bitters');
+		var marker_chtob11 = L.marker([-1508, 3016.5])
+			.bindPopup('Chewing Tobacco x2');
+		var marker_hpom10 = L.marker([-1508, 3016.5])
+			.bindPopup('Hair Pomade');
+		var marker_canveg33 = L.marker([-1550, 2931.5])
+			.bindPopup('Canned Vegetables');
+		var marker_canmeat5 = L.marker([-1550, 2931.5])
+			.bindPopup('Canned Meat x2');
+		var marker_canfru15 = L.marker([-1550, 2931.5])
+			.bindPopup('Canned Fruit');
+		var marker_guno16 = L.marker([-1550, 2931.5])
+			.bindPopup('Gun Oil');
+		var marker_candy9 = L.marker([-1550, 2931.5])
+			.bindPopup('Candy');
+
+		//Gang Hideouts
+		var marker_ghide1 = L.marker([-2469, 698])
+			.bindPopup('Gang Hideout - 1900');
+		var marker_ghide2 = L.marker([-2322, 495])
+			.bindPopup('Gang Hideout');
+		var marker_ghide3 = L.marker([-2146, 546])
+			.bindPopup('Gang Hideout');
+		var marker_ghide4 = L.marker([-2344, 950])
+			.bindPopup('Gang Hideout');
+		var marker_ghide5 = L.marker([-2393, 1108])
+			.bindPopup('Gang Hideout');
+		var marker_ghide6 = L.marker([-2161, 1207])
+			.bindPopup('Gang Hideout');
+		var marker_ghide7 = L.marker([-1985, 1020])
+			.bindPopup('Gang Hideout');
+		var marker_ghide8 = L.marker([-1931, 1186])
+			.bindPopup('Gang Hideout');
+		var marker_ghide9 = L.marker([-2025, 1614])
+			.bindPopup('Gang Hideout');
+		var marker_ghide10 = L.marker([-1867, 1845])
+			.bindPopup('Gang Hideout');
+		var marker_ghide11 = L.marker([-2175, 1985])
+			.bindPopup('Gang Hideout');
+		var marker_ghide12 = L.marker([-1878, 2144])
+			.bindPopup('Gang Hideout');
+		var marker_ghide13 = L.marker([-1532, 2005])
+			.bindPopup('Gang Hideout');
+		var marker_ghide14 = L.marker([-968, 1790])
+			.bindPopup('Gang Hideout');
+		var marker_ghide15 = L.marker([-1060, 2193])
+			.bindPopup('Gang Hideout');
+		var marker_ghide16 = L.marker([-822, 2066])
+			.bindPopup('Gang Hideout');
+		var marker_ghide17 = L.marker([-760, 1895])
+			.bindPopup('Gang Hideout');
+		var marker_ghide18 = L.marker([-381, 2088])
+			.bindPopup('Gang Hideout');
+		var marker_ghide19 = L.marker([-641, 2750])
+			.bindPopup('Gang Hideout');
+		var marker_ghide20 = L.marker([-795, 2525])
+			.bindPopup('Gang Hideout');
+		var marker_ghide21 = L.marker([-881, 2615])
+			.bindPopup('Gang Hideout');
+		var marker_ghide22 = L.marker([-550, 3205])
+			.bindPopup('Gang Hideout');
+		var marker_ghide23 = L.marker([-467, 3566])
+			.bindPopup('Gang Hideout');
+		var marker_ghide24 = L.marker([-1114, 3383])
+			.bindPopup('Gang Hideout');
+		var marker_ghide25 = L.marker([-1224, 3380])
+			.bindPopup('Gang Hideout');
+		var marker_ghide26 = L.marker([-1645, 2823])
+			.bindPopup('Gang Hideout');
+		var marker_ghide27 = L.marker([-1857, 3199])
+			.bindPopup('Gang Hideout');
+		var marker_ghide28 = L.marker([-1472, 3317])
+			.bindPopup('Gang Hideout');
+		var marker_ghide29 = L.marker([-1474, 3104])
+			.bindPopup('Gang Hideout');
+
+
+		//AMBUSH Points
+		var marker_ambush1 = L.marker([-1937, 1365])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush2 = L.marker([-1890, 1773])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush3 = L.marker([-1771, 1834])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush4 = L.marker([-1580, 1982])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush5 = L.marker([-1351, 2311])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush6 = L.marker([-1277, 1988])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush7 = L.marker([-1157, 1642])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush8 = L.marker([-843, 2563])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush9 = L.marker([-755, 3195])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush10 = L.marker([-1564, 3114])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush11 = L.marker([-665, 3096.5])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush12 = L.marker([-1192, 2692])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush13 = L.marker([-1362.5, 3138])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush14 = L.marker([-1537, 2047.5])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush15 = L.marker([-1490, 1789.5])
+			.bindPopup('Gang Ambush Point');
+		var marker_ambush16 = L.marker([-2153.5, 1800.5])
+			.bindPopup('Gang Ambush Point');
+
+
+
+		//HERBS
+
+		//Alaskan Ginseng
+		var marker_halginseng1 = L.marker([-554, 3462])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng2 = L.marker([-623, 2407])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng3 = L.marker([-427, 3449])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng4 = L.marker([-926, 1715])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng5 = L.marker([-916, 1834])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng6 = L.marker([-955, 1886])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng7 = L.marker([-993, 1943])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng8 = L.marker([-981, 1868])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng9 = L.marker([-1000, 1866])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng10 = L.marker([-1018, 1847])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng11 = L.marker([-1045, 1839])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng12 = L.marker([-1061, 1837])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng13 = L.marker([-1065, 1819])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng14 = L.marker([-1076, 1873])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng15 = L.marker([-1087, 1886])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng16 = L.marker([-1103, 1932])
+			.bindPopup('Alaskan Ginseng');
+		var marker_halginseng17 = L.marker([-1108, 1953])
+			.bindPopup('Alaskan Ginseng');
+
+		//American Ginseng
+		var marker_hginseng1 = L.marker([-1276, 3226])
+			.bindPopup('American Ginseng');
+		var marker_hginseng2 = L.marker([-675, 3392])
+			.bindPopup('American Ginseng');
+		var marker_hginseng3 = L.marker([-631, 3329])
+			.bindPopup('American Ginseng');
+		var marker_hginseng4 = L.marker([-650, 3354])
+			.bindPopup('American Ginseng');
+		var marker_hginseng5 = L.marker([-1004, 3532])
+			.bindPopup('Ginseng');
+		var marker_hginseng6 = L.marker([-998, 3442])
+			.bindPopup('American Ginseng');
+		var marker_hginseng7 = L.marker([-1146, 3445])
+			.bindPopup('American Ginseng');
+		var marker_hginseng8 = L.marker([-1181, 3373])
+			.bindPopup('American Ginseng');
+		var marker_hginseng9 = L.marker([-1180, 3367])
+			.bindPopup('American Ginseng');
+		var marker_hginseng10 = L.marker([-934, 2646])
+			.bindPopup('American Ginseng');
+		var marker_hginseng11 = L.marker([-1283, 3292])
+			.bindPopup('Alaskan Ginseng');
+		var marker_hginseng12 = L.marker([-958, 2342])
+			.bindPopup('American Ginseng');
+		var marker_hginseng13 = L.marker([-1405, 2695])
+			.bindPopup('American Ginseng');
+		var marker_hginseng14 = L.marker([-1401, 2962])
+			.bindPopup('American Ginseng');
+		var marker_hginseng15 = L.marker([-1355, 3004])
+			.bindPopup('American Ginseng');
+		var marker_hginseng16 = L.marker([-1484, 2989])
+			.bindPopup('American Ginseng');
+		var marker_hginseng17 = L.marker([-1569, 2811])
+			.bindPopup('American Ginseng');
+		var marker_hginseng18 = L.marker([-1589, 2800])
+			.bindPopup('American Ginseng');
+		var marker_hginseng19 = L.marker([-1625, 2888])
+			.bindPopup('American Ginseng');
+		var marker_hginseng20 = L.marker([-1602, 2903])
+			.bindPopup('American Ginseng');
+		var marker_hginseng21 = L.marker([-1889, 3052])
+			.bindPopup('American Ginseng');
+		var marker_hginseng22 = L.marker([-1914, 3056])
+			.bindPopup('American Ginseng');
+		var marker_hginseng23 = L.marker([-1539, 3009])
+			.bindPopup('American Ginseng');
+		var marker_hginseng24 = L.marker([-1557, 3047])
+			.bindPopup('American Ginseng');
+		var marker_hginseng25 = L.marker([-1354, 2529])
+			.bindPopup('American Ginseng');
+		var marker_hginseng26 = L.marker([-1463, 2290])
+			.bindPopup('American Ginseng');
+		var marker_hginseng27 = L.marker([-1279, 1634])
+			.bindPopup('American Ginseng');
+		var marker_hginseng28 = L.marker([-1425, 1993])
+			.bindPopup('American Ginseng');
+		var marker_hginseng29 = L.marker([-967, 2368])
+			.bindPopup('American Ginseng');
+		var marker_hginseng30 = L.marker([-992, 2360])
+			.bindPopup('American Ginseng');
+		var marker_hginseng31 = L.marker([-1019, 2366])
+			.bindPopup('American Ginseng');
+		var marker_hginseng32 = L.marker([-1020, 2351])
+			.bindPopup('American Ginseng');
+		var marker_hginseng33 = L.marker([-1033, 2321])
+			.bindPopup('American Ginseng');
+		var marker_hginseng34 = L.marker([-1033, 2436])
+			.bindPopup('American Ginseng');
+		var marker_hginseng35 = L.marker([-1079, 2311])
+			.bindPopup('American Ginseng');
+		var marker_hginseng36 = L.marker([-1102, 2317])
+			.bindPopup('American Ginseng');
+		var marker_hginseng37 = L.marker([-1108, 2337])
+			.bindPopup('American Ginseng');
+		var marker_hginseng38 = L.marker([-1120, 2286])
+			.bindPopup('American Ginseng');
+		var marker_hginseng39 = L.marker([-1204, 2221])
+			.bindPopup('American Ginseng');
+		var marker_hginseng40 = L.marker([-1703, 1774])
+			.bindPopup('American Ginseng');
+		var marker_hginseng41 = L.marker([-1890, 1978])
+			.bindPopup('American Ginseng');
+		var marker_hginseng42 = L.marker([-1884, 1989])
+			.bindPopup('American Ginseng');
+
+
+		//Tobacco
+		var marker_htobacco1 = L.marker([-559, 3464])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco2 = L.marker([-1014, 3414])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco3 = L.marker([-714, 2788])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco4 = L.marker([-722, 2707])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco5 = L.marker([-1104, 2384])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco6 = L.marker([-1109, 2393])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco7 = L.marker([-1033, 2708])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco8 = L.marker([-1399, 2705])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco9 = L.marker([-1263, 2986])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco10 = L.marker([-1229, 3145])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco11 = L.marker([-1407, 2901])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco12 = L.marker([-1505, 2852])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco13 = L.marker([-1554, 2811])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco14 = L.marker([-1051, 2328])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco15 = L.marker([-1076, 2311])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco16 = L.marker([-1114, 2321])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco17 = L.marker([-1131, 2276])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco18 = L.marker([-1212, 2224])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco19 = L.marker([-1062, 2397])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco20 = L.marker([-1044, 2428])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco21 = L.marker([-1644, 2929])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco22 = L.marker([-1654, 2865])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco23 = L.marker([-1747, 2979])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco24 = L.marker([-1732, 3083])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco25 = L.marker([-1904, 3049])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco26 = L.marker([-882, 3184])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco27 = L.marker([-1042, 1881])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco28 = L.marker([-1072, 1868])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco29 = L.marker([-1072, 1884])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco30 = L.marker([-1064, 1887])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco31 = L.marker([-1269, 1630])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco32 = L.marker([-1497, 1924])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco33 = L.marker([-1473, 2153])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco34 = L.marker([-1380, 2455])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco35 = L.marker([-1361, 2525])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco36 = L.marker([-1124, 2368])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco37 = L.marker([-1149, 2438])
+			.bindPopup('Indian Tobacco');
+		var marker_htobacco38 = L.marker([-1054, 3136])
+			.bindPopup('Indian Tobacco');
+
+
+		//var marker_ = L.marker([-, ])
+		//.bindPopup('');
+
+
+		//Violet Snowdrop
+		var marker_hvioletsnowdrop1 = L.marker([-726, 3176])
+			.bindPopup('Violet Snowdrop');
+		var marker_hvioletsnowdrop2 = L.marker([-659, 3162])
+			.bindPopup('Violet Snowdrop');
+		var marker_hvioletsnowdrop3 = L.marker([-710, 2810])
+			.bindPopup('Violet Snowdrop');
+		var marker_hvioletsnowdrop4 = L.marker([-812, 2507])
+			.bindPopup('Violet Snowdrop');
+		var marker_hvioletsnowdrop5 = L.marker([-422, 3478])
+			.bindPopup('Violet Snowdrop');
+		var marker_hvioletsnowdrop6 = L.marker([-402, 3475])
+			.bindPopup('Violet Snowdrop');
+		var marker_hvioletsnowdrop7 = L.marker([-434, 3440])
+			.bindPopup('Violet Snowdrop');
+		var marker_hvioletsnowdrop8 = L.marker([-451, 3390])
+			.bindPopup('Violet Snowdrop');
+		var marker_hvioletsnowdrop9 = L.marker([-919, 1721])
+			.bindPopup('Violet Snowdrop');
+		var marker_hvioletsnowdrop10 = L.marker([-1864, 1860])
+			.bindPopup('Violet Snowdrop');
+
+		//English Mace
+		var marker_henglishmace1 = L.marker([-740, 3205])
+			.bindPopup('English Mace');
+		var marker_henglishmace2 = L.marker([-2470, 918])
+			.bindPopup('English Mace');
+		var marker_henglishmace3 = L.marker([-2464, 929])
+			.bindPopup('English Mace');
+		var marker_henglishmace4 = L.marker([-2477, 946])
+			.bindPopup('English Mace');
+		var marker_henglishmace5 = L.marker([-2485, 983])
+			.bindPopup('English Mace');
+		var marker_henglishmace6 = L.marker([-2466, 1105])
+			.bindPopup('English Mace');
+		var marker_henglishmace7 = L.marker([-2170, 1697])
+			.bindPopup('English Mace');
+		var marker_henglishmace8 = L.marker([-2147, 1919])
+			.bindPopup('English Mace');
+		var marker_henglishmace9 = L.marker([-2193, 1936])
+			.bindPopup('English Mace');
+		var marker_henglishmace10 = L.marker([-2133, 1909])
+			.bindPopup('English Mace');
+
+		//Yarrow
+		var marker_hyarrow1 = L.marker([-1016, 2643])
+			.bindPopup('Yarrow');
+		var marker_hyarrow2 = L.marker([-1408, 2640])
+			.bindPopup('Yarrow');
+		var marker_hyarrow3 = L.marker([-1464, 2918])
+			.bindPopup('Yarrow');
+		var marker_hyarrow4 = L.marker([-1498, 2855])
+			.bindPopup('Yarrow');
+		var marker_hyarrow5 = L.marker([-1067, 2883])
+			.bindPopup('Yarrow');
+		var marker_hyarrow6 = L.marker([-1087, 2885])
+			.bindPopup('Yarrow');
+		var marker_hyarrow7 = L.marker([-1096, 2878])
+			.bindPopup('Yarrow');
+		var marker_hyarrow8 = L.marker([-1107, 2966])
+			.bindPopup('Yarrow');
+		var marker_hyarrow9 = L.marker([-1394, 2362])
+			.bindPopup('Yarrow');
+		var marker_hyarrow10 = L.marker([-1395, 2362])
+			.bindPopup('Yarrow');
+		var marker_hyarrow11 = L.marker([-1035, 2430])
+			.bindPopup('Yarrow');
+		var marker_hyarrow12 = L.marker([-1026, 2411])
+			.bindPopup('Yarrow');
+		var marker_hyarrow13 = L.marker([-1024, 2485])
+			.bindPopup('Yarrow');
+		var marker_hyarrow14 = L.marker([-1043, 2507])
+			.bindPopup('Yarrow');
+
+		//Wild Mint
+		var marker_hmint1 = L.marker([-1179, 2954])
+			.bindPopup('Wild Mint');
+		var marker_hmint2 = L.marker([-1226, 2425])
+			.bindPopup('Wild Mint');
+		var marker_hmint3 = L.marker([-1226, 2413])
+			.bindPopup('Wild Mint');
+		var marker_hmint4 = L.marker([-1300, 2888])
+			.bindPopup('Wild Mint');
+		var marker_hmint5 = L.marker([-1578, 2699])
+			.bindPopup('Wild Mint');
+		var marker_hmint6 = L.marker([-1487, 2147])
+			.bindPopup('Wild Mint');
+		var marker_hmint7 = L.marker([-1024, 1869])
+			.bindPopup('Wild Mint');
+		var marker_hmint8 = L.marker([-1544, 3245])
+			.bindPopup('Wild Mint');
+		var marker_hmint9 = L.marker([-1146, 2334])
+			.bindPopup('Wild Mint');
+		var marker_hmint10 = L.marker([-1164, 2352])
+			.bindPopup('Wild Mint');
+		var marker_hmint11 = L.marker([-1168, 2363])
+			.bindPopup('Wild Mint');
+		var marker_hmint12 = L.marker([-1182, 2415])
+			.bindPopup('Wild Mint');
+		var marker_hmint13 = L.marker([-1733, 3234])
+			.bindPopup('Wild Mint');
+		var marker_hmint14 = L.marker([-2202, 1943])
+			.bindPopup('Wild Mint');
+		var marker_hmint15 = L.marker([-2124, 1926])
+			.bindPopup('Wild Mint');
+
+		//Hummingbird Sage
+		var marker_hhummbirds1 = L.marker([-1576, 2799])
+			.bindPopup('Hummingbird Sage');
+		var marker_hhummbirds2 = L.marker([-1381, 2830])
+			.bindPopup('Hummingbird Sage');
+		var marker_hhummbirds3 = L.marker([-1352, 2882])
+			.bindPopup('Hummingbird Sage');
+		var marker_hhummbirds4 = L.marker([-1362, 2892])
+			.bindPopup('Hummingbird Sage');
+		var marker_hhummbirds5 = L.marker([-1053, 3132])
+			.bindPopup('Hummingbird sage');
+
+		//Milkweed
+		var marker_hmilkw1 = L.marker([-1340, 2844])
+			.bindPopup('Milkweed');
+		var marker_hmilkw2 = L.marker([-1328, 2857])
+			.bindPopup('Milkweed');
+		var marker_hmilkw3 = L.marker([-1293, 2899])
+			.bindPopup('Milkweed');
+		var marker_hmilkw4 = L.marker([-1283, 2905])
+			.bindPopup('Milkweed');
+		var marker_hmilkw5 = L.marker([-1271, 2907])
+			.bindPopup('Milkweed');
+		var marker_hmilkw6 = L.marker([-1675, 3269])
+			.bindPopup('Milkweed');
+		var marker_hmilkw7 = L.marker([-1685, 3255])
+			.bindPopup('Milkweed');
+		var marker_hmilkw8 = L.marker([-1713, 3243])
+			.bindPopup('Milkweed');
+		var marker_hmilkw9 = L.marker([-1734, 3240])
+			.bindPopup('Milkweed');
+		var marker_hmilkw10 = L.marker([-1735, 3239])
+			.bindPopup('Milkweed');
+
+
+		//Creeping Thyme
+		var marker_hcreepingt1 = L.marker([-1254, 2982])
+			.bindPopup('Creeping Thyme');
+		var marker_hcreepingt2 = L.marker([-1409, 2902])
+			.bindPopup('Creeping Thyme');
+		var marker_hcreepingt3 = L.marker([-1566, 2817])
+			.bindPopup('Creeping Thyme');
+		var marker_hcreepingt4 = L.marker([-1609, 2902])
+			.bindPopup('Creeping Thyme');
+		var marker_hcreepingt5 = L.marker([-948, 1720])
+			.bindPopup('Creeping Thyme');
+		var marker_hcreepingt6 = L.marker([-984, 2369])
+			.bindPopup('Creeping Thyme');
+		var marker_hcreepingt7 = L.marker([-1002, 2349])
+			.bindPopup('Creeping Thyme');
+		var marker_hcreepingt8 = L.marker([-1392, 2365])
+			.bindPopup('Creeping Thyme');
+		var marker_hcreepingt9 = L.marker([-1363, 2418])
+			.bindPopup('Creeping Thyme');
+		var marker_hcreepingt10 = L.marker([-1213, 2780])
+			.bindPopup('Creeping Thyme');
+		var marker_hcreepingt11 = L.marker([-1198, 2799])
+			.bindPopup('Creeping Thyme');
+
+		//Oregano
+		var marker_horegano1 = L.marker([-1242, 3005])
+			.bindPopup('Oregano');
+		var marker_horegano2 = L.marker([-1754, 1962])
+			.bindPopup('Oregano');
+		var marker_horegano3 = L.marker([-1197, 2803])
+			.bindPopup('Oregano');
+		var marker_horegano4 = L.marker([-970, 2377])
+			.bindPopup('Oregano');
+		var marker_horegano5 = L.marker([-951, 2382])
+			.bindPopup('Oregano');
+		var marker_horegano6 = L.marker([-1008, 2368])
+			.bindPopup('Oregano');
+		var marker_horegano7 = L.marker([-1060, 2376])
+			.bindPopup('Oregano');
+		var marker_horegano8 = L.marker([-1064, 3132])
+			.bindPopup('Oregano');
+		var marker_horegano9 = L.marker([-1075, 3134])
+			.bindPopup('Oregano');
+		var marker_horegano10 = L.marker([-1884, 1980])
+			.bindPopup('Oregano');
+
+
+		//Burdock Root
+		var marker_burdroot1 = L.marker([-1475, 2591])
+			.bindPopup('Burdock Root');
+		var marker_burdroot2 = L.marker([-1474, 2661.5])
+			.bindPopup('Burdock Root');
+		var marker_burdroot3 = L.marker([-909, 2362])
+			.bindPopup('Burdock Root');
+		var marker_burdroot4 = L.marker([-1017, 2259])
+			.bindPopup('Burdock Root');
+		var marker_burdroot5 = L.marker([-1209, 2394])
+			.bindPopup('Burdock Root');
+		var marker_burdroot6 = L.marker([-1236, 2388])
+			.bindPopup('Burdock Root');
+		var marker_burdroot7 = L.marker([-1237, 2406])
+			.bindPopup('Burdock Root');
+		var marker_burdroot8 = L.marker([-909, 2362])
+			.bindPopup('Burdock Root');
+		var marker_burdroot9 = L.marker([-1333, 2256])
+			.bindPopup('Burdock Root');
+
+		//Common Bullbrush
+		var marker_combulbrsh1 = L.marker([-1475, 2591])
+			.bindPopup('Common Bullbrush');
+		var marker_combulbrsh2 = L.marker([-1474, 2661.5])
+			.bindPopup('Common Bullbrush');
+		var marker_combulbrsh3 = L.marker([-903, 2366])
+			.bindPopup('Common Bullbrush');
+		var marker_combulbrsh4 = L.marker([-1151, 2324])
+			.bindPopup('Common Bullbrush');
+
+		//Parasol Mushrooms
+		var marker_mush1 = L.marker([-1335.5, 2416.5])
+			.bindPopup('Mushrooms! So many mushrooms..')
+		var marker_mush2 = L.marker([-1171, 2794])
+			.bindPopup('Parasol Mushrooms')
+		var marker_mush3 = L.marker([-1036, 2425])
+			.bindPopup('Parasol Mushrooms')
+		var marker_mush4 = L.marker([-958, 2382])
+			.bindPopup('Parasol Mushrooms')
+		var marker_mush5 = L.marker([-1070, 3136])
+			.bindPopup('Mushrooms');
+		var marker_mush6 = L.marker([-2197, 1935])
+			.bindPopup('Parasol Mushroom');
+		var marker_mush7 = L.marker([-2093, 1920])
+			.bindPopup('Parasol Mushroom');
+		var marker_mush8 = L.marker([-2287, 0725])
+			.bindPopup('Parasol Mushroom');
+
+		// Ram's Head
+		var marker_ramshead1 = L.marker([-416, 3493])
+			.bindPopup('Rams Head');
+		var marker_ramshead2 = L.marker([-425, 3479])
+			.bindPopup('Rams Head');
+		var marker_ramshead3 = L.marker([-440, 3396])
+			.bindPopup('Rams Head');
+		var marker_ramshead4 = L.marker([-636, 3367])
+			.bindPopup('Rams Head');
+		var marker_ramshead5 = L.marker([-1274, 2237])
+			.bindPopup('Rams Head');
+
+		//Wintergreen Berry
+		var marker_wgberry1 = L.marker([-419, 3487])
+			.bindPopup('Wintergreen Berry');
+		var marker_wgberry2 = L.marker([-434, 3453])
+			.bindPopup('Wintergreen Berry');
+		var marker_wgberry3 = L.marker([-535, 3347])
+			.bindPopup('Wintergreen Berry');
+		var marker_wgberry4 = L.marker([-645, 3373])
+			.bindPopup('Wintergreen Berry');
+		var marker_wgberry5 = L.marker([-1069, 2012])
+			.bindPopup('Wintergreen Berry');
+		var marker_wgberry6 = L.marker([-928, 1715])
+			.bindPopup('Wintergreen Berry');
+
+		//Golden Currant
+		var marker_goldcurrant1 = L.marker([-636, 3592])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant2 = L.marker([-1057, 3525])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant3 = L.marker([-1043, 3490])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant4 = L.marker([-1040, 3476])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant5 = L.marker([-1022, 3471])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant6 = L.marker([-1603, 2140])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant7 = L.marker([-1607, 2066])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant8 = L.marker([-1752, 2093])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant9 = L.marker([-1774, 1998])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant10 = L.marker([-1765, 2001])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant11 = L.marker([-1756, 1994])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant12 = L.marker([-1732, 1951])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant13 = L.marker([-1761, 1951])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant14 = L.marker([-1075, 3134])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant15 = L.marker([-1078, 3145])
+			.bindPopup('Golden Currant');
+		var marker_goldcurrant16 = L.marker([-1881, 1993])
+			.bindPopup('Golden Currant');
+
+		//Vanilla Flower
+		var marker_vflower1 = L.marker([-1349, 3339])
+			.bindPopup('Vanilla Flower');
+		var marker_vflower2 = L.marker([-1366, 3250])
+			.bindPopup('Vanilla Flower');
+		var marker_vflower3 = L.marker([-1365, 3239])
+			.bindPopup('Vanilla Flower');
+		var marker_vflower4 = L.marker([-1378, 3238])
+			.bindPopup('Vanilla Flower');
+		var marker_vflower5 = L.marker([-1402, 3258])
+			.bindPopup('Vanilla Flower');
+		var marker_vflower6 = L.marker([-1409, 3236])
+			.bindPopup('Vanilla Flower');
+		var marker_vflower7 = L.marker([-1527, 3290])
+			.bindPopup('Vanilla Flower');
+		var marker_vflower8 = L.marker([-1570, 3249])
+			.bindPopup('Vanilla Flower');
+		var marker_vflower9 = L.marker([-1591, 3236])
+			.bindPopup('Vanilla Flower');
+		var marker_vflower10 = L.marker([-1634, 3260])
+			.bindPopup('Vanilla Flower');
+
+		//Wild Feverfew
+		var marker_wfeverfew1 = L.marker([-2084, 1318])
+			.bindPopup('Wild Feverfew');
+		var marker_wfeverfew2 = L.marker([-2072, 1335])
+			.bindPopup('Wild Feverfew');
+		var marker_wfeverfew3 = L.marker([-2048, 1341])
+			.bindPopup('Wild Feverfew');
+		var marker_wfeverfew4 = L.marker([-2020, 1369])
+			.bindPopup('Wild Feverfew');
+
+		//Bay Bolete
+		var marker_bbolete1 = L.marker([-988, 2366])
+			.bindPopup('Bay Bolete');
+		var marker_bbolete2 = L.marker([-1076, 2284])
+			.bindPopup('Bay Bolete');
+		var marker_bbolete3 = L.marker([-1087, 2282])
+			.bindPopup('Bay Bolete');
+		var marker_bbolete4 = L.marker([-1142, 2204])
+			.bindPopup('Bay Bolete');
+		var marker_bbolete5 = L.marker([-1185, 2257])
+			.bindPopup('Bay Bolete');
+		var marker_bbolete6 = L.marker([-1119, 2366])
+			.bindPopup('Bay Bolete');
+		var marker_bbolete7 = L.marker([-1890, 2022])
+			.bindPopup('Bay Bolette');
+
+
+		//Raspberry
+		var marker_raspberry1 = L.marker([-1030, 1849])
+			.bindPopup('Raspberry');
+		var marker_raspberry2 = L.marker([-1012, 1851])
+			.bindPopup('Raspberry');
+		var marker_raspberry3 = L.marker([-1030, 1889])
+			.bindPopup('Raspberry');
+		var marker_raspberry4 = L.marker([-1036, 1906])
+			.bindPopup('Raspberry');
+		var marker_raspberry5 = L.marker([-1068, 1974])
+			.bindPopup('Raspberry');
+		var marker_raspberry6 = L.marker([-1048, 2045])
+			.bindPopup('Raspberry');
+		var marker_raspberry7 = L.marker([-954, 2386])
+			.bindPopup('Raspberry');
+		var marker_raspberry8 = L.marker([-996, 2508])
+			.bindPopup('Raspberry');
+		var marker_raspberry9 = L.marker([-1028, 2491])
+			.bindPopup('Raspberry');
+		var marker_raspberry10 = L.marker([-1044, 2505])
+			.bindPopup('Raspberry');
+		var marker_raspberry11 = L.marker([-1358, 2527])
+			.bindPopup('Raspberry');
+		var marker_raspberry12 = L.marker([-1196, 2813])
+			.bindPopup('Raspberry');
+		var marker_raspberry13 = L.marker([-1317, 2703])
+			.bindPopup('Raspberry');
+		var marker_raspberry14 = L.marker([-1799, 2167])
+			.bindPopup('Raspberry');
+		var marker_raspberry15 = L.marker([-1059, 3137])
+			.bindPopup('Raspberry');
+		var marker_raspberry16 = L.marker([-2123, 1932])
+			.bindPopup('Raspberry');
+		var marker_raspberry17 = L.marker([-1887, 1981])
+			.bindPopup('Raspberry');
+
+
+		//Red Sage
+		var marker_redsage1 = L.marker([-2365, 1143])
+			.bindPopup('Red Sage');
+		var marker_redsage2 = L.marker([-2351, 1116])
+			.bindPopup('Red Sage');
+		var marker_redsage3 = L.marker([-2352, 1103])
+			.bindPopup('Red Sage');
+		var marker_redsage4 = L.marker([-2355, 1059])
+			.bindPopup('Red Sage');
+
+		//Blackcurrant
+		var marker_bcurrant1 = L.marker([-2137, 660])
+			.bindPopup('Black Currant');
+		var marker_bcurrant2 = L.marker([-2153, 650])
+			.bindPopup('Black Currant');
+		var marker_bcurrant3 = L.marker([-2181, 619])
+			.bindPopup('Black Currant');
+		var marker_bcurrant4 = L.marker([-2283, 0727])
+			.bindPopup('Black Currants');
+
+		//Desert Sage
+		var marker_dsage1 = L.marker([-2228, 535])
+			.bindPopup('Desert Sage');
+		var marker_dsage2 = L.marker([-2243, 547])
+			.bindPopup('Desert Sage');
+		var marker_dsage3 = L.marker([-2257, 540])
+			.bindPopup('Desert Sage');
+		var marker_dsage4 = L.marker([-2408, 486])
+			.bindPopup('Desert Sage');
+
+		//Prairie Poppy
+		var marker_ppoppy1 = L.marker([-2334, 1443])
+			.bindPopup('Prairie Poppy');
+		var marker_ppoppy2 = L.marker([-2328, 1454])
+			.bindPopup('Prairie Poppy');
+		var marker_ppoppy3 = L.marker([-1736, 2042])
+			.bindPopup('Prairie Poppy');
+		var marker_ppoppy4 = L.marker([-1769, 2035])
+			.bindPopup('Prairie Poppy');
+		var marker_ppoppy5 = L.marker([-1808, 2062])
+			.bindPopup('Prairie Poppy');
+		var marker_ppoppy6 = L.marker([-1799, 2167])
+			.bindPopup('Prairie Poppy');
+		var marker_ppoppy7 = L.marker([-1825, 2134])
+			.bindPopup('Prairie Poppy');
+		var marker_ppoppy8 = L.marker([-1738, 2302])
+			.bindPopup('Prairie Poppy');
+		var marker_ppoppy9 = L.marker([-1761, 2308])
+			.bindPopup('Prairie Poppy');
+		var marker_ppoppy10 = L.marker([-1708, 2289])
+			.bindPopup('Prairie Poppy');
+		var marker_ppoppy11 = L.marker([-1862, 2276])
+			.bindPopup('Prairie Poppy');
+
+		//Oleander Sage
+		var marker_olsage1 = L.marker([-1207, 3385])
+			.bindPopup('Oleander Sage');
+		var marker_olsage2 = L.marker([-1372, 3320])
+			.bindPopup('Oleander Sage');
+		var marker_olsage3 = L.marker([-1679, 3260])
+			.bindPopup('Oleander Sage');
+		var marker_olsage4 = L.marker([-1712, 3243])
+			.bindPopup('Oleander Sage');
+		var marker_olsage5 = L.marker([-1746, 3229])
+			.bindPopup('Oleander Sage');
+		var marker_olsage6 = L.marker([-1789, 3223])
+			.bindPopup('Oleander Sage');
+		var marker_olsage7 = L.marker([-1472, 3042])
+			.bindPopup('Oleander Sage');
+
+		//Black Berry
+		var marker_bberry1 = L.marker([-1031, 2339])
+			.bindPopup('Black Berry');
+		var marker_bberry2 = L.marker([-1056, 2346])
+			.bindPopup('Black Berry');
+		var marker_bberry3 = L.marker([-1070, 2290])
+			.bindPopup('Black Berry');
+		var marker_bberry4 = L.marker([-1107, 2215])
+			.bindPopup('Black Berry');
+		var marker_bberry5 = L.marker([-1108, 2238])
+			.bindPopup('Black Berry');
+		var marker_bberry6 = L.marker([-1154, 2189])
+			.bindPopup('Black Berry');
+		var marker_bberry7 = L.marker([-1200, 2219])
+			.bindPopup('Black Berry');
+		var marker_bberry8 = L.marker([-1115, 2328])
+			.bindPopup('Black Berry');
+
+		//Chanterelle
+		var marker_chanterelle1 = L.marker([-1395, 2959])
+			.bindPopup('Chanterelle');
+		var marker_chanterelle2 = L.marker([-1421, 2970])
+			.bindPopup('Chanterelle');
+		var marker_chanterelle3 = L.marker([-1535, 3013])
+			.bindPopup('Chanterelle');
+
+		//Evergreen Huckleberry
+		var marker_evhuckberry1 = L.marker([-1540, 2812])
+			.bindPopup('Evergreen Huckleberry');
+		var marker_evhuckberry2 = L.marker([-1552, 2812])
+			.bindPopup('Evergreen Huckleberry');
+		var marker_evhuckberry3 = L.marker([-1588, 2844])
+			.bindPopup('Evergreen Huckleberry');
+		var marker_evhuckberry4 = L.marker([-1585, 2829])
+			.bindPopup('Evergreen Huckleberry');
+		var marker_evhuckberry5 = L.marker([-1696, 2844])
+			.bindPopup('Evergreen Huckleberry');
+		var marker_evhuckberry6 = L.marker([-1734, 3229])
+			.bindPopup('Evergreen Huckleberry');
+
+		//carrots
+		var marker_carrot1 = L.marker([-925, 2810.5])
+			.bindPopup('A Carrot!');
+		var marker_carrot2 = L.marker([-1586, 3364.5])
+			.bindPopup('Its a Carrot');
+		var marker_carrot3 = L.marker([-1508, 3016.5])
+			.bindPopup('Carrot');
+		var marker_carrot4 = L.marker([-1888, 1976])
+			.bindPopup('Wild Carrot');
+
+		//Fish
+		//Sockeye Salmon
+		var marker_fsockeyes1 = L.marker([-1239, 2222])
+			.bindPopup('Sockeye Salmon - River Lure');
+		var marker_fsockeyes2 = L.marker([-1210, 2265])
+			.bindPopup('Sockeye Salmon - River Lure');
+		var marker_fsockeyes3 = L.marker([-684, 3119])
+			.bindPopup('Sockeye Salmon - Lake Lure');
+		var marker_fsockeyes4 = L.marker([-1039, 3391])
+			.bindPopup('Sockeye Salmon - River Lure');
+		var marker_fsockeyes5 = L.marker([-1167, 3363])
+			.bindPopup('Sockeye Salmon - River Lure');
+		var marker_fsockeyes6 = L.marker([-1176, 3409])
+			.bindPopup('Sockeye Salmon - River - Lure');
+
+		//Steelhead Trout
+		var marker_fshtrout1 = L.marker([-1362, 2271])
+			.bindPopup('Steelhead Trout - River Lure');
+		var marker_fshtrout2 = L.marker([-1226, 3357])
+			.bindPopup('Steelhead Trout - River Lure');
+		var marker_fshtrout3 = L.marker([-1297, 3338])
+			.bindPopup('Steelhead Trout - Lake Lure');
+		var marker_fshtrout4 = L.marker([-2014, 2965])
+			.bindPopup('Steelhead Trout');
+
+		//Largemouth Bass
+		var marker_flmbass1 = L.marker([-1362, 2271])
+			.bindPopup('Largemouth Bass - River Lure');
+		var marker_flmbass2 = L.marker([-1899, 3188])
+			.bindPopup('Largemouth Bass - River Lure');
+
+		//Smallmouth Bass
+		var marker_fsmbass1 = L.marker([-1401, 2953])
+			.bindPopup('Smallmouth Bass - River Lure');
+		var marker_fsmbass2 = L.marker([-1151, 2349])
+			.bindPopup('Smallmouth Bass');
+
+		//camp fires
+		var marker_campfire1 = L.marker([-543, 3200])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire2 = L.marker([-1038, 3547])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire3 = L.marker([-917, 2813])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire4 = L.marker([-960, 2422])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire5 = L.marker([-962, 1795])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire6 = L.marker([-1728, 2259])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire7 = L.marker([-1778, 1867])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire8 = L.marker([-2404, 1091])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire9 = L.marker([-2468, 687])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire10 = L.marker([-1868, 2843])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire11 = L.marker([-1602, 3031])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire12 = L.marker([-1477, 3091])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire13 = L.marker([-1550, 3471])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire14 = L.marker([-1570, 3511])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire15 = L.marker([-1585, 3520])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire16 = L.marker([-1662, 3525])
+			.bindPopup('Camp Fire (Usable)');
+		var marker_campfire17 = L.marker([-1672.5, 1795.5])
+			.bindPopup('Camp Fire (Usable)');
+
+		//var marker_ = L.marker([-, ])
+		//.bindPopup('');
+		//Dyanamic Locations
+
+		//Defend Camps
+		var marker_dynloc_defcamp1 = L.marker([-2266, 533.5])
+			.bindPopup('Defend Camp');
+		var marker_dynloc_defcamp2 = L.marker([-2335.5, 595])
+			.bindPopup('Defend Camp');
+		var marker_dynloc_defcamp3 = L.marker([-2193, 1668.5])
+			.bindPopup('Defend Camp');
+		var marker_dynloc_defcamp4 = L.marker([-1615, 1816.5])
+			.bindPopup('Defend Camp');
+		var marker_dynloc_defcamp5 = L.marker([-1583.5, 2064.5])
+			.bindPopup('Defend Camp');
+		var marker_dynloc_defcamp6 = L.marker([-1078.5, 1807.5])
+			.bindPopup('Defend Camp');
+		var marker_dynloc_defcamp7 = L.marker([-1515, 2807.5])
+			.bindPopup('Defend Camp');
+		var marker_dynloc_defcamp8 = L.marker([-1078, 2578])
+			.bindPopup('Defend Camp');
+		var marker_dynloc_defcamp9 = L.marker([-1182, 3341])
+			.bindPopup('Defend Camp');
+		var marker_dynloc_defcamp10 = L.marker([-1342, 3335])
+			.bindPopup('Defend Camp');
+		var marker_dynloc_defcamp11 = L.marker([-1341, 3321])
+			.bindPopup('Defend Camp');
+
+		//Escorts
+		var marker_dynloc_escort1 = L.marker([-2014, 696])
+			.bindPopup('Escort');
+		var marker_dynloc_escort2 = L.marker([-2046, 1478.5])
+			.bindPopup('Escort');
+		var marker_dynloc_escort3 = L.marker([-2174, 1978.5])
+			.bindPopup('Escort');
+		var marker_dynloc_escort4 = L.marker([-1682, 1697.5])
+			.bindPopup('Escort');
+		var marker_dynloc_escort5 = L.marker([-1691.5, 1985])
+			.bindPopup('Escort');
+		var marker_dynloc_escort6 = L.marker([-1707, 2095.5])
+			.bindPopup('Escort');
+		var marker_dynloc_escort7 = L.marker([-1555, 2089.5])
+			.bindPopup('Escort');
+		var marker_dynloc_escort8 = L.marker([-652.5, 1923])
+			.bindPopup('Escort');
+		var marker_dynloc_escort9 = L.marker([-693, 2145.5])
+			.bindPopup('Escort');
+		var marker_dynloc_escort10 = L.marker([-700, 2597.5])
+			.bindPopup('Escort');
+		var marker_dynloc_escort11 = L.marker([-1911.5, 2870])
+			.bindPopup('Escort');
+		var marker_dynloc_escort12 = L.marker([-1277.5, 2552.5])
+			.bindPopup('Escort');
+		var marker_dynloc_escort13 = L.marker([-681.5, 3070])
+			.bindPopup('Escort');
+		var marker_dynloc_escort14 = L.marker([-941, 3302])
+			.bindPopup('Escort');
+		var marker_dynloc_escort15 = L.marker([-1037.5, 3555])
+			.bindPopup('Escort');
+		var marker_dynloc_escort16 = L.marker([-1229, 3458.5])
+			.bindPopup('Escort');
+		var marker_dynloc_escort17 = L.marker([-1363, 3131])
+			.bindPopup('Escort');
+
+		//Rescue Strangers
+		var marker_dynloc_res_strang1 = L.marker([-1265.5, 1815])
+			.bindPopup('Rescue Stranger');
+		var marker_dynloc_res_strang2 = L.marker([-1116, 2172.5])
+			.bindPopup('Rescue Stranger');
+		var marker_dynloc_res_strang3 = L.marker([-1356, 3397.5])
+			.bindPopup('Rescue Stranger');
+		var marker_dynloc_res_strang4 = L.marker([-1376, 3322])
+			.bindPopup('Rescue Stranger');
+		var marker_dynloc_res_strang5 = L.marker([-1643, 3469])
+			.bindPopup('Rescue Stranger');
+
+
+
+
+
+		// Layer Groups
+
+		//collector naza
+		var lg_tcards_d1_cups = L.layerGroup([marker_col_ace_cupsd1, marker_col_2_cupsd1, marker_col_3_cupsd1, marker_col_4_cupsd1, marker_col_5_cupsd1, marker_col_6_cupsd1, marker_col_7_cupsd1, marker_col_8_cupsd1, marker_col_9_cupsd1, marker_col_10_cupsd1, marker_col_kni_cupsd1, marker_col_pag_cupsd1, marker_col_que_cupsd1, marker_col_king_cupsd1]);
+		var lg_tcards_d2_cups = L.layerGroup([marker_col_ace_cupsd2, marker_col_2_cupsd2, marker_col_3_cupsd2, marker_col_4_cupsd2, marker_col_5_cupsd2, marker_col_6_cupsd2, marker_col_7_cupsd2, marker_col_8_cupsd2, marker_col_9_cupsd2, marker_col_10_cupsd2, marker_col_kni_cupsd2, marker_col_pag_cupsd2, marker_col_que_cupsd2, marker_col_king_cupsd2]);
+		var lg_tcards_d3_cups = L.layerGroup([marker_col_ace_cupsd3, marker_col_2_cupsd3, marker_col_3_cupsd3, marker_col_4_cupsd3, marker_col_5_cupsd3, marker_col_6_cupsd3, marker_col_7_cupsd3, marker_col_8_cupsd3, marker_col_9_cupsd3, marker_col_10_cupsd3, marker_col_kni_cupsd3, marker_col_pag_cupsd3, marker_col_que_cupsd3, marker_col_king_cupsd3]);
+		var lg_tcards_d1_swords = L.layerGroup([marker_col_ace_swordsd1, marker_col_2_swordsd1, marker_col_3_swordsd1, marker_col_4_swordsd1, marker_col_5_swordsd1, marker_col_6_swordsd1, marker_col_7_swordsd1, marker_col_8_swordsd1, marker_col_9_swordsd1, marker_col_10_swordsd1, marker_col_kni_swordsd1, marker_col_pag_swordsd1, marker_col_que_swordsd1, marker_col_king_swordsd1]);
+		var lg_tcards_d2_swords = L.layerGroup([marker_col_ace_swordsd2, marker_col_2_swordsd2, marker_col_3_swordsd2, marker_col_4_swordsd2, marker_col_5_swordsd2, marker_col_6_swordsd2, marker_col_7_swordsd2, marker_col_8_swordsd2, marker_col_9_swordsd2, marker_col_10_swordsd2, marker_col_kni_swordsd2, marker_col_page_swordsd2, marker_col_queen_swordsd2, marker_col_king_swordsd2]);
+		var lg_tcards_d3_swords = L.layerGroup([marker_col_ace_swordsd3, marker_col_2_swordsd3, marker_col_3_swordsd3, marker_col_4_swordsd3, marker_col_5_swordsd3, marker_col_6_swordsd3, marker_col_7_swordsd3, marker_col_8_swordsd3, marker_col_9_swordsd3, marker_col_10_swordsd3, marker_col_kni_swordsd3, marker_col_page_swordsd3, marker_col_queen_swordsd3, marker_col_king_swordsd3])
+
+		//Dynamic Events
+		var lg_dynlocs = L.layerGroup([marker_dynloc_escort1, marker_dynloc_escort2, marker_dynloc_escort3, marker_dynloc_escort4, marker_dynloc_escort5, marker_dynloc_escort6, marker_dynloc_escort7, marker_dynloc_escort8, marker_dynloc_escort9, marker_dynloc_escort10, marker_dynloc_escort11, marker_dynloc_escort12, marker_dynloc_escort13, marker_dynloc_escort14, marker_dynloc_escort15, marker_dynloc_escort16, marker_dynloc_escort17, marker_dynloc_defcamp1, marker_dynloc_defcamp2, marker_dynloc_defcamp3, marker_dynloc_defcamp4, marker_dynloc_defcamp5, marker_dynloc_defcamp6, marker_dynloc_defcamp7, marker_dynloc_defcamp8, marker_dynloc_defcamp9, marker_dynloc_defcamp10, marker_dynloc_defcamp11, marker_dynloc_res_strang1, marker_dynloc_res_strang2]);
+		var lg_dynloc_escorts = L.layerGroup([marker_dynloc_escort1, marker_dynloc_escort2, marker_dynloc_escort3, marker_dynloc_escort4, marker_dynloc_escort5, marker_dynloc_escort6, marker_dynloc_escort7, marker_dynloc_escort8, marker_dynloc_escort9, marker_dynloc_escort10, marker_dynloc_escort11, marker_dynloc_escort12, marker_dynloc_escort13, marker_dynloc_escort14, marker_dynloc_escort15, marker_dynloc_escort16, marker_dynloc_escort17]);
+		var lg_dynloc_defcamp = L.layerGroup([marker_dynloc_defcamp1, marker_dynloc_defcamp2, marker_dynloc_defcamp3, marker_dynloc_defcamp4, marker_dynloc_defcamp5, marker_dynloc_defcamp6, marker_dynloc_defcamp7, marker_dynloc_defcamp8, marker_dynloc_defcamp9, marker_dynloc_defcamp10, marker_dynloc_defcamp11]);
+		var lg_dynloc_res_strang = L.layerGroup([marker_dynloc_res_strang1, marker_dynloc_res_strang2, marker_dynloc_res_strang3, marker_dynloc_res_strang4, marker_dynloc_res_strang5]);
+		//stuff
+
+		var lg_apples = L.layerGroup([marker_apple1, marker_apple2, marker_apple3, marker_apple4]);
+		var lg_ambush = L.layerGroup([marker_ambush1, marker_ambush2, marker_ambush3, marker_ambush4, marker_ambush5, marker_ambush6, marker_ambush7, marker_ambush8, marker_ambush9, marker_ambush10, marker_ambush11, marker_ambush12, marker_ambush13, marker_ambush14, marker_ambush15, marker_ambush16]);
+		var lg_bit = L.layerGroup([marker_bit1, marker_bit2, marker_bit3, marker_bit4]);
+		var lg_bourb = L.layerGroup([marker_bourb1, marker_bourb2, marker_bourb3, marker_bourb4, marker_bourb5, marker_bourb6, marker_bourb7, marker_bourb8, marker_bourb9, marker_bourb10, marker_bourb11, marker_bourb12, marker_bourb13, marker_bourb14, marker_bourb15, marker_bourb16, marker_bourb17, marker_bourb18, marker_bourb19, marker_bourb20, marker_bourb21]);
+		var lg_bred = L.layerGroup([marker_bred1, marker_bred2, marker_bred3, marker_bred4, marker_bred5, marker_bred6]);
+		var lg_bscts = L.layerGroup([marker_bscts1, marker_bscts2, marker_bscts3, marker_bscts4, marker_bscts5, marker_bscts6, marker_bscts7, marker_bscts8, marker_bscts9, marker_bscts10, marker_bscts11, marker_bscts12, marker_bscts13, marker_bscts14, marker_bscts15, marker_bscts16, marker_bscts17]);
+
+		var lg_canfru = L.layerGroup([marker_canfru1, marker_canfru2, marker_canfru3, marker_canfru4, marker_canfru5, marker_canfru6, marker_canfru7, marker_canfru8, marker_canfru9, marker_canfru10, marker_canfru11, marker_canfru12, marker_canfru13, marker_canfru14, marker_canfru15]);
+		var lg_canmeat = L.layerGroup([marker_canmeat1, marker_canmeat2, marker_canmeat3, marker_canmeat4, marker_canmeat5]);
+		var lg_canveg = L.layerGroup([marker_canveg1, marker_canveg2, marker_canveg3, marker_canveg4, marker_canveg5, marker_canveg6, marker_canveg7, marker_canveg8, marker_canveg9, marker_canveg10, marker_canveg11, marker_canveg12, marker_canveg13, marker_canveg14, marker_canveg15, marker_canveg16, marker_canveg17, marker_canveg18, marker_canveg19, marker_canveg20, marker_canveg21, marker_canveg22, marker_canveg23, marker_canveg24, marker_canveg25, marker_canveg26, marker_canveg27, marker_canveg28, marker_canveg29, marker_canveg30, marker_canveg31, marker_canveg32, marker_canveg33]);
+		var lg_cansal = L.layerGroup([marker_cansal1, marker_cansal2, marker_cansal3, marker_cansal4]);
+		var lg_candy = L.layerGroup([marker_candy1, marker_candy2, marker_candy3, marker_candy4, marker_candy5, marker_candy6, marker_candy7, marker_candy8, marker_candy9]);
+		var lg_carrot = L.layerGroup([marker_carrot1, marker_carrot2, marker_carrot3, marker_carrot4]);
+		var lg_chtob = L.layerGroup([marker_chtob1, marker_chtob2, marker_chtob3, marker_chtob4, marker_chtob5, marker_chtob6, marker_chtob7, marker_chtob8, marker_chtob9, marker_chtob10, marker_chtob11]);
+		var lg_ches = L.layerGroup([marker_ches1, marker_ches2, marker_ches3]);
+		var lg_cigs = L.layerGroup([marker_cigs1, marker_cigs2, marker_cigs3, marker_cigs4, marker_cigs5, marker_cigs6]);
+		var lg_ciga = L.layerGroup([marker_ciga1, marker_ciga2, marker_ciga3, marker_ciga4, marker_ciga5, marker_ciga6, marker_ciga7]);
+		var lg_cogum = L.layerGroup([marker_cogum1, marker_cogum2, marker_cogum3, marker_cogum4, marker_cogum5, marker_cogum6, marker_cogum7, marker_cogum8, marker_cogum9, marker_cogum10, marker_cogum11]);
+		var lg_cof = L.layerGroup([marker_cof1, marker_cof2, marker_cof3, marker_cof4, marker_cof5, marker_cof6, marker_cof7, marker_cof8, marker_cof9, marker_cof10, marker_cof11, marker_cof12, marker_cof13, marker_cof14, marker_cof15, marker_cof16, marker_cof17, marker_cof18, marker_cof19, marker_cof20]);
+		var lg_coins = L.layerGroup([marker_coins1]);
+		var lg_consbeer = L.layerGroup([marker_consbeer1, marker_consbeer2, marker_consbeer3, marker_consbeer4]);
+		var lg_consfood = L.layerGroup([marker_consfood1, marker_consfood2]);
+		var lg_corn = L.layerGroup([marker_corn1, marker_corn2, marker_corn3, marker_corn4]);
+		var lg_coug = L.layerGroup([marker_coug1]);
+		var lg_cowsbulls = L.layerGroup([marker_cowsbulls1]);
+		var lg_crkrs = L.layerGroup([marker_crkrs1, marker_crkrs2, marker_crkrs3, marker_crkrs4, marker_crkrs5, marker_crkrs6, marker_crkrs7, marker_crkrs8, marker_crkrs9, marker_crkrs10, marker_crkrs11, marker_crkrs12, marker_crkrs13, marker_crkrs14]);
+		var lg_erev = L.layerGroup([marker_erev1]);
+		var lg_erif = L.layerGroup([marker_erif1, marker_erif2, marker_erif3]);
+		var lg_fbrandy = L.layerGroup([marker_fbrandy1, marker_fbrandy2, marker_fbrandy3, marker_fbrandy4]);
+		var lg_ghide = L.layerGroup([marker_ghide1, marker_ghide2, marker_ghide3, marker_ghide4, marker_ghide5, marker_ghide6, marker_ghide7, marker_ghide8, marker_ghide9, marker_ghide10, marker_ghide11, marker_ghide12, marker_ghide13, marker_ghide14, marker_ghide15, marker_ghide16, marker_ghide17, marker_ghide18, marker_ghide19, marker_ghide20, marker_ghide21, marker_ghide22, marker_ghide23, marker_ghide24, marker_ghide25, marker_ghide26, marker_ghide27, marker_ghide28, marker_ghide29]);
+		var lg_gin = L.layerGroup([marker_gin1, marker_gin2, marker_gin3, marker_gin4, marker_gin5, marker_gin6, marker_gin7, marker_gin8, marker_gin9, marker_gin10, marker_gin11]);
+		var lg_guarum = L.layerGroup([marker_guarum1, marker_guarum2, marker_guarum3, marker_guarum4, marker_guarum5, marker_guarum6, marker_guarum7, marker_guarum8, marker_guarum9, marker_guarum10, marker_guarum11, marker_guarum12]);
+		var lg_guno = L.layerGroup([marker_guno1, marker_guno2, marker_guno3, marker_guno4, marker_guno5, marker_guno6, marker_guno7, marker_guno8, marker_guno9, marker_guno10, marker_guno11, marker_guno12, marker_guno13, marker_guno14, marker_guno15, marker_guno16]);
+		var lg_hpom = L.layerGroup([marker_hpom1, marker_hpom2, marker_hpom3, marker_hpom4, marker_hpom5, marker_hpom6, marker_hpom7, marker_hpom8, marker_hpom9, marker_hpom10]);
+		var lg_helthcur = L.layerGroup([marker_helthcur1, marker_helthcur2, marker_helthcur3]);
+		var lg_herbait = L.layerGroup([marker_herbait1, marker_herbait2, marker_herbait3, marker_herbait4]);
+		var lg_hvrev = L.layerGroup([marker_hvrev1]);
+		var lg_hvrif = L.layerGroup([marker_hvrif1]);
+		var lg_horseco = L.layerGroup([marker_hco1, marker_hco2, marker_hco3, marker_hco4, marker_hco5, marker_hco6, marker_hco7, marker_hco8, marker_hco9, marker_hco10]);
+		var lg_horsemed = L.layerGroup([marker_hmed1, marker_hmed2, marker_hmed3]);
+		var lg_horserev = L.layerGroup([marker_hrev1, marker_hrev2, marker_hrev3, marker_hrev4, marker_hrev5, marker_hrev6]);
+		var lg_horsestim = L.layerGroup([marker_hstim1, marker_hstim2, marker_hstim3, marker_hstim4, marker_hstim5, marker_hstim6, marker_hstim7]);
+		var lg_jewl = L.layerGroup([marker_jewl1, marker_jewl2, marker_jewl3, marker_jewl4, marker_jewl5, marker_jewl6, marker_jewl7, marker_jewl8, marker_jewl9, marker_jewl10, marker_jewl11]);
+		var lg_mtonic = L.layerGroup([marker_mtonic1, marker_mtonic2, marker_mtonic3, marker_mtonic4, marker_mtonic5, marker_mtonic6, marker_mtonic7]);
+		var lg_moonsh = L.layerGroup([marker_moonsh1, marker_moonsh2, marker_moonsh3, marker_moonsh4, marker_moonsh5, marker_moonsh6, marker_moonsh7, marker_moonsh8, marker_moonsh9, marker_moonsh10]);
+		var lg_obourb = L.layerGroup([marker_obourb1]);
+		var lg_ochtob = L.layerGroup([marker_ochtob1, marker_ochtob2, marker_ochtob3, marker_ochtob4]);
+		var lg_ociggs = L.layerGroup([marker_ociggs1]);
+		var lg_ocogum = L.layerGroup([marker_ocogum1]);
+		var lg_ohelthcur = L.layerGroup([marker_ohelthcur1, marker_ohelthcur2, marker_ohelthcur3, marker_ohelthcur4, marker_ohelthcur5, marker_ohelthcur6]);
+		var lg_omtonic = L.layerGroup([marker_omtonic1, marker_omtonic2, marker_omtonic3]);
+		var lg_orifammo = L.layerGroup([marker_orifammo1]);
+		var lg_osnoil = L.layerGroup([marker_osnoil1, marker_osnoil2]);
+		var lg_pear = L.layerGroup([marker_pear1, marker_pear2]);
+		var lg_pammo = L.layerGroup([marker_pammo1, marker_pammo2]);
+		var lg_pbit = L.layerGroup([marker_pbit1, marker_pbit2, marker_pbit3]);
+		var lg_pcigs = L.layerGroup([marker_pcigs1, marker_pcigs2, marker_pcigs3, marker_pcigs4, marker_pcigs5, marker_pcigs6, marker_pcigs7, marker_pcigs8, marker_pcigs9, marker_pcigs10, marker_pcigs11, marker_pcigs12, marker_pcigs13, marker_pcigs14, marker_pcigs15, marker_pcigs16, marker_pcigs17, marker_pcigs18, marker_pcigs19, marker_pcigs20, marker_pcigs21, marker_pcigs22, marker_pcigs23, marker_pcigs24, marker_pcigs25, marker_pcigs26, marker_pcigs27, marker_pcigs28, marker_pcigs29, marker_pcigs30, marker_pcigs31, marker_pcigs32, marker_pcigs33, marker_pcigs34, marker_pcigs35, marker_pcigs36, marker_pcigs37, marker_pcigs38, marker_pcigs39]);
+		var lg_phelthcur = L.layerGroup([marker_phelthcur1, marker_phelthcur2, marker_phelthcur3]);
+		var lg_pigs = L.layerGroup([marker_pigs1]);
+		var lg_pmtonic = L.layerGroup([marker_pmtonic1, marker_pmtonic2, marker_pmtonic3, marker_pmtonic4, marker_pmtonic5]);
+		var lg_prebait = L.layerGroup([marker_prebait1, marker_prebait2, marker_prebait3, marker_prebait4, marker_prebait5]);
+		var lg_psnoil = L.layerGroup([marker_psnoil1, marker_psnoil2, marker_psnoil3, marker_psnoil4, marker_psnoil5, marker_psnoil6]);
+		var lg_rats = L.layerGroup([marker_rats1]);
+		var lg_regpokwatch = L.layerGroup([marker_regpokwatch1]);
+		var lg_repamo = L.layerGroup([marker_repamo1, marker_repamo2, marker_repamo3, marker_repamo4]);
+		var lg_revamo = L.layerGroup([marker_revamo1, marker_revamo2, marker_revamo3, marker_revamo4, marker_revamo5]);
+		var lg_rifammo = L.layerGroup([marker_rifammo1, marker_rifammo2, marker_rifammo3, marker_rifammo4]);
+		var lg_saltoff = L.layerGroup([marker_saltoff1, marker_saltoff2]);
+		var lg_saltm = L.layerGroup([marker_saltm1, marker_saltm2, marker_saltm3, marker_saltm4, marker_saltm5, marker_saltm6, marker_saltm7]);
+		var lg_shoammo = L.layerGroup([marker_shoammo1, marker_shoammo2, marker_shoammo3, marker_shoammo4, marker_shoammo5, marker_shoammo6, marker_shoammo7, marker_shoammo8]);
+		var lg_shoslugs = L.layerGroup([marker_shoslugs1]);
+		var lg_snoil = L.layerGroup([marker_snoil1]);
+		var lg_SomeKindOfBuggedTonic = L.layerGroup([marker_SomeKindOfBuggedTonic]);
+		var lg_boartusk = L.layerGroup([marker_boartusk1]);
+		var lg_orevammo = L.layerGroup([marker_orevammo1]);
+		var lg_hthorob = L.layerGroup([marker_hthorob1]);
+		var lg_phmedicine = L.layerGroup([marker_phmedicine1]);
+		var lg_oguarum = L.layerGroup([marker_oguarum1]);
+
+		//Food
+		var lg_food = L.layerGroup([
+			marker_apple1, marker_apple2, marker_apple3, marker_apple4,
+			marker_bred1, marker_bred2, marker_bred3, marker_bred4, marker_bred5, marker_bred6,
+			marker_bscts1, marker_bscts2, marker_bscts3, marker_bscts4, marker_bscts5, marker_bscts6, marker_bscts7, marker_bscts8, marker_bscts9, marker_bscts10, marker_bscts11, marker_bscts12, marker_bscts13, marker_bscts14, marker_bscts15, marker_bscts16, marker_bscts17,
+			marker_canfru1, marker_canfru2, marker_canfru3, marker_canfru4, marker_canfru5, marker_canfru6, marker_canfru7, marker_canfru8, marker_canfru9, marker_canfru10, marker_canfru11, marker_canfru12, marker_canfru13, marker_canfru14, marker_canfru15,
+			marker_canmeat1, marker_canmeat2, marker_canmeat3, marker_canmeat4, marker_canmeat5,
+			marker_canveg1, marker_canveg2, marker_canveg3, marker_canveg4, marker_canveg5, marker_canveg6, marker_canveg7, marker_canveg8, marker_canveg9, marker_canveg10, marker_canveg11, marker_canveg12, marker_canveg13, marker_canveg14, marker_canveg15, marker_canveg16, marker_canveg17, marker_canveg18, marker_canveg19, marker_canveg20, marker_canveg21, marker_canveg22, marker_canveg23, marker_canveg24, marker_canveg25, marker_canveg26, marker_canveg27, marker_canveg28, marker_canveg29, marker_canveg30, marker_canveg31, marker_canveg32, marker_canveg33,
+			marker_cansal1, marker_cansal2, marker_cansal3, marker_cansal4,
+			marker_candy1, marker_candy2, marker_candy3, marker_candy4, marker_candy5, marker_candy6, marker_candy7, marker_candy8, marker_candy9,
+			marker_carrot1, marker_carrot2, marker_carrot3, marker_carrot4,
+			marker_ches1, marker_ches2, marker_ches3,
+			marker_corn1, marker_corn2, marker_corn3, marker_corn4,
+			marker_crkrs1, marker_crkrs2, marker_crkrs3, marker_crkrs4, marker_crkrs5, marker_crkrs6, marker_crkrs7, marker_crkrs8, marker_crkrs9, marker_crkrs10, marker_crkrs11, marker_crkrs12, marker_crkrs13, marker_crkrs14,
+			marker_pear1, marker_pear2,
+			marker_saltoff1, marker_saltoff2,
+			marker_saltm1, marker_saltm2, marker_saltm3, marker_saltm4, marker_saltm5, marker_saltm6, marker_saltm7
+		]);
+
+		//Tonics
+		var lg_tonics = L.layerGroup([
+			marker_bit1, marker_bit2, marker_bit3, marker_bit4,
+			marker_helthcur1, marker_helthcur2, marker_helthcur3,
+			marker_mtonic1, marker_mtonic2, marker_mtonic3, marker_mtonic4, marker_mtonic5, marker_mtonic6, marker_mtonic7,
+			marker_ohelthcur1, marker_ohelthcur2, marker_ohelthcur3, marker_ohelthcur4, marker_ohelthcur5, marker_ohelthcur6,
+			marker_omtonic1, marker_omtonic2, marker_omtonic3,
+			marker_osnoil1, marker_osnoil2,
+			marker_pbit1, marker_pbit2, marker_pbit3,
+			marker_phelthcur1, marker_phelthcur2, marker_phelthcur3,
+			marker_pmtonic1, marker_pmtonic2, marker_pmtonic3, marker_pmtonic4, marker_pmtonic5,
+			marker_psnoil1, marker_psnoil2, marker_psnoil3, marker_psnoil4, marker_psnoil5, marker_psnoil6,
+			marker_snoil1
+		]);
+
+		//Ammo
+		var lg_ammo = L.layerGroup([
+			marker_erev1,
+			marker_erif1, marker_erif2, marker_erif3,
+			marker_hvrev1, marker_hvrif1,
+			marker_orifammo1,
+			marker_pammo1, marker_pammo2,
+			marker_repamo1, marker_repamo2, marker_repamo3, marker_repamo4,
+			marker_revamo1, marker_revamo2, marker_revamo3, marker_revamo4, marker_revamo5,
+			marker_rifammo1, marker_rifammo2, marker_rifammo3, marker_rifammo4,
+			marker_shoammo1, marker_shoammo2, marker_shoammo3, marker_shoammo4, marker_shoammo5, marker_shoammo6, marker_shoammo7, marker_shoammo8,
+			marker_shoslugs1,
+			marker_orevammo1
+		]);
+
+		//Animals
+		var lg_animals = L.layerGroup([
+			marker_coug1,
+			marker_cowsbulls1,
+			marker_pigs1,
+			marker_rats1,
+			marker_hthorob1
+		]);
+
+		//Alcohol
+		var lg_alcohol = L.layerGroup([
+			marker_bourb1, marker_bourb2, marker_bourb3, marker_bourb4, marker_bourb5, marker_bourb6, marker_bourb7, marker_bourb8, marker_bourb9, marker_bourb10, marker_bourb11, marker_bourb12, marker_bourb13, marker_bourb14, marker_bourb15, marker_bourb16, marker_bourb17, marker_bourb18, marker_bourb19, marker_bourb20, marker_bourb21,
+			marker_consbeer1, marker_consbeer2, marker_consbeer3, marker_consbeer4,
+			marker_fbrandy1, marker_fbrandy2, marker_fbrandy3, marker_fbrandy4,
+			marker_gin1, marker_gin2, marker_gin3, marker_gin4, marker_gin5, marker_gin6, marker_gin7, marker_gin8, marker_gin9, marker_gin10, marker_gin11,
+			marker_guarum1, marker_guarum2, marker_guarum3, marker_guarum4, marker_guarum5, marker_guarum6, marker_guarum7, marker_guarum8, marker_guarum9, marker_guarum10, marker_guarum11, marker_guarum12,
+			marker_moonsh1, marker_moonsh2, marker_moonsh3, marker_moonsh4, marker_moonsh5, marker_moonsh6, marker_moonsh7, marker_moonsh8, marker_moonsh9, marker_moonsh10,
+			marker_obourb1,
+			marker_oguarum1
+		]);
+
+		//Player Stimulants
+		var lg_playerstims = L.layerGroup([
+			marker_chtob1, marker_chtob2, marker_chtob3, marker_chtob4, marker_chtob5, marker_chtob6, marker_chtob7, marker_chtob8, marker_chtob9, marker_chtob10, marker_chtob11,
+			marker_cigs1, marker_cigs2, marker_cigs3, marker_cigs4, marker_cigs5, marker_cigs6, marker_ciga1, marker_ciga2, marker_ciga3, marker_ciga4, marker_ciga5, marker_ciga6, marker_ciga7,
+			marker_cogum1, marker_cogum2, marker_cogum3, marker_cogum4, marker_cogum5, marker_cogum6, marker_cogum7, marker_cogum8, marker_cogum9, marker_cogum10, marker_cogum11,
+			marker_cof1, marker_cof2, marker_cof3, marker_cof4, marker_cof5, marker_cof6, marker_cof7, marker_cof8, marker_cof9, marker_cof10, marker_cof11, marker_cof12, marker_cof13, marker_cof14, marker_cof15, marker_cof16, marker_cof17, marker_cof18, marker_cof19, marker_cof20,
+			marker_ochtob1, marker_ochtob2, marker_ochtob3, marker_ochtob4,
+			marker_ociggs1,
+			marker_ocogum1,
+			marker_pcigs1, marker_pcigs2, marker_pcigs3, marker_pcigs4, marker_pcigs5, marker_pcigs6, marker_pcigs7, marker_pcigs8, marker_pcigs9, marker_pcigs10, marker_pcigs11, marker_pcigs12, marker_pcigs13, marker_pcigs14, marker_pcigs15, marker_pcigs16, marker_pcigs17, marker_pcigs18, marker_pcigs19, marker_pcigs20, marker_pcigs21, marker_pcigs22, marker_pcigs23, marker_pcigs24, marker_pcigs25, marker_pcigs26, marker_pcigs27, marker_pcigs28, marker_pcigs29, marker_pcigs30, marker_pcigs31, marker_pcigs32, marker_pcigs33, marker_pcigs34, marker_pcigs35, marker_pcigs36, marker_pcigs37, marker_pcigs38, marker_pcigs39
+		]);
+
+		//Valuables
+		var lg_valuables = L.layerGroup([
+			marker_jewl1, marker_jewl2, marker_jewl3, marker_jewl4, marker_jewl5, marker_jewl6, marker_jewl7, marker_jewl8, marker_jewl9, marker_jewl10, marker_jewl11,
+			marker_regpokwatch1,
+			marker_boartusk1,
+			marker_coins1
+		]);
+
+		//Horse, Gun and Personal Care
+		var lg_horsegunpc = L.layerGroup([
+			marker_apple1, marker_apple2, marker_apple3, marker_apple4,
+			marker_carrot1, marker_carrot2, marker_carrot3,
+			marker_corn1, marker_corn2, marker_corn3, marker_corn4,
+			marker_hco1, marker_hco2, marker_hco3, marker_hco4, marker_hco5, marker_hco6, marker_hco7, marker_hco8, marker_hco9, marker_hco10,
+			marker_hmed1, marker_hmed2, marker_hmed3,
+			marker_hrev1, marker_hrev2, marker_hrev3, marker_hrev4, marker_hrev5, marker_hrev6,
+			marker_hstim1, marker_hstim2, marker_hstim3, marker_hstim4, marker_hstim5, marker_hstim6, marker_hstim7,
+			marker_pear1, marker_pear2
+		]);
+
+		//Hunting Supplies
+		var lg_huntsupp = L.layerGroup([
+			marker_herbait1, marker_herbait2, marker_herbait3, marker_herbait4,
+			marker_prebait1, marker_prebait2, marker_prebait3, marker_prebait4, marker_prebait5
+		]);
+
+		//Gang Hideouts and Ambush Points
+		var lg_ganghandambush = L.layerGroup([
+			marker_ambush1, marker_ambush2, marker_ambush3, marker_ambush4, marker_ambush5, marker_ambush6, marker_ambush7, marker_ambush8, marker_ambush9, marker_ambush10, marker_ambush11, marker_ambush12, marker_ambush13, marker_ambush14, marker_ambush15, marker_ambush16,
+			marker_ghide1, marker_ghide2, marker_ghide3, marker_ghide4, marker_ghide5, marker_ghide6, marker_ghide7, marker_ghide8, marker_ghide9, marker_ghide10, marker_ghide11, marker_ghide12, marker_ghide13, marker_ghide14, marker_ghide15, marker_ghide16, marker_ghide17, marker_ghide18, marker_ghide19, marker_ghide20, marker_ghide21, marker_ghide22, marker_ghide23, marker_ghide24, marker_ghide25, marker_ghide26, marker_ghide27, marker_ghide28, marker_ghide29
+		]);
+
+		//Fish
+		var lg_fish = L.layerGroup([
+			marker_fsmbass1, marker_fsmbass2,
+			marker_flmbass1, marker_flmbass2,
+			marker_fshtrout1, marker_fshtrout2, marker_fshtrout3,
+			marker_fsockeyes1, marker_fsockeyes2, marker_fsockeyes3, marker_fsockeyes4, marker_fsockeyes5, marker_fsockeyes6
+		]);
+		var lg_fsockeyes = L.layerGroup([
+			marker_fsockeyes1, marker_fsockeyes2, marker_fsockeyes3, marker_fsockeyes4, marker_fsockeyes5, marker_fsockeyes6
+		]);
+		var lg_flmbass = L.layerGroup([
+			marker_flmbass1, marker_flmbass2
+		]);
+		var lg_fsmbass = L.layerGroup([
+			marker_fsmbass1, marker_fsmbass2
+		]);
+		var lg_fshtrout = L.layerGroup([
+			marker_fshtrout1, marker_fshtrout2, marker_fshtrout3
+		]);
+
+		//Herbs
+		var lg_herbs = L.layerGroup([
+			marker_hginseng1, marker_hginseng2, marker_hginseng3, marker_hginseng4, marker_hginseng5, marker_hginseng6, marker_hginseng7, marker_hginseng8, marker_hginseng9, marker_hginseng10, marker_hginseng11, marker_hginseng12, marker_hginseng13, marker_hginseng14, marker_hginseng15, marker_hginseng16, marker_hginseng17, marker_hginseng18, marker_hginseng19, marker_hginseng20, marker_hginseng21, marker_hginseng22, marker_hginseng23, marker_hginseng24, marker_hginseng25, marker_hginseng26, marker_hginseng27, marker_hginseng28, marker_hginseng29, marker_hginseng30, marker_hginseng31, marker_hginseng32, marker_hginseng33, marker_hginseng34, marker_hginseng35, marker_hginseng36, marker_hginseng37, marker_hginseng38, marker_hginseng39, marker_hginseng40, marker_hginseng41, marker_hginseng42,
+			marker_htobacco1, marker_htobacco2, marker_htobacco3, marker_htobacco4, marker_htobacco5, marker_htobacco6, marker_htobacco7, marker_htobacco8, marker_htobacco9, marker_htobacco10, marker_htobacco11, marker_htobacco12, marker_htobacco13, marker_htobacco14, marker_htobacco15, marker_htobacco16, marker_htobacco17, marker_htobacco18, marker_htobacco19, marker_htobacco20, marker_htobacco21, marker_htobacco22, marker_htobacco23, marker_htobacco24, marker_htobacco25, marker_htobacco26, marker_htobacco27, marker_htobacco28, marker_htobacco29, marker_htobacco30, marker_htobacco31, marker_htobacco32, marker_htobacco33, marker_htobacco34, marker_htobacco35, marker_htobacco36, marker_htobacco37, marker_htobacco38,
+			marker_hvioletsnowdrop1, marker_hvioletsnowdrop2, marker_hvioletsnowdrop3, marker_hvioletsnowdrop4, marker_hvioletsnowdrop5, marker_hvioletsnowdrop6, marker_hvioletsnowdrop7, marker_hvioletsnowdrop8, marker_hvioletsnowdrop9, marker_hvioletsnowdrop10,
+			marker_henglishmace1, marker_henglishmace2, marker_henglishmace3, marker_henglishmace4, marker_henglishmace5, marker_henglishmace6, marker_henglishmace7, marker_henglishmace8, marker_henglishmace9, marker_henglishmace10,
+			marker_hyarrow1, marker_hyarrow2, marker_hyarrow3, marker_hyarrow4, marker_hyarrow5, marker_hyarrow6, marker_hyarrow7, marker_hyarrow8, marker_hyarrow9, marker_hyarrow10, marker_hyarrow11, marker_hyarrow12, marker_hyarrow13, marker_hyarrow14,
+			marker_hmint1, marker_hmint2, marker_hmint3, marker_hmint4, marker_hmint5, marker_hmint6, marker_hmint7, marker_hmint8, marker_hmint9, marker_hmint10, marker_hmint11, marker_hmint12, marker_hmint13, marker_hmint14, marker_hmint15,
+			marker_hhummbirds1, marker_hhummbirds2, marker_hhummbirds3, marker_hhummbirds4, marker_hhummbirds5,
+			marker_hmilkw1, marker_hmilkw2, marker_hmilkw3, marker_hmilkw4, marker_hmilkw5, marker_hmilkw6, marker_hmilkw7, marker_hmilkw8, marker_hmilkw9, marker_hmilkw10,
+			marker_hcreepingt1, marker_hcreepingt2, marker_hcreepingt3, marker_hcreepingt4, marker_hcreepingt5, marker_hcreepingt6, marker_hcreepingt7, marker_hcreepingt8, marker_hcreepingt9, marker_hcreepingt10, marker_hcreepingt11,
+			marker_horegano1, marker_horegano2, marker_horegano3, marker_horegano4, marker_horegano5, marker_horegano6, marker_horegano7, marker_horegano8, marker_horegano9, marker_horegano10,
+			marker_burdroot1, marker_burdroot2, marker_burdroot3, marker_burdroot4, marker_burdroot5, marker_burdroot6, marker_burdroot7, marker_burdroot8, marker_burdroot9,
+			marker_combulbrsh1, marker_combulbrsh2, marker_combulbrsh3, marker_combulbrsh4,
+			marker_mush1, marker_mush2, marker_mush3, marker_mush4, marker_mush5, marker_mush6, marker_mush7, marker_mush8,
+			marker_ramshead1, marker_ramshead2, marker_ramshead3, marker_ramshead4, marker_ramshead5,
+			marker_wgberry1, marker_wgberry2, marker_wgberry3, marker_wgberry4, marker_wgberry5, marker_wgberry6,
+			marker_halginseng1, marker_halginseng2, marker_halginseng3, marker_halginseng4, marker_halginseng5, marker_halginseng6, marker_halginseng7, marker_halginseng8, marker_halginseng9, marker_halginseng10, marker_halginseng11, marker_halginseng12, marker_halginseng13, marker_halginseng14, marker_halginseng15, marker_halginseng16, marker_halginseng17,
+			marker_goldcurrant1, marker_goldcurrant2, marker_goldcurrant3, marker_goldcurrant4, marker_goldcurrant5, marker_goldcurrant6, marker_goldcurrant7, marker_goldcurrant8, marker_goldcurrant9, marker_goldcurrant10, marker_goldcurrant11, marker_goldcurrant12, marker_goldcurrant13, marker_goldcurrant14, marker_goldcurrant15, marker_goldcurrant16,
+			marker_vflower1, marker_vflower2, marker_vflower3, marker_vflower4, marker_vflower5, marker_vflower6, marker_vflower7, marker_vflower8, marker_vflower9, marker_vflower10,
+			marker_bbolete1, marker_bbolete2, marker_bbolete3, marker_bbolete4, marker_bbolete5, marker_bbolete6, marker_bbolete7,
+			marker_raspberry1, marker_raspberry2, marker_raspberry3, marker_raspberry4, marker_raspberry5, marker_raspberry6, marker_raspberry7, marker_raspberry8, marker_raspberry9, marker_raspberry10, marker_raspberry11, marker_raspberry12, marker_raspberry13, marker_raspberry14, marker_raspberry15, marker_raspberry16, marker_raspberry17,
+			marker_redsage1, marker_redsage2, marker_redsage3, marker_redsage4,
+			marker_bcurrant1, marker_bcurrant2, marker_bcurrant3, marker_bcurrant4,
+			marker_dsage1, marker_dsage2, marker_dsage3, marker_dsage4,
+			marker_ppoppy1, marker_ppoppy2, marker_ppoppy3, marker_ppoppy4, marker_ppoppy5, marker_ppoppy6, marker_ppoppy7, marker_ppoppy8, marker_ppoppy9, marker_ppoppy10, marker_ppoppy11,
+			marker_bberry1, marker_bberry2, marker_bberry3, marker_bberry4, marker_bberry5, marker_bberry6, marker_bberry7, marker_bberry8,
+			marker_olsage1, marker_olsage2, marker_olsage3, marker_olsage4, marker_olsage5, marker_olsage6, marker_olsage7,
+			marker_chanterelle1, marker_chanterelle2, marker_chanterelle3,
+			marker_evhuckberry1, marker_evhuckberry2, marker_evhuckberry3, marker_evhuckberry4, marker_evhuckberry5, marker_evhuckberry6
+		]);
+		var lg_halginseng = L.layerGroup([
+			marker_halginseng1, marker_halginseng2, marker_halginseng3, marker_halginseng4, marker_halginseng5, marker_halginseng6, marker_halginseng7, marker_halginseng8, marker_halginseng9, marker_halginseng10, marker_halginseng11, marker_halginseng12, marker_halginseng13, marker_halginseng14, marker_halginseng15, marker_halginseng16, marker_halginseng17
+		]);
+		var lg_hginseng = L.layerGroup([
+			marker_hginseng1, marker_hginseng2, marker_hginseng3, marker_hginseng4, marker_hginseng5, marker_hginseng6, marker_hginseng7, marker_hginseng8, marker_hginseng9, marker_hginseng10, marker_hginseng11, marker_hginseng12, marker_hginseng13, marker_hginseng14, marker_hginseng15, marker_hginseng16, marker_hginseng17, marker_hginseng18, marker_hginseng19, marker_hginseng20, marker_hginseng21, marker_hginseng22, marker_hginseng23, marker_hginseng24, marker_hginseng25, marker_hginseng26, marker_hginseng27, marker_hginseng28, marker_hginseng29, marker_hginseng30, marker_hginseng31, marker_hginseng32, marker_hginseng33, marker_hginseng34, marker_hginseng35, marker_hginseng36, marker_hginseng37, marker_hginseng38, marker_hginseng39, marker_hginseng40, marker_hginseng41, marker_hginseng42
+		]);
+		var lg_htobacco = L.layerGroup([
+			marker_htobacco1, marker_htobacco2, marker_htobacco3, marker_htobacco4, marker_htobacco5, marker_htobacco6, marker_htobacco7, marker_htobacco8, marker_htobacco9, marker_htobacco10, marker_htobacco11, marker_htobacco12, marker_htobacco13, marker_htobacco14, marker_htobacco15, marker_htobacco16, marker_htobacco17, marker_htobacco18, marker_htobacco19, marker_htobacco20, marker_htobacco21, marker_htobacco22, marker_htobacco23, marker_htobacco24, marker_htobacco25, marker_htobacco26, marker_htobacco27, marker_htobacco28, marker_htobacco29, marker_htobacco30, marker_htobacco31, marker_htobacco32, marker_htobacco33, marker_htobacco34, marker_htobacco35, marker_htobacco36, marker_htobacco37, marker_htobacco38
+		]);
+		var lg_hvioletsnowdrop = L.layerGroup([
+			marker_hvioletsnowdrop1, marker_hvioletsnowdrop2, marker_hvioletsnowdrop3, marker_hvioletsnowdrop4, marker_hvioletsnowdrop5, marker_hvioletsnowdrop6, marker_hvioletsnowdrop7, marker_hvioletsnowdrop8, marker_hvioletsnowdrop9, marker_hvioletsnowdrop10
+		]);
+		var lg_henglishmace = L.layerGroup([
+			marker_henglishmace1, marker_henglishmace2, marker_henglishmace3, marker_henglishmace4, marker_henglishmace5, marker_henglishmace6, marker_henglishmace7, marker_henglishmace8, marker_henglishmace9, marker_henglishmace10
+		]);
+		var lg_hyarrow = L.layerGroup([
+			marker_hyarrow1, marker_hyarrow2, marker_hyarrow3, marker_hyarrow4, marker_hyarrow5, marker_hyarrow6, marker_hyarrow7, marker_hyarrow8, marker_hyarrow9, marker_hyarrow10, marker_hyarrow11, marker_hyarrow12, marker_hyarrow13, marker_hyarrow14
+		]);
+		var lg_hmint = L.layerGroup([
+			marker_hmint1, marker_hmint2, marker_hmint3, marker_hmint4, marker_hmint5, marker_hmint6, marker_hmint7, marker_hmint8, marker_hmint9, marker_hmint10, marker_hmint11, marker_hmint12, marker_hmint13, marker_hmint14, marker_hmint15
+		]);
+		var lg_hhummberds = L.layerGroup([
+			marker_hhummbirds1, marker_hhummbirds2, marker_hhummbirds3, marker_hhummbirds4, marker_hhummbirds5
+		]);
+		var lg_hmilkw = L.layerGroup([
+			marker_hmilkw1, marker_hmilkw2, marker_hmilkw3, marker_hmilkw4, marker_hmilkw5, marker_hmilkw6, marker_hmilkw7, marker_hmilkw8, marker_hmilkw9, marker_hmilkw10
+		]);
+		var lg_hcreepingt = L.layerGroup([
+			marker_hcreepingt1, marker_hcreepingt2, marker_hcreepingt3, marker_hcreepingt4, marker_hcreepingt5, marker_hcreepingt6, marker_hcreepingt7, marker_hcreepingt8, marker_hcreepingt9, marker_hcreepingt10, marker_hcreepingt11
+		]);
+		var lg_horegano = L.layerGroup([
+			marker_horegano1, marker_horegano2, marker_horegano3, marker_horegano4, marker_horegano5, marker_horegano6, marker_horegano7, marker_horegano8, marker_horegano9, marker_horegano10
+		]);
+		var lg_burdroot = L.layerGroup([
+			marker_burdroot1, marker_burdroot2, marker_burdroot3, marker_burdroot4, marker_burdroot5, marker_burdroot6, marker_burdroot7, marker_burdroot8, marker_burdroot9
+		]);
+		var lg_combulbrsh = L.layerGroup([
+			marker_combulbrsh1, marker_combulbrsh2, marker_combulbrsh3, marker_combulbrsh4
+		]);
+		var lg_mush = L.layerGroup([
+			marker_mush1, marker_mush2, marker_mush3, marker_mush4, marker_mush5, marker_mush6, marker_mush7, marker_mush8
+		]);
+		var lg_ramshead = L.layerGroup([
+			marker_ramshead1, marker_ramshead2, marker_ramshead3, marker_ramshead4, marker_ramshead5
+		]);
+		var lg_wgberry = L.layerGroup([
+			marker_wgberry1, marker_wgberry2, marker_wgberry3, marker_wgberry4, marker_wgberry5, marker_wgberry6
+		]);
+		var lg_goldcurrant = L.layerGroup([
+			marker_goldcurrant1, marker_goldcurrant2, marker_goldcurrant3, marker_goldcurrant4, marker_goldcurrant5, marker_goldcurrant6, marker_goldcurrant7, marker_goldcurrant8, marker_goldcurrant9, marker_goldcurrant10, marker_goldcurrant11, marker_goldcurrant12, marker_goldcurrant13, marker_goldcurrant14, marker_goldcurrant15, marker_goldcurrant16
+		]);
+		var lg_vflower = L.layerGroup([
+			marker_vflower1, marker_vflower2, marker_vflower3, marker_vflower4, marker_vflower5, marker_vflower6, marker_vflower7, marker_vflower8, marker_vflower9, marker_vflower10
+		]);
+		var lg_wfeverfew = L.layerGroup([
+			marker_wfeverfew1, marker_wfeverfew2, marker_wfeverfew3, marker_wfeverfew4
+		]);
+		var lg_bbolete = L.layerGroup([
+			marker_bbolete1, marker_bbolete2, marker_bbolete3, marker_bbolete4, marker_bbolete5, marker_bbolete6, marker_bbolete7
+		]);
+		var lg_raspberry = L.layerGroup([
+			marker_raspberry1, marker_raspberry2, marker_raspberry3, marker_raspberry4, marker_raspberry5, marker_raspberry6, marker_raspberry7, marker_raspberry8, marker_raspberry9, marker_raspberry10, marker_raspberry11, marker_raspberry12, marker_raspberry13, marker_raspberry14, marker_raspberry15, marker_raspberry16, marker_raspberry17
+		]);
+		var lg_redsage = L.layerGroup([
+			marker_redsage1, marker_redsage2, marker_redsage3, marker_redsage4
+		]);
+		var lg_dsage = L.layerGroup([
+			marker_dsage1, marker_dsage2, marker_dsage3, marker_dsage4
+		]);
+		var lg_ppoppy = L.layerGroup([
+			marker_ppoppy1, marker_ppoppy2, marker_ppoppy3, marker_ppoppy4, marker_ppoppy5, marker_ppoppy6, marker_ppoppy7, marker_ppoppy8, marker_ppoppy9, marker_ppoppy10, marker_ppoppy11
+		]);
+		var lg_bcurrant = L.layerGroup([
+			marker_bcurrant1, marker_bcurrant2, marker_bcurrant3, marker_bcurrant4
+		]);
+		var lg_olsage = L.layerGroup([
+			marker_olsage1, marker_olsage2, marker_olsage3, marker_olsage4, marker_olsage5, marker_olsage6, marker_olsage7
+		]);
+		var lg_bberry = L.layerGroup([
+			marker_bberry1, marker_bberry2, marker_bberry3, marker_bberry4, marker_bberry5, marker_bberry6, marker_bberry7, marker_bberry8
+		]);
+		var lg_chanterelle = L.layerGroup([
+			marker_chanterelle1, marker_chanterelle2, marker_chanterelle3
+		]);
+		var lg_evhuckberry = L.layerGroup([
+			marker_evhuckberry1, marker_evhuckberry2, marker_evhuckberry3, marker_evhuckberry4, marker_evhuckberry5, marker_evhuckberry6
+		]);
+
+		var lg_campfires = L.layerGroup([
+			marker_campfire1, marker_campfire2, marker_campfire3, marker_campfire4, marker_campfire5, marker_campfire6, marker_campfire7, marker_campfire8, marker_campfire9, marker_campfire10, marker_campfire11, marker_campfire12, marker_campfire13, marker_campfire14, marker_campfire15, marker_campfire16, marker_campfire17
+		]);
+
+		// var lg_ = L.layerGroup([]);
+
+
+		// Overlay List
+		// "<b><b>" : lg_,
+		var overlays = {
+			"<b>Tarot Cards: Cups (Day 1)<b>": lg_tcards_d1_cups,
+			"<b>Tarot Cards: Cups (Day 2)<b>": lg_tcards_d2_cups,
+			"<b>Tarot Cards: Cups (Day 3)<b><p>": lg_tcards_d3_cups,
+
+			"<b>Tarot Cards: Swords (Day 1)<b>": lg_tcards_d1_swords,
+			"<b>Tarot Cards: Swords (Day 2)<b>": lg_tcards_d2_swords,
+			"<b>Tarot Cards: Swords (Day 3)<b><p>": lg_tcards_d3_swords,
+
+			"<b>Camp Fires<b><p>": lg_campfires,
+
+			"<b>Dynamic Event Locations</b>": lg_dynlocs,
+			"<i>Escorts</i>": lg_dynloc_escorts,
+			"<i>Defend Camps</i>": lg_dynloc_defcamp,
+			"<i>Rescue Strangers</i><p>": lg_dynloc_res_strang,
+
+			"<b>Food<b>": lg_food,
+			"<i>Free Food - Eat but not loot": lg_consfood,
+			"<i>Apple": lg_apples,
+			"<i>Assorted Biscuits": lg_bscts,
+			"<i>Bread": lg_bred,
+			"<i>Candy": lg_candy,
+			"<i>Canned Fruit": lg_canfru,
+			"<i>Canned Meat": lg_canmeat,
+			"<i>Canned Salmon": lg_cansal,
+			"<i>Canned Vegetables": lg_canveg,
+			"<i>Carrot": lg_carrot,
+			"<i>Cheese": lg_ches,
+			"<i>Corn": lg_corn,
+			"<i>Crackers": lg_crkrs,
+			"<i>Pear": lg_pear,
+			"<i>Salted Meat": lg_saltm,
+			"<i>Salted Offal<p>": lg_saltoff,
+
+			"<b>Tonics<b>": lg_tonics,
+			"<i>Potent Bitters": lg_pbit,
+			"<i>Bitters": lg_bit,
+			"<i>Potent Health Cure": lg_phelthcur,
+			"<i>Health Cure": lg_helthcur,
+			"<i>Opened Health Cure": lg_ohelthcur,
+			"<i>Potent Miracle Tonic": lg_pmtonic,
+			"<i>Miracle Tonic": lg_mtonic,
+			"<i>Opened Miracle Tonic": lg_omtonic,
+			"<i>Potent Snake Oil": lg_psnoil,
+			"<i>Snake Oil": lg_snoil,
+			"<i>Opened Snake Oil<p>": lg_osnoil,
+
+			"<b>Horse, Gun & Personal Care<b>": lg_horsegunpc,
+			"<i>Apple": lg_apples,
+			"<i>Carrot": lg_carrot,
+			"<i>Classic Oats": lg_horseco,
+			"<i>Corn": lg_corn,
+			"<i>Potent Horse Medicine": lg_phmedicine,
+			"<i>Horse Medicine": lg_horsemed,
+			"<i>Horse Reviver": lg_horserev,
+			"<i>Horse Stimulant": lg_horsestim,
+			"<i>Gun Oil": lg_guno,
+			"<i>Hair Pomade": lg_hpom,
+			"<i>Pear<p>": lg_pear,
+
+			"<b>Ammunition<b>": lg_ammo,
+			"<i>Pistol Ammo": lg_pammo,
+			"<i>Repeater Ammo": lg_repamo,
+			"<i>Express Revolver Ammo": lg_erev,
+			"<i>High Velocity Revolver Ammo": lg_hvrev,
+			"<i>Revolver Ammo": lg_revamo,
+			"<i>Opened Revolver Ammo": lg_orevammo,
+			"<i>Express Rifle Ammo": lg_erif,
+			"<i>High Velocity Rifle Ammo": lg_hvrif,
+			"<i>Rifle Ammo": lg_rifammo,
+			"<i>Opened Rifle Ammo": lg_orifammo,
+			"<i>Shotgun Slugs": lg_shoslugs,
+			"<i>Shotgun Ammo<p>": lg_shoammo,
+
+			"<b>Alcohol - 100% = Blackout<b>": lg_alcohol,
+			"<i>Free Beer 10% - Drink But Not Loot": lg_consbeer,
+			"<i>Fine Brandy 17%": lg_fbrandy,
+			"<i>Gin 17%": lg_gin,
+			"<i>Guarma Rum 17%": lg_guarum,
+			"<i>Opened Guarma Rum10%": lg_oguarum,
+			"<i>Kentucky Bourbon 25%": lg_bourb,
+			"<i>Opened Kentucky Bourbon 13%": lg_obourb,
+			"<i>Moonshine 30%<p>": lg_moonsh,
+
+			"<b>Player Stimulants<b>": lg_playerstims,
+			"<i>Chewing Tobacco": lg_chtob,
+			"<i>Opened Chewing Tobacco": lg_ochtob,
+			"<i>Cigar": lg_ciga,
+			"<i>Premium Cigarettes": lg_pcigs,
+			"<i>Cigarettes": lg_cigs,
+			"<i>Opened Cigarettes": lg_ociggs,
+			"<i>Cocain Gum": lg_cogum,
+			"<i>Opened Cocaine Gum": lg_ocogum,
+			"<i>Ground Coffee<p>": lg_cof,
+
+			"<b>Valuables<b>": lg_valuables,
+			"<i>Boar Tusk": lg_boartusk,
+			"<i>Coin Sack": lg_coins,
+			"<i>Jewelry": lg_jewl,
+			"<i>Pocket Watch<p>": lg_regpokwatch,
+
+			"<b>Hunting Supplies<b>": lg_huntsupp,
+			"<i>Herbavoir Bait": lg_herbait,
+			"<i>Predator Bait<p>": lg_prebait,
+
+			"<b>Animals<b> - Work In Progress": lg_animals,
+			"<i>Cougar Spawn": lg_coug,
+			"<i>Cows & Bulls": lg_cowsbulls,
+			"<i>Pigs": lg_pigs,
+			"<i>Rats": lg_rats,
+			"<i>Potential Thoroughbred Horse Spawn<p>": lg_hthorob,
+
+			"<b>Fish<b> - Work In Progress": lg_fish,
+			"<i>Sockeye Salmon": lg_fsockeyes,
+			"<i>Steelhead Trout": lg_fshtrout,
+			"<i>Largemouth Bass": lg_flmbass,
+			"<i>Smallmouth Bass<p>": lg_fsmbass,
+
+			"<b>Herbs<b> - Work In Progress": lg_herbs,
+			"<i>Alaskan Ginseng": lg_halginseng,
+			"<i>American Ginseng": lg_hginseng,
+			"<i>Bay Bolete": lg_bbolete,
+			"<i>Black Berry": lg_bberry,
+			"<i>Black Currant": lg_bcurrant,
+			"<i>Burdock Root": lg_burdroot,
+			"<i>Chanterelle": lg_chanterelle,
+			"<i>Common Bullbrush": lg_combulbrsh,
+			"<i>Creeping Thyme": lg_hcreepingt,
+			"<i>Desert Sage": lg_dsage,
+			"<i>English Mace": lg_henglishmace,
+			"<i>Evergreen Huckleberry": lg_evhuckberry,
+			"<i>Golden Current": lg_goldcurrant,
+			"<i>Hummingbird Sage": lg_hhummberds,
+			"<i>Milkweed": lg_hmilkw,
+			"<i>Mushrooms": lg_mush,
+			"<i>Oleander Sage": lg_olsage,
+			"<i>Oregano": lg_horegano,
+			"<i>Prairie Poppy": lg_ppoppy,
+			"<i>Raspberry": lg_raspberry,
+			"<i>Rams Head": lg_ramshead,
+			"<i>Red Sage": lg_redsage,
+			"<i>Tobacco": lg_htobacco,
+			"<i>Vanilla Flower": lg_vflower,
+			"<i>Violet Snowdrop": lg_hvioletsnowdrop,
+			"<i>Wild Feverfew": lg_wfeverfew,
+			"<i>Wild Mint": lg_hmint,
+			"<i>Wintergreen Berry": lg_wgberry,
+			"<i>Yarrow<p>": lg_hyarrow,
+
+			"<b>Gang Hideouts & Ambush Points": lg_ganghandambush,
+			"<i>Potential Gang Ambush Point": lg_ambush,
+			"<i>Potential Gang Hideout": lg_ghide,
+		}
+
+		// Add layers to map
+		L.control.layers(null, overlays, { collapsed: true, position: 'topleft' }).addTo(map);
+
+	</script>
+	<p></p>
+
+</body>
+
+</html>
